@@ -1,0 +1,3882 @@
+═════════════════════════════════════════════════════════════
+PROJECT MARCH v23 — FULL TEXT EXPORT
+═════════════════════════════════════════════════════════════
+
+TOPLAM KART SAYISI: 204
+═════════════════════════════════════════════════════════════
+
+
+[KART 1/204]
+─────────────────────────────────────────────────────────
+EMOJİ: ⚓
+
+KART METNİ:
+"Kaptan Paşa, ele geçirilen korsan gemisinin yükünü askerlere dağıtmak istiyor. Defterdar ise tüm yükün hazineye aktarılmasını öneriyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Askerlere dağıt"
+
+SAĞ SEÇİM:
+"Hazineye aktar"
+BOOST: hazine
+DEBUFF: ordu
+TİER: n
+
+
+[KART 2/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📜
+
+KART METNİ:
+"Sadrazam, sınırlarımız içinde yaşayan yabancı ulusların askere alınmasını öneriyor. Defterdar ise onlardan cizye (baş vergisi) toplanmasını istiyor."
+
+MOMENTUM: PA ←→ MA
+
+SOL SEÇİM:
+"Askere al"
+
+SAĞ SEÇİM:
+"Cizye al"
+BOOST: hazine
+DEBUFF: ordu
+TİER: w
+
+
+[KART 3/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏇
+
+KART METNİ:
+"Defterdar, bazı tımarlı sipahilerin sefer yükünün hafifletilmesini öneriyor. Komutanlar ordunun gevşememesi gerektiğini söylüyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Yükü hafifletme"
+
+SAĞ SEÇİM:
+"Yükü hafiflet"
+BOOST: hazine
+DEBUFF: ordu
+TİER: s
+
+
+[KART 4/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🪙
+
+KART METNİ:
+"Darphane başı, akçenin ayarını düşürüp daha çok para basılmasını öneriyor. Serdar-ı Ekrem, değeri bozuk akçenin askeri öfkelendireceğini söylüyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Sikkelere dokunma"
+
+SAĞ SEÇİM:
+"Sikke içindeki gümüşü azalt"
+BOOST: hazine
+DEBUFF: ordu
+TİER: n
+
+
+[KART 5/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏗️
+
+KART METNİ:
+"Defterdar, ordu için inşa edilmekte olan yeni kışlanın yapımını durdurmayı öneriyor. Serdar-ı Ekrem yarım kalan inşaatın orduya zarar vereceğini söylüyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Kışla inşaatını sürdür"
+
+SAĞ SEÇİM:
+"Kışla inşaatını durdur"
+BOOST: hazine
+DEBUFF: ordu
+TİER: w
+
+
+[KART 6/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎁
+
+KART METNİ:
+"Defterdar, komutanlara her yıl verilen bayram hediyelerinin kaldırılmasını öneriyor. Serdar-ı Ekrem bu geleneğin komutanların bağlılığını koruduğunu söylüyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Hediyeleri koru"
+
+SAĞ SEÇİM:
+"Komutan hediyelerini kaldır"
+BOOST: hazine
+DEBUFF: ordu
+TİER: n
+
+
+[KART 7/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌾
+
+KART METNİ:
+"Defterdar, depodaki eski silah ve teçhizat parçalarının satılmasını öneriyor. Serdar-ı Ekrem, savaş gününde eski demirin bile işe yarayacağını söylüyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Depoda tut"
+
+SAĞ SEÇİM:
+"Satılsın"
+BOOST: hazine
+DEBUFF: ordu
+TİER: n
+
+
+[KART 8/204]
+─────────────────────────────────────────────────────────
+EMOJİ: ⚓
+
+KART METNİ:
+"Defterdar, donanma gemilerinin bir kısmını ticaret gemisi olarak kiraya vermeyi öneriyor. Kaptan Paşa bu gemilere savaşta ihtiyaç olacağını söylüyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Savaş gemilerine dokunma"
+
+SAĞ SEÇİM:
+"Savaş gemilerini kiraya ver"
+BOOST: hazine
+DEBUFF: ordu
+TİER: w
+
+
+[KART 9/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🗡️
+
+KART METNİ:
+"Defterdar, kullanılmayan silah depolarını satışa çıkarmayı öneriyor. Serdar-ı Ekrem bu silahların ileride gerekli olabileceğini söylüyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Silah depolarını koru"
+
+SAĞ SEÇİM:
+"Kullanılmayan silahları sat"
+BOOST: hazine
+DEBUFF: ordu
+TİER: n
+
+
+[KART 10/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏇
+
+KART METNİ:
+"Defterdar, at yetiştirilen devlet ahırlarının başkalarına bırakılmasını öneriyor. Serdar-ı Ekrem devlet ahırlarının ordu için vazgeçilmez olduğunu söylüyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Devlet ahırlarını koru"
+
+SAĞ SEÇİM:
+"Devlet ahırlarını başkalarına bırak"
+BOOST: hazine
+DEBUFF: ordu
+TİER: s
+
+
+[KART 11/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🐪
+
+KART METNİ:
+"Kervan yollarını koruyan sipahilerin sayısı çok fazla. Defterdar bir kısmının görevden alınmasını öneriyor. Komutanlar ise yol güvenliğinin bozulacağını söylüyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Sipahileri görevde tut"
+
+SAĞ SEÇİM:
+"Bir kısmını görevden al"
+BOOST: hazine
+DEBUFF: ordu
+TİER: n
+
+
+[KART 12/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏦
+
+KART METNİ:
+"Defterdar, ordu için ayrılan yıllık bütçenin bir kısmını hazineye aktarmayı öneriyor. Serdar-ı Ekrem bu kesintinin orduyu zayıflatacağını söylüyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Ordu bütçesini koru"
+
+SAĞ SEÇİM:
+"Bütçeyi hazineye aktar"
+BOOST: hazine
+DEBUFF: ordu
+TİER: w
+
+
+[KART 13/204]
+─────────────────────────────────────────────────────────
+EMOJİ: ⚖️
+
+KART METNİ:
+"Yeniçerilere ödenen ulufe çok yükseldi. Defterdar maaşlarda kesintiye gidilmesini istiyor. Komutanlar ise askerlerin isyan çıkarabileceği konusunda uyarıyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Maaşlara dokunma"
+
+SAĞ SEÇİM:
+"Maaşlarda kesinti yap"
+BOOST: hazine
+DEBUFF: ordu
+TİER: n
+
+
+[KART 14/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🗺️
+
+KART METNİ:
+"Sınır boylarındaki küçük karakolların bir kısmı boşaltılabilir. Defterdar bu şekilde büyük tasarruf sağlanacağını söylüyor. Komutanlar ise sınırın zayıflayacağını belirtiyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Karakolları koru"
+
+SAĞ SEÇİM:
+"Karakolları boşalt"
+BOOST: hazine
+DEBUFF: ordu
+TİER: n
+
+
+[KART 15/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎖️
+
+KART METNİ:
+"Savaşta yaralanan askerlere ödenen emekli maaşları hazineyi zorluyor. Defterdar bu ödemelerin düşürülmesini öneriyor. Serdar-ı Ekrem ise bu duruma karşı çıkıyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Gazi maaşlarına dokunma"
+
+SAĞ SEÇİM:
+"Maaşları düşür"
+BOOST: hazine
+DEBUFF: ordu
+TİER: s
+
+
+[KART 16/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌊
+
+KART METNİ:
+"Kaptan Paşa kış aylarında limanı bekleyen donanma gemilerinin bekçilerini soruyor. Defterdar kış boyunca gemi bekçilerinin görevden alınmasını öneriyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Bekçileri görevde tut"
+
+SAĞ SEÇİM:
+"Kışın bekçileri çıkar"
+BOOST: hazine
+DEBUFF: ordu
+TİER: w
+
+
+[KART 17/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🧱
+
+KART METNİ:
+"Sınır kalelerinden biri harap durumda. Defterdar orayı bırakıp hazineden tasarruf etmemizi öneriyor. Komutanlar ise bu kalenin hudut için mühim olduğunu söylüyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Kaleyi terk etme"
+
+SAĞ SEÇİM:
+"Kaleyi terk et"
+BOOST: hazine
+DEBUFF: ordu
+TİER: n
+
+
+[KART 18/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📦
+
+KART METNİ:
+"Ordunun erzak deposunda fazlalık var. Defterdar fazla erzakın satılmasını öneriyor. Serdar-ı Ekrem ise olası bir seferde bu erzağa ihtiyaç duyulacağını söylüyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Erzakı sakla"
+
+SAĞ SEÇİM:
+"Fazla erzakı sat"
+BOOST: hazine
+DEBUFF: ordu
+TİER: n
+
+
+[KART 19/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🔔
+
+KART METNİ:
+"Saraydaki muhafız sayısı çok fazla. Defterdar yarısının terhis edilmesiyle büyük tasarruf sağlanacağını söylüyor. Serdar-ı Ekrem ise saray güvenliğinin zayıflayacağını belirtiyor."
+
+MOMENTUM: AS ←→ MA
+
+SOL SEÇİM:
+"Muhafızları koru"
+
+SAĞ SEÇİM:
+"Muhafızların yarısını terhis et"
+BOOST: hazine
+DEBUFF: ordu
+TİER: w
+
+
+[KART 20/204]
+─────────────────────────────────────────────────────────
+EMOJİ: ⚖️
+
+KART METNİ:
+"Kadı, izinsiz işletilen bazı toprakları tespit etti. Defterdar bu toprakların vergisini hazineye aktarmak istiyor. Halk ise "biz burada nesiller boyu yaşıyoruz" diyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Halkı rahatsız etme"
+
+SAĞ SEÇİM:
+"Vergiyi hazineye al"
+BOOST: hazine
+DEBUFF: halk
+TİER: n
+
+
+[KART 21/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌾
+
+KART METNİ:
+"Defterdar, vergi borcunu ödeyemeyen köylerden tahsilat yapılmasını istiyor. Köylüler ise bu yılın ürününün zayıf olduğunu söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Tahsilattan vazgeç"
+
+SAĞ SEÇİM:
+"Zorla tahsilat yap"
+BOOST: hazine
+DEBUFF: halk
+TİER: w
+
+
+[KART 22/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📋
+
+KART METNİ:
+"Defterdar, vakıflara ayrılan devlet bütçesinde kesintiye gitmek istiyor. Halk ise bu vakıfların hastane, çeşme ve imareti ayakta tuttuğunu söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Vakıf bütçelerini koru"
+
+SAĞ SEÇİM:
+"Vakıf bütçelerini kes"
+BOOST: hazine
+DEBUFF: halk
+TİER: n
+
+
+[KART 23/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏪
+
+KART METNİ:
+"Hileli ürün satan bir tüccar yakalandı. Defterdar tüccarın varlıklarına el konulmasını istiyor. Mağdurlar ise paralarının iade edilmesini talep ediyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Parayı mağdurlara iade et"
+
+SAĞ SEÇİM:
+"Varlıklara el koy"
+BOOST: hazine
+DEBUFF: halk
+TİER: w
+
+
+[KART 24/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌊
+
+KART METNİ:
+"Taşan nehir köylerin tarlalarını mahvetti. Halk tazminat istiyor. Defterdar ise bu tazminatın karşılanamayacağını söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Tazminat öde"
+
+SAĞ SEÇİM:
+"Tazminat ödeme"
+BOOST: hazine
+DEBUFF: halk
+TİER: n
+
+
+[KART 25/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏘️
+
+KART METNİ:
+"Bir kasabada yangın çıktı ve pek çok ev yandı. Halk yeniden yapım için devlet yardımı istiyor. Defterdar bu yardımın bütçeyi zorlayacağını söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Yardım gönder"
+
+SAĞ SEÇİM:
+"Yardım gönderme"
+BOOST: hazine
+DEBUFF: halk
+TİER: n
+
+
+[KART 26/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🧂
+
+KART METNİ:
+"Defterdar tuz üzerindeki devlet tekeline yüksek fiyat koyulmasını öneriyor. Halk bu fiyat artışının geçimi zorlaştıracağını söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Fiyatı artırma"
+
+SAĞ SEÇİM:
+"Tuz fiyatını yükselt"
+BOOST: hazine
+DEBUFF: halk
+TİER: s
+
+
+[KART 27/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🐄
+
+KART METNİ:
+"Defterdar, köylülerin hayvanlarından ek bir baş vergisi alınmasını öneriyor. Köylüler bu verginin geçimlerini imkânsız hale getireceğini söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Hayvan vergisinden vazgeç"
+
+SAĞ SEÇİM:
+"Hayvan vergisi uygula"
+BOOST: hazine
+DEBUFF: halk
+TİER: n
+
+
+[KART 28/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🛤️
+
+KART METNİ:
+"Yol kenarlarına çeşmeler yapılması için halktan ek vergi toplanması öneriliyor. Halk zaten vergi ödediğini söyleyerek itiraz ediyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Ek vergi toplama"
+
+SAĞ SEÇİM:
+"Ek yol vergisi al"
+BOOST: hazine
+DEBUFF: halk
+TİER: w
+
+
+[KART 29/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏛️
+
+KART METNİ:
+"Defterdar, şehir pazarlarından alınan vergi oranını artırmak istiyor. Esnaf bu artışın pek çok dükkânı kapatmak zorunda bırakacağını söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Pazar vergisini artırma"
+
+SAĞ SEÇİM:
+"Pazar vergisini artır"
+BOOST: hazine
+DEBUFF: halk
+TİER: n
+
+
+[KART 30/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌿
+
+KART METNİ:
+"Köylüler ormanlardan odun toplayarak geçimini sağlıyor. Defterdar bu ormanları devlet mülkü ilan edip gelir elde etmek istiyor. Köylüler ise geçim kaynaklarının ellerinden alınacağını söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Ormanları halka bırak"
+
+SAĞ SEÇİM:
+"Ormanları devlet mülkü ilan et"
+BOOST: hazine
+DEBUFF: halk
+TİER: s
+
+
+[KART 31/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🐟
+
+KART METNİ:
+"Defterdar, balıkçılardan yıllık av ücreti alınmasını öneriyor. Balıkçılar bu ücretin küçük balıkçıları mahvedeceğini söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Av ücretinden vazgeç"
+
+SAĞ SEÇİM:
+"Balıkçılardan av ücreti al"
+BOOST: hazine
+DEBUFF: halk
+TİER: n
+
+
+[KART 32/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏺
+
+KART METNİ:
+"Devlet çömlekçi ve zanaatkârlardan ek piyasa vergisi almak istiyor. Zanaatkârlar bu verginin küçük ustaları işsiz bırakacağını söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Zanaat vergisinden vazgeç"
+
+SAĞ SEÇİM:
+"Zanaatkârlardan ek vergi al"
+BOOST: hazine
+DEBUFF: halk
+TİER: w
+
+
+[KART 33/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌾
+
+KART METNİ:
+"Defterdar, öşür oranını artırmak istiyor. Köylüler bu artışın zaten kıt olan geçimlerini büsbütün imkânsız hale getireceğini söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Öşür oranını artırma"
+
+SAĞ SEÇİM:
+"Öşür oranını artır"
+BOOST: hazine
+DEBUFF: halk
+TİER: n
+
+
+[KART 34/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🧱
+
+KART METNİ:
+"Defterdar, şehirdeki eski köprülerin onarım masraflarının halktan ek vergi toplanarak karşılanmasını öneriyor. Halk bu köprüleri devletin onarması gerektiğini söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Vergi toplama"
+
+SAĞ SEÇİM:
+"Halktan köprü onarım vergisi al"
+BOOST: hazine
+DEBUFF: halk
+TİER: n
+
+
+[KART 35/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🐑
+
+KART METNİ:
+"Defterdar, çobanlardan her yıl sürü başına ek bir vergi alınmasını öneriyor. Çobanlar bu verginin küçük sürüleri olan yoksul köylüleri ezeceğini söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Sürü vergisinden vazgeç"
+
+SAĞ SEÇİM:
+"Çobanlardan sürü vergisi al"
+BOOST: hazine
+DEBUFF: halk
+TİER: w
+
+
+[KART 36/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏺
+
+KART METNİ:
+"Defterdar, şehirdeki çeşme ve su yollarının bakımı için halktan su vergisi alınmasını öneriyor. Halk bu hizmetin devletin görevi olduğunu söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Su vergisi toplama"
+
+SAĞ SEÇİM:
+"Halktan su vergisi al"
+BOOST: hazine
+DEBUFF: halk
+TİER: n
+
+
+[KART 37/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌊
+
+KART METNİ:
+"Taşınan mallara uygulanan gümrük vergisi artırılmak isteniyor. Tüccarlar bu artışın fiyatları yükseltip halkı ezeceğini söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Gümrük vergisini artırma"
+
+SAĞ SEÇİM:
+"Gümrük vergisini artır"
+BOOST: hazine
+DEBUFF: halk
+TİER: s
+
+
+[KART 38/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🛖
+
+KART METNİ:
+"Defterdar, köylülerden yıllık saray vergisi toplanmasını öneriyor. Köylüler bu yeni verginin zaten ağır olan yüklerini daha da artıracağını söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Saray vergisinden vazgeç"
+
+SAĞ SEÇİM:
+"Köylülerden saray vergisi al"
+BOOST: hazine
+DEBUFF: halk
+TİER: n
+
+
+[KART 39/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌿
+
+KART METNİ:
+"Defterdar, şehirlerde satılan ilaç ve şifalık otlardan yeni bir vergi alınmasını öneriyor. Esnaf bu verginin ilaçları pahalılaştırıp yoksulların elini daraltacağını söylüyor."
+
+MOMENTUM: HS ←→ MA
+
+SOL SEÇİM:
+"Bu vergiden vazgeç"
+
+SAĞ SEÇİM:
+"İlaç ve bitkisel ürünlerden vergi al"
+BOOST: hazine
+DEBUFF: halk
+TİER: n
+
+
+[KART 40/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🕌
+
+KART METNİ:
+"Yabancı bir elçi, kutsal emanetlerin geçici olarak kendi ülkesine götürülmesine izin verilmesi karşılığında büyük bir meblağ teklif ediyor. Ulema bunu kabul etmememizi söylüyor."
+
+MOMENTUM: DM ←→ PA
+
+SOL SEÇİM:
+"Teklifi reddet"
+
+SAĞ SEÇİM:
+"Parayı al, izin ver"
+BOOST: hazine
+DEBUFF: din
+TİER: n
+
+
+[KART 41/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 💱
+
+KART METNİ:
+"Yabancı bir tüccar, yüksek faizle hazineye borç para vermek istiyor. Ulema faizin dinen yasak olduğunu hatırlatıyor."
+
+MOMENTUM: DM ←→ PA
+
+SOL SEÇİM:
+"Teklifi reddet"
+
+SAĞ SEÇİM:
+"Faizli borcu kabul et"
+BOOST: hazine
+DEBUFF: din
+TİER: s
+
+
+[KART 42/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🍇
+
+KART METNİ:
+"Bir girişimci, "üzüm suyu" adı altında devlet yatırımı istiyor. Ulema bunun aslında içki ticareti olduğunu söylüyor."
+
+MOMENTUM: DM ←→ PA
+
+SOL SEÇİM:
+"Yatırımı reddet"
+
+SAĞ SEÇİM:
+"Yatırımı kabul et"
+BOOST: hazine
+DEBUFF: din
+TİER: n
+
+
+[KART 43/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🕯️
+
+KART METNİ:
+"Defterdar, cami kandillerinde kullanılan yağı devlet tekeline almayı ve buradan gelir elde etmeyi öneriyor. Ulema bu tekelin ibadet hizmetlerini aksatacağını söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Kandil yağına dokunma"
+
+SAĞ SEÇİM:
+"Kandil yağını devlet tekeline al"
+BOOST: hazine
+DEBUFF: din
+TİER: n
+
+
+[KART 44/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📿
+
+KART METNİ:
+"Defterdar, hacca giden vatandaşlara sağlanan yol yardımını kaldırmak istiyor. Ulema bu yardımın dini bir vecibe olduğunu söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Hac yardımını koru"
+
+SAĞ SEÇİM:
+"Hac yardımını kaldır"
+BOOST: hazine
+DEBUFF: din
+TİER: w
+
+
+[KART 45/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌙
+
+KART METNİ:
+"Defterdar, Ramazan ayında saraydan halka dağıtılan erzak geleneğini bu yıl durdurmak istiyor. Ulema bu geleneğin sultanlığın şerefini koruduğunu söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Ramazan erzakını dağıt"
+
+SAĞ SEÇİM:
+"Ramazan erzakını dağıtma"
+BOOST: hazine
+DEBUFF: din
+TİER: n
+
+
+[KART 46/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏛️
+
+KART METNİ:
+"Defterdar, vakıf mülklerinin kira gelirlerini hazineye aktarmayı öneriyor. Ulema bu mülklerin dini hizmetleri karşıladığını söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Vakıf gelirlerine dokunma"
+
+SAĞ SEÇİM:
+"Vakıf gelirlerini hazineye al"
+BOOST: hazine
+DEBUFF: din
+TİER: s
+
+
+[KART 47/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🕌
+
+KART METNİ:
+"Şehirdeki bazı küçük mescitler bakımsız kalmış. Defterdar bunların kapatılıp büyük camilere katılmasını öneriyor. Ulema bu mescitlerin mahalle halkı için vazgeçilmez olduğunu söylüyor."
+
+MOMENTUM: DM ←→ MO
+
+SOL SEÇİM:
+"Mescitlere dokunma"
+
+SAĞ SEÇİM:
+"Küçük mescitleri kapat"
+BOOST: hazine
+DEBUFF: din
+TİER: n
+
+
+[KART 48/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📖
+
+KART METNİ:
+"Defterdar, dini kitapların çoğaltılmasına verilen devlet desteğini kesmek istiyor. Ulema bu desteğin ilmin yayılması için şart olduğunu söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Dini kitap desteğini koru"
+
+SAĞ SEÇİM:
+"Dini kitap desteğini kes"
+BOOST: hazine
+DEBUFF: din
+TİER: w
+
+
+[KART 49/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎓
+
+KART METNİ:
+"Medreselerde okuyan öğrencilere verilen burs miktarı düşürülmek isteniyor. Ulema bu bursların kesilmesiyle pek çok öğrencinin eğitimini bırakacağını söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Bursları koru"
+
+SAĞ SEÇİM:
+"Burs miktarını düşür"
+BOOST: hazine
+DEBUFF: din
+TİER: n
+
+
+[KART 50/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏛️
+
+KART METNİ:
+"Defterdar, dini vakıfların işlettiği kervansaraylardan kira bedeli talep edilmesini öneriyor. Ulema bu kervansarayların yolcuları ücretsiz barındırmak için kurulduğunu söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Kervansaraylardan kira talep etme"
+
+SAĞ SEÇİM:
+"Vakıf kervansaraylarından kira al"
+BOOST: hazine
+DEBUFF: din
+TİER: n
+
+
+[KART 51/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌙
+
+KART METNİ:
+"Defterdar, Ramazan ayına özel çarşı ve pazarlardan ek bir bayram vergisi alınmasını öneriyor. Ulema bu mübarek ayda ek vergi konulmasının uygun olmadığını söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Ramazan vergisini koyma"
+
+SAĞ SEÇİM:
+"Ramazan çarşılarından bayram vergisi al"
+BOOST: hazine
+DEBUFF: din
+TİER: n
+
+
+[KART 52/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏗️
+
+KART METNİ:
+"Defterdar, yeni cami inşaatlarını hazineden değil halktan bağış toplayarak karşılamayı öneriyor. Ulema cami inşaatının devletin sorumluluğu olduğunu söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Cami inşaatını devlet karşılasın"
+
+SAĞ SEÇİM:
+"Cami inşaatı için halktan bağış topla"
+BOOST: hazine
+DEBUFF: din
+TİER: s
+
+
+[KART 53/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📖
+
+KART METNİ:
+"Defterdar, medreselerin devletten aldığı yakacak ve erzak yardımını kesmek istiyor. Ulema bu yardım olmadan pek çok öğrencinin aç kalacağını söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Medrese yardımını koru"
+
+SAĞ SEÇİM:
+"Medrese erzak ve yakacak yardımını kes"
+BOOST: hazine
+DEBUFF: din
+TİER: n
+
+
+[KART 54/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎓
+
+KART METNİ:
+"Defterdar, devlet tarafından karşılanan dini törenlerin sayısını yılda ikiye indirmeyi öneriyor. Ulema bu törenlerin toplumsal birliği pekiştirdiğini söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Tören sayısına dokunma"
+
+SAĞ SEÇİM:
+"Devletin karşıladığı dini törenleri azalt"
+BOOST: hazine
+DEBUFF: din
+TİER: w
+
+
+[KART 55/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌿
+
+KART METNİ:
+"Defterdar, şifa evi ve darüşşifaları dini vakıflardan alıp ücretli hale getirmeyi öneriyor. Ulema bu yerlerin yoksullara ücretsiz hizmet vermek için kurulduğunu söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Darüşşifaları ücretli hale getirme"
+
+SAĞ SEÇİM:
+"Darüşşifaları ücretli hale getir"
+BOOST: hazine
+DEBUFF: din
+TİER: n
+
+
+[KART 56/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🕌
+
+KART METNİ:
+"Defterdar, büyük camilerin etrafındaki dükkan ve hanların kira gelirlerini hazineye aktarmayı öneriyor. Ulema bu gelirlerin cami giderlerine harcanması gerektiğini söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Cami çevresi gelirlerine dokunma"
+
+SAĞ SEÇİM:
+"Cami çevresi kira gelirlerini hazineye al"
+BOOST: hazine
+DEBUFF: din
+TİER: s
+
+
+[KART 57/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏺
+
+KART METNİ:
+"Defterdar, hacılardan alınan dini emanet koruma ücretinin artırılmasını öneriyor. Ulema bu ücretin yoksul hacılar için çok yüksek olduğunu söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Emanet ücretini artırma"
+
+SAĞ SEÇİM:
+"Hacılardan alınan emanet ücretini artır"
+BOOST: hazine
+DEBUFF: din
+TİER: n
+
+
+[KART 58/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📿
+
+KART METNİ:
+"Defterdar, şehre gelen dini gezginlerden konaklama vergisi alınmasını öneriyor. Ulema bu uygulamanın ilim yolculuklarını engelleyeceğini söylüyor."
+
+MOMENTUM: DM ←→ MA
+
+SOL SEÇİM:
+"Dini gezginlere dokunma"
+
+SAĞ SEÇİM:
+"Dini gezginlerden konaklama vergisi al"
+BOOST: hazine
+DEBUFF: din
+TİER: n
+
+
+[KART 59/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🛡️
+
+KART METNİ:
+"Serdar-ı Ekrem, ordunun kullandığı zırhların ve silahların yenilenmesi gerektiğini söylüyor. Defterdar bunun hazineye büyük yük bindireceğini belirtiyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Ekipmanları yenileme"
+
+SAĞ SEÇİM:
+"Ekipmanları yenile"
+BOOST: ordu
+DEBUFF: hazine
+TİER: n
+
+
+[KART 60/204]
+─────────────────────────────────────────────────────────
+EMOJİ: ⛵
+
+KART METNİ:
+"Kaptan Paşa, açık denizlerde rakiplerimizle baş edebilmek için donanmanın yenilenmesi gerektiğini söylüyor. Defterdar çok masraflı olacağı konusunda uyarıyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Donanmayı yenileme"
+
+SAĞ SEÇİM:
+"Donanmayı yenile"
+BOOST: ordu
+DEBUFF: hazine
+TİER: w
+
+
+[KART 61/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🗡️
+
+KART METNİ:
+"Sadrazam, Yeniçeri ocağının genişletilmesini ve yeni asker alınmasını öneriyor. Defterdar ise bu kadar askerin maaşını ödemenin hazineyi zorlayacağını söylüyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Yeni asker alma"
+
+SAĞ SEÇİM:
+"Yeni askerler al"
+BOOST: ordu
+DEBUFF: hazine
+TİER: s
+
+
+[KART 62/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🔥
+
+KART METNİ:
+"Dökümhanede büyük bir yangın çıktı ve silah üretimi durdu. Serdar-ı Ekrem yeni bir dökümhane inşa edilmesini istiyor. Defterdar önce bütçeyi toparlamamız gerektiğini söylüyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"İnşaatı ertele"
+
+SAĞ SEÇİM:
+"İnşaata hemen başla"
+BOOST: ordu
+DEBUFF: hazine
+TİER: n
+
+
+[KART 63/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏹
+
+KART METNİ:
+"Serdar-ı Ekrem, yeni fethedilen topraklara kalıcı bir garnizon kurulmasını istiyor. Defterdar bunun yıllarca sürecek büyük bir maliyet olduğunu söylüyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Garnizon kurma"
+
+SAĞ SEÇİM:
+"Garnizon kur"
+BOOST: ordu
+DEBUFF: hazine
+TİER: n
+
+
+[KART 64/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🐎
+
+KART METNİ:
+"Serdar-ı Ekrem, süvari birliklerinin atlarının yenilenmesi gerektiğini söylüyor. Defterdar bu kadar at satın almanın hazineyi zorlayacağını belirtiyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Atları yenileme"
+
+SAĞ SEÇİM:
+"Yeni atlar satın al"
+BOOST: ordu
+DEBUFF: hazine
+TİER: w
+
+
+[KART 65/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🗼
+
+KART METNİ:
+"Serdar-ı Ekrem, hakim bir tepede yeni bir gözetleme kulesi inşa edilmesini istiyor. Defterdar bunun büyük bir masraf olduğunu söylüyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Kule inşa etme"
+
+SAĞ SEÇİM:
+"Gözetleme kulesi inşa et"
+BOOST: ordu
+DEBUFF: hazine
+TİER: n
+
+
+[KART 66/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌊
+
+KART METNİ:
+"Kaptan Paşa, kıyı savunması için yeni toplar döktürülmesini istiyor. Defterdar bu topların çok pahalıya mal olacağını söylüyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Yeni top döktürme"
+
+SAĞ SEÇİM:
+"Kıyı topları döktür"
+BOOST: ordu
+DEBUFF: hazine
+TİER: s
+
+
+[KART 67/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🧭
+
+KART METNİ:
+"Serdar-ı Ekrem, ordunun harita ve pusula gibi savaş araçlarını yenilemek istiyor. Defterdar bu harcamayı gereksiz buluyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Mevcut araçlarla idare et"
+
+SAĞ SEÇİM:
+"Savaş araçlarını yenile"
+BOOST: ordu
+DEBUFF: hazine
+TİER: n
+
+
+[KART 68/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏕️
+
+KART METNİ:
+"Serdar-ı Ekrem, askerlerin kışlık barınma koşullarını iyileştirmek için yeni çadır ve malzeme istiyor. Defterdar mevcut malzemelerin yeterli olduğunu söylüyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Mevcut malzemelerle kal"
+
+SAĞ SEÇİM:
+"Yeni kışlık malzeme al"
+BOOST: ordu
+DEBUFF: hazine
+TİER: w
+
+
+[KART 69/204]
+─────────────────────────────────────────────────────────
+EMOJİ: ⚗️
+
+KART METNİ:
+"Serdar-ı Ekrem, Avrupalı bir mühendisten yeni savunma yöntemleri öğrenilmesini istiyor. Defterdar bu yabancı uzmana ödenen ücretin çok yüksek olduğunu söylüyor."
+
+MOMENTUM: MA ←→ PA
+
+SOL SEÇİM:
+"Yabancı uzmanı reddet"
+
+SAĞ SEÇİM:
+"Yabancı uzmanı işe al"
+BOOST: ordu
+DEBUFF: hazine
+TİER: n
+
+
+[KART 70/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🛶
+
+KART METNİ:
+"Kaptan Paşa, nehir geçişlerinde kullanılmak üzere yeni sal ve kayık alınmasını istiyor. Defterdar bunun öncelikli bir harcama olmadığını söylüyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Mevcut taşıtlarla idare et"
+
+SAĞ SEÇİM:
+"Yeni geçiş araçları al"
+BOOST: ordu
+DEBUFF: hazine
+TİER: n
+
+
+[KART 71/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🔭
+
+KART METNİ:
+"Serdar-ı Ekrem, düşman hareketlerini uzaktan görmek için yeni göz aletleri getirtmek istiyor. Defterdar bu iş için yabancı tüccara çok para ödeneceğini söylüyor."
+
+MOMENTUM: MA ←→ PA
+
+SOL SEÇİM:
+"Getirtme"
+
+SAĞ SEÇİM:
+"Göz aletleri getirt"
+BOOST: ordu
+DEBUFF: hazine
+TİER: w
+
+
+[KART 72/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🧱
+
+KART METNİ:
+"Serdar-ı Ekrem, savaş makinelerinin yenilenmesini istiyor. Defterdar bu makinelerin artık pek kullanılmadığını ve paranın boşa gideceğini söylüyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Makineleri yenileme"
+
+SAĞ SEÇİM:
+"Savaş makinelerini yenile"
+BOOST: ordu
+DEBUFF: hazine
+TİER: n
+
+
+[KART 73/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏹
+
+KART METNİ:
+"Serdar-ı Ekrem, okçu birliklerini ıslah etmek için Doğu\'dan usta okçular getirtmek istiyor. Defterdar bu ustalar için ödenecek ücretin çok yüksek olduğunu söylüyor."
+
+MOMENTUM: PA ←→ AS
+
+SOL SEÇİM:
+"Yabancı okçuları getirtme"
+
+SAĞ SEÇİM:
+"Doğu\'dan usta okçular getirt"
+BOOST: ordu
+DEBUFF: hazine
+TİER: s
+
+
+[KART 74/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌊
+
+KART METNİ:
+"Kaptan Paşa, deniz seferlerinde rehberlik edecek deneyimli denizciler kiralamak istiyor. Defterdar bu kiralık denizcilerin çok pahalıya mal olacağını söylüyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Kiralık denizci alma"
+
+SAĞ SEÇİM:
+"Deneyimli denizciler kirala"
+BOOST: ordu
+DEBUFF: hazine
+TİER: n
+
+
+[KART 75/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🔐
+
+KART METNİ:
+"Serdar-ı Ekrem, düşman casuslarını tespit etmek için gizli bir istihbarat ağı kurmak istiyor. Defterdar bu ağın kurulmasının büyük bir başlangıç maliyeti gerektirdiğini söylüyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"İstihbarat ağını kurma"
+
+SAĞ SEÇİM:
+"Gizli istihbarat ağı kur"
+BOOST: ordu
+DEBUFF: hazine
+TİER: w
+
+
+[KART 76/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🐎
+
+KART METNİ:
+"Serdar-ı Ekrem, süvari birliklerini hızlandırmak için hafif zırh üretilmesini istiyor. Defterdar bunun pahalı ve uzun soluklu bir iş olduğunu söylüyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Hafif zırh üretimini ertele"
+
+SAĞ SEÇİM:
+"Süvari için hafif zırh üret"
+BOOST: ordu
+DEBUFF: hazine
+TİER: n
+
+
+[KART 77/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏰
+
+KART METNİ:
+"Serdar-ı Ekrem, başkenti kuşatmaya karşı koruyacak yeni bir sur hattı inşa etmek istiyor. Defterdar mevcut surların yeterli olduğunu söylüyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"Yeni sur inşa etme"
+
+SAĞ SEÇİM:
+"Yeni sur hattı inşa et"
+BOOST: ordu
+DEBUFF: hazine
+TİER: s
+
+
+[KART 78/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🧪
+
+KART METNİ:
+"Serdar-ı Ekrem, barut üretimini artırmak için yeni bir imalathane kurmak istiyor. Defterdar bu imalathanenin şehir içinde tehlike yaratabileceğini söylüyor."
+
+MOMENTUM: MA ←→ AS
+
+SOL SEÇİM:
+"İmalathaneyi kurma"
+
+SAĞ SEÇİM:
+"Yeni barut imalathanesi kur"
+BOOST: ordu
+DEBUFF: hazine
+TİER: n
+
+
+[KART 79/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📯
+
+KART METNİ:
+"Sadrazam, savaş dönemlerinde zorla asker toplama yetkisi veren bir kanun çıkarmak istiyor. Halk ise çocuklarının zorla alınmasından korktuğunu söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Kanunu çıkarma"
+
+SAĞ SEÇİM:
+"Kanunu çıkar"
+BOOST: ordu
+DEBUFF: halk
+TİER: n
+
+
+[KART 80/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏰
+
+KART METNİ:
+"Bir ordu komutanı, sefer hazırlığı için köylülerin arazilerinin geçici olarak askeri alan ilan edilmesini istiyor. Köylüler ise tarlalarından sürülmek istemediklerini söylüyor."
+
+MOMENTUM: HS ←→ AS
+
+SOL SEÇİM:
+"Köylülere dokunma"
+
+SAĞ SEÇİM:
+"Arazi toplama izni ver"
+BOOST: ordu
+DEBUFF: halk
+TİER: w
+
+
+[KART 81/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏗️
+
+KART METNİ:
+"Serdar-ı Ekrem, sınır kalelerini güçlendirmek için köylülerden ücret ödemeden işçi toplanmasını istiyor. Köylüler bunun köyleri için büyük bir yük olacağını söylüyor."
+
+MOMENTUM: HS ←→ AS
+
+SOL SEÇİM:
+"Zorla işçi toplama"
+
+SAĞ SEÇİM:
+"Zorla işçi topla"
+BOOST: ordu
+DEBUFF: halk
+TİER: n
+
+
+[KART 82/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌾
+
+KART METNİ:
+"Serdar-ı Ekrem, sefer hazırlığı için köylülerin hayvanlarına el konulmasını istiyor. Köylüler tarlalarında çalışacak hayvanları olmadan açlığa düşeceklerini söylüyor."
+
+MOMENTUM: HS ←→ AS
+
+SOL SEÇİM:
+"Köylülerin hayvanlarına dokunma"
+
+SAĞ SEÇİM:
+"Hayvanları sefer için al"
+BOOST: ordu
+DEBUFF: halk
+TİER: s
+
+
+[KART 83/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🪵
+
+KART METNİ:
+"Ordu, kale inşaatı için köylerden kereste ve taş toplanmasını istiyor. Köylüler kendi evlerini tamir etmek için bu malzemelere ihtiyaç duyduklarını söylüyor."
+
+MOMENTUM: HS ←→ AS
+
+SOL SEÇİM:
+"Köylerin malzemelerine dokunma"
+
+SAĞ SEÇİM:
+"Malzemeleri topla"
+BOOST: ordu
+DEBUFF: halk
+TİER: n
+
+
+[KART 84/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏠
+
+KART METNİ:
+"Ordunun kışlaması için halkın evlerine asker konuşlandırılması isteniyor. Halk yabancı askerlerin evlerine girmesini istemediğini söylüyor."
+
+MOMENTUM: HS ←→ AS
+
+SOL SEÇİM:
+"Halka zorla konaklama uygulama"
+
+SAĞ SEÇİM:
+"Evlere asker konuşlandır"
+BOOST: ordu
+DEBUFF: halk
+TİER: w
+
+
+[KART 85/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🛣️
+
+KART METNİ:
+"Serdar-ı Ekrem, askeri sevkiyat için köy yollarının genişletilmesini istiyor. Bunun için köylülerin bazı tarlalarına el konulması gerekiyor."
+
+MOMENTUM: HS ←→ AS
+
+SOL SEÇİM:
+"Köylülerin tarlalarına dokunma"
+
+SAĞ SEÇİM:
+"Tarlaları yol için al"
+BOOST: ordu
+DEBUFF: halk
+TİER: n
+
+
+[KART 86/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🔥
+
+KART METNİ:
+"Ordu tatbikatları sırasında çıkan yangın bir köyün tarlalarını yaktı. Köylüler tazminat ve özür istiyor. Serdar-ı Ekrem tazminat ödenmesini zayıflık olarak görüyor."
+
+MOMENTUM: HS ←→ AS
+
+SOL SEÇİM:
+"Köylülere tazminat öde"
+
+SAĞ SEÇİM:
+"Tazminat ödeme"
+BOOST: ordu
+DEBUFF: halk
+TİER: n
+
+
+[KART 87/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🧒
+
+KART METNİ:
+"Serdar-ı Ekrem, genç erkeklerin köylerinde birer ay askeri eğitim almasını zorunlu kılmak istiyor. Aileler çocuklarının eğitim ve tarla işlerinden geri kalacağını söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Zorunlu eğitimi uygulama"
+
+SAĞ SEÇİM:
+"Zorunlu köy eğitimini başlat"
+BOOST: ordu
+DEBUFF: halk
+TİER: w
+
+
+[KART 88/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌾
+
+KART METNİ:
+"Serdar-ı Ekrem, savaş döneminde köylerin meyve ve sebze üretiminin öncelikle orduya verilmesini istiyor. Köylüler kendi geçimlerinin tehlikeye gireceğini söylüyor."
+
+MOMENTUM: HS ←→ AS
+
+SOL SEÇİM:
+"Ordu önceliğini uygulama"
+
+SAĞ SEÇİM:
+"Meyve ve sebze üretiminde orduyu öncelikli kıl"
+BOOST: ordu
+DEBUFF: halk
+TİER: n
+
+
+[KART 89/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏘️
+
+KART METNİ:
+"Serdar-ı Ekrem, şehir içindeki geniş arazilerin yeni kışla için alınmasını istiyor. Halk bu arazilerin pazar yeri ve mesire olarak kullanıldığını söylüyor."
+
+MOMENTUM: HS ←→ AS
+
+SOL SEÇİM:
+"Arazilere dokunma"
+
+SAĞ SEÇİM:
+"Arazileri kışla için al"
+BOOST: ordu
+DEBUFF: halk
+TİER: s
+
+
+[KART 90/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🚪
+
+KART METNİ:
+"Serdar-ı Ekrem, savaş döneminde şehirden çıkışları askeri izne bağlamak istiyor. Halk bunun ticareti ve aile ziyaretlerini engelleyeceğini söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Seyahat özgürlüğüne dokunma"
+
+SAĞ SEÇİM:
+"Şehir çıkışlarını askeri izne bağla"
+BOOST: ordu
+DEBUFF: halk
+TİER: n
+
+
+[KART 91/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌊
+
+KART METNİ:
+"Serdar-ı Ekrem, balıkçı teknelerinin savaş döneminde ordu taşımacılığına tahsis edilmesini istiyor. Balıkçılar geçim kaynakları olmadan açlığa düşeceklerini söylüyor."
+
+MOMENTUM: HS ←→ AS
+
+SOL SEÇİM:
+"Balıkçı teknelerine dokunma"
+
+SAĞ SEÇİM:
+"Balıkçı teknelerini orduya tahsis et"
+BOOST: ordu
+DEBUFF: halk
+TİER: w
+
+
+[KART 92/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🐂
+
+KART METNİ:
+"Serdar-ı Ekrem, köylülerden sefer için öküz ve araba toplanmasını istiyor. Köylüler bu hayvanlar olmadan tarlaları süremeyeceklerini söylüyor."
+
+MOMENTUM: HS ←→ AS
+
+SOL SEÇİM:
+"Köylülerin hayvanlarına dokunma"
+
+SAĞ SEÇİM:
+"Köylülerden öküz ve araba topla"
+BOOST: ordu
+DEBUFF: halk
+TİER: n
+
+
+[KART 93/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🔔
+
+KART METNİ:
+"Serdar-ı Ekrem, demirci ve marangozların önce orduya hizmet etmesini istiyor. Esnaf kendi müşterilerini kaybederlerse iflasın kaçınılmaz olacağını söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Esnafı serbest bırak"
+
+SAĞ SEÇİM:
+"Esnafı önce orduya çalıştır"
+BOOST: ordu
+DEBUFF: halk
+TİER: n
+
+
+[KART 94/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌙
+
+KART METNİ:
+"Serdar-ı Ekrem, savaş döneminde şehirde gece nöbetleri için halktan zorunlu gönüllü toplanmasını istiyor. Halk bu zorunluluğun uykusuz ve yorgun insanlar yaratacağını söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Zorunlu gece nöbetini uygulama"
+
+SAĞ SEÇİM:
+"Halktan zorunlu gece nöbetçisi topla"
+BOOST: ordu
+DEBUFF: halk
+TİER: w
+
+
+[KART 95/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎯
+
+KART METNİ:
+"Serdar-ı Ekrem, on beş yaşından büyük her erkeğin ayda bir gün zorunlu atış talimi yapmasını istiyor. Halk bu zorunluluğun iş ve tarla günlerini mahvedeceğini söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Zorunlu talimi uygulama"
+
+SAĞ SEÇİM:
+"Halka zorunlu aylık atış talimi getir"
+BOOST: ordu
+DEBUFF: halk
+TİER: n
+
+
+[KART 96/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🛡️
+
+KART METNİ:
+"Halk, şehirdeki askeri devriyelerinin azaltılmasını istiyor; devriyecilerin çok baskıcı davrandığından şikâyetçi. Komutanlar ise devriye sayısının azaltılmasının güvenliği tehlikeye atacağını söylüyor."
+
+MOMENTUM: AS ←→ HS
+
+SOL SEÇİM:
+"Devriye sayısını koru"
+
+SAĞ SEÇİM:
+"Devriye sayısını azalt"
+BOOST: halk
+DEBUFF: ordu
+TİER: n
+
+
+[KART 97/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏠
+
+KART METNİ:
+"Halk, uzak sınır kalelerine gönderilen askerlerin daha sık izne gönderilmesini istiyor. Serdar-ı Ekrem sık iznin kale savunmasını zayıflatacağını söylüyor."
+
+MOMENTUM: AS ←→ HS
+
+SOL SEÇİM:
+"İzin sıklığını artırma"
+
+SAĞ SEÇİM:
+"Sınır askerlerinin iznini sıklaştır"
+BOOST: halk
+DEBUFF: ordu
+TİER: n
+
+
+[KART 98/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌾
+
+KART METNİ:
+"Köylüler, sınır bölgesindeki asker tatbikatlarının tarlalarına zarar verdiğini söylüyor ve tatbikatların başka bölgede yapılmasını istiyor. Serdar-ı Ekrem bu bölgenin ordu için mühim olduğunu söylüyor."
+
+MOMENTUM: AS ←→ HS
+
+SOL SEÇİM:
+"Tatbikatlar burada devam etsin"
+
+SAĞ SEÇİM:
+"Tatbikatları köyden uzağa taşı"
+BOOST: halk
+DEBUFF: ordu
+TİER: w
+
+
+[KART 99/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📚
+
+KART METNİ:
+"Serdar-ı Ekrem, yaklaşan büyük sefer için medrese öğrencilerinin de askere alınması gerektiğini söylüyor. Ulema bu durumun dini eğitimi sekteye uğratacağını belirtiyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Medrese öğrencilerine dokunma"
+
+SAĞ SEÇİM:
+"Öğrencileri askere al"
+BOOST: ordu
+DEBUFF: din
+TİER: s
+
+
+[KART 100/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏫
+
+KART METNİ:
+"Serdar-ı Ekrem, sefer erzakını depolamak için bazı medrese binalarının geçici olarak kullanılmasını istiyor. Ulema bu durumun eğitim faaliyetlerini durduracağını söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Medreselere dokunma"
+
+SAĞ SEÇİM:
+"Medreseleri depoya çevir"
+BOOST: ordu
+DEBUFF: din
+TİER: n
+
+
+[KART 101/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌙
+
+KART METNİ:
+"Komutanlar, savaş meydanında hız kazanmak için ibadet vakitlerinde de talim ve hareket yapılabilmesini istiyor. Ulema bunun kabul edilemez olduğunu söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"İbadet düzenini koru"
+
+SAĞ SEÇİM:
+"İbadet düzenini gevşet"
+BOOST: ordu
+DEBUFF: din
+TİER: w
+
+
+[KART 102/204]
+─────────────────────────────────────────────────────────
+EMOJİ: ⚔️
+
+KART METNİ:
+"Serdar-ı Ekrem, fethedilen topraklardaki camilerin kışlaya dönüştürülmesini istiyor. Ulema bu yapıların ibadete açık kalması gerektiğini söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Camilere dokunma"
+
+SAĞ SEÇİM:
+"Camileri kışlaya çevir"
+BOOST: ordu
+DEBUFF: din
+TİER: n
+
+
+[KART 103/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📯
+
+KART METNİ:
+"Serdar-ı Ekrem, savaş ilanının baskın için cuma hutbesinden önce yapılmasını istiyor. Ulema bu durumun dini geleneğe aykırı olduğunu söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Geleneğe uy"
+
+SAĞ SEÇİM:
+"Cuma öncesi savaş ilan et"
+BOOST: ordu
+DEBUFF: din
+TİER: n
+
+
+[KART 104/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🗡️
+
+KART METNİ:
+"Ordu, sefer sırasında ele geçirilen kutsal kitapların ganimet sayılmasını istiyor. Ulema bu kitapların derhal iade edilmesi gerektiğini söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Kitapları iade et"
+
+SAĞ SEÇİM:
+"Kitapları ganimet say"
+BOOST: ordu
+DEBUFF: din
+TİER: w
+
+
+[KART 105/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏕️
+
+KART METNİ:
+"Serdar-ı Ekrem, sefer süresince askerlerin oruç tutmamasını istiyor; oruçlu askerlerin yorulduğunu söylüyor. Ulema buna kesinlikle karşı çıkıyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Oruca saygı göster"
+
+SAĞ SEÇİM:
+"Sefer sırasında orucu kaldır"
+BOOST: ordu
+DEBUFF: din
+TİER: s
+
+
+[KART 106/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌙
+
+KART METNİ:
+"Serdar-ı Ekrem, yeni fethedilen topraklarda ezan okunmasını bir süre ertelemek istiyor; halkın alışması için zaman gerektiğini söylüyor. Ulema bunu kabul edilemez buluyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Ezanı hemen oku"
+
+SAĞ SEÇİM:
+"Ezan okumayı ertele"
+BOOST: ordu
+DEBUFF: din
+TİER: n
+
+
+[KART 107/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📜
+
+KART METNİ:
+"Serdar-ı Ekrem, bazı dini vakıfların topraklarının askeri amaçla kullanılmasını istiyor. Ulema bu topraklara dokunulmaması gerektiğini söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Vakıf topraklarına dokunma"
+
+SAĞ SEÇİM:
+"Vakıf topraklarını askeri amaçla kullan"
+BOOST: ordu
+DEBUFF: din
+TİER: n
+
+
+[KART 108/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🔔
+
+KART METNİ:
+"Ordu, sefer boyunca sabah ezanından önce kolay toplanmak için davul ve boru çalınmasına izin isteniyor. Ulema bu durumun sabah namazına saygısızlık olduğunu söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Sabah ezanına saygı göster"
+
+SAĞ SEÇİM:
+"Sefer davuluna izin ver"
+BOOST: ordu
+DEBUFF: din
+TİER: w
+
+
+[KART 109/204]
+─────────────────────────────────────────────────────────
+EMOJİ: ⚔️
+
+KART METNİ:
+"Serdar-ı Ekrem, savaş ganimetinin tamamının ordu komutanlarınca paylaştırılmasını istiyor. Ulema ganimetin belirli bir kısmının fakirlere ve dini vakıflara verilmesi gerektiğini söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Ganimeti dini kurallara göre paylaştır"
+
+SAĞ SEÇİM:
+"Ganimetin tamamını komutanlar paylaştırsın"
+BOOST: ordu
+DEBUFF: din
+TİER: n
+
+
+[KART 110/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏛️
+
+KART METNİ:
+"Serdar-ı Ekrem, şehirde büyük bir kışla inşa edilmesi için bazı mezarlık alanlarının kullanılmasını istiyor. Ulema mezarlıklara dokunulmasının dinen yasak olduğunu söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Mezarlıklara dokunma"
+
+SAĞ SEÇİM:
+"Mezarlık alanlarına kışla yap"
+BOOST: ordu
+DEBUFF: din
+TİER: s
+
+
+[KART 111/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📯
+
+KART METNİ:
+"Serdar-ı Ekrem, orduya yeni asker kazandırmak için cuma hutbelerinin askerlik çağrısına dönüştürülmesini istiyor. Ulema hutbenin siyasi amaçla kullanılmasının kabul edilemez olduğunu söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Hutbeye dokunma"
+
+SAĞ SEÇİM:
+"Cuma hutbelerini asker toplama aracına dönüştür"
+BOOST: ordu
+DEBUFF: din
+TİER: n
+
+
+[KART 112/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌙
+
+KART METNİ:
+"Serdar-ı Ekrem, yeni fethedilen topraklardaki camilerin bir kısmının geçici olarak ordu deposu olarak kullanılmasını istiyor. Ulema bu durumun ibadet mekanlarına saygısızlık olduğunu söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Camilere dokunma"
+
+SAĞ SEÇİM:
+"Camileri geçici ordu deposuna çevir"
+BOOST: ordu
+DEBUFF: din
+TİER: w
+
+
+[KART 113/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🗡️
+
+KART METNİ:
+"Serdar-ı Ekrem, şehirdeki alim ve din adamlarının da savaş döneminde askeri görev üstlenmesini istiyor. Ulema alimlerin savaş değil ilim ve ibadet için var olduğunu söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Alimleri askeri görevden muaf tut"
+
+SAĞ SEÇİM:
+"Alimleri de askeri göreve çağır"
+BOOST: ordu
+DEBUFF: din
+TİER: n
+
+
+[KART 114/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🔐
+
+KART METNİ:
+"Serdar-ı Ekrem, camilerde korunmasız ibadet eden devlet adamlarının tehlikede olduğunu söyleyerek gece namazlarının kısıtlanmasını istiyor. Ulema bunu kesinlikle reddediyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Gece namazlarına dokunma"
+
+SAĞ SEÇİM:
+"Gece namazlarını kısıtla"
+BOOST: ordu
+DEBUFF: din
+TİER: n
+
+
+[KART 115/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏹
+
+KART METNİ:
+"Serdar-ı Ekrem, dini eğitimle eş zamanlı askerlik eğitimi uygulamak istiyor. Ulema bu uygulamanın dini eğitimin kalitesini düşüreceğini söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Dini eğitime dokunma"
+
+SAĞ SEÇİM:
+"Dini eğitimle eş zamanlı askerlik eğitimi uygula"
+BOOST: ordu
+DEBUFF: din
+TİER: w
+
+
+[KART 116/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌊
+
+KART METNİ:
+"Serdar-ı Ekrem, kıyı mescitlerini deniz gözetleme kulesi olarak kullanmak istiyor. Ulema bu yapıların yalnızca ibadet amaçlı kullanılması gerektiğini söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Mescitlere dokunma"
+
+SAĞ SEÇİM:
+"Kıyı mescitlerini gözetleme kulesi olarak kullan"
+BOOST: ordu
+DEBUFF: din
+TİER: n
+
+
+[KART 117/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📜
+
+KART METNİ:
+"Serdar-ı Ekrem, savaş vergisi toplanırken dini kurumların da pay ödemesini istiyor. Ulema dini kurumların her zaman vergiden muaf tutulması gerektiğini söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"Dini kurumları vergiden muaf tut"
+
+SAĞ SEÇİM:
+"Dini kurumlardan da savaş vergisi al"
+BOOST: ordu
+DEBUFF: din
+TİER: s
+
+
+[KART 118/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎺
+
+KART METNİ:
+"Serdar-ı Ekrem, savaş öncesi moral için mehteran kurulmasını ve her gün boru ve davul çalınmasını istiyor. Ulema bu gürültünün ibadet saatlerini bozduğunu söylüyor."
+
+MOMENTUM: DM ←→ AS
+
+SOL SEÇİM:
+"İbadet saatlerini koru"
+
+SAĞ SEÇİM:
+"Mehteran kur, her gün çalınsın"
+BOOST: ordu
+DEBUFF: din
+TİER: n
+
+
+[KART 119/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎓
+
+KART METNİ:
+"Halk, medreselerde okutulan bazı eski derslerin kaldırılmasını istiyor. Ulema ise bu derslerin köklü bir geleneğin parçası olduğunu söylüyor."
+
+MOMENTUM: DM ←→ HS
+
+SOL SEÇİM:
+"Müfredatı değiştirme"
+
+SAĞ SEÇİM:
+"Bazı dersleri kaldır"
+BOOST: halk
+DEBUFF: din
+TİER: n
+
+
+[KART 120/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📖
+
+KART METNİ:
+"Halk, bir medrese eserinin sapkın düşünceler içerdiğini söyleyerek yasaklanmasını istiyor. Ulema ise bu eseri savunuyor ve yasaklanmaması gerektiğini belirtiyor."
+
+MOMENTUM: DM ←→ MO
+
+SOL SEÇİM:
+"Esere dokunma"
+
+SAĞ SEÇİM:
+"Eseri yasakla"
+BOOST: halk
+DEBUFF: din
+TİER: s
+
+
+[KART 121/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎉
+
+KART METNİ:
+"Halk, bayramlarda büyük şenlikler ve eğlenceler düzenlemek istiyor. Ulema ise bu eğlencelerin dini kurallara aykırı olduğunu söylüyor."
+
+MOMENTUM: DM ←→ HS
+
+SOL SEÇİM:
+"Şenlikleri yasakla"
+
+SAĞ SEÇİM:
+"Şenliklere izin ver"
+BOOST: halk
+DEBUFF: din
+TİER: n
+
+
+[KART 122/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎵
+
+KART METNİ:
+"Gençler şehir meydanında müzikli ve danslı eğlenceler düzenliyor. Ulema bu eğlenceleri yasaklamanı istiyor; gençler ise devam etmesini istiyor."
+
+MOMENTUM: MO ←→ HS
+
+SOL SEÇİM:
+"Eğlenceleri yasakla"
+
+SAĞ SEÇİM:
+"Eğlencelere karışma"
+BOOST: halk
+DEBUFF: din
+TİER: w
+
+
+[KART 123/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎭
+
+KART METNİ:
+"Halk, şehirde tiyatro ve gösteri izni verilmesini istiyor. Ulema bu tür gösterilerin ahlakı bozduğunu ve yasaklanması gerektiğini söylüyor."
+
+MOMENTUM: MO ←→ PA
+
+SOL SEÇİM:
+"Gösterileri yasakla"
+
+SAĞ SEÇİM:
+"Tiyatroya izin ver"
+BOOST: halk
+DEBUFF: din
+TİER: n
+
+
+[KART 124/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎨
+
+KART METNİ:
+"Bazı sanatçılar şehirde resim ve heykel sergilemek istiyor.. Halk bu sanat eserlerini görmekten çok heyecanlı. Ulema ise bu tür tasvirlerin dinen yasak olduğunu söylüyor."
+
+MOMENTUM: MO ←→ PA
+
+SOL SEÇİM:
+"Sergiyi yasakla"
+
+SAĞ SEÇİM:
+"Sergiyi aç"
+BOOST: halk
+DEBUFF: din
+TİER: w
+
+
+[KART 125/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 💃
+
+KART METNİ:
+"Halk, düğün törenlerinde kadın ve erkeklerin birlikte eğlenmesine izin verilmesini istiyor. Ulema bu durumun dini kurallara aykırı olduğunu söylüyor."
+
+MOMENTUM: DM ←→ HS
+
+SOL SEÇİM:
+"Karma düğünleri yasakla"
+
+SAĞ SEÇİM:
+"Karma düğünlere izin ver"
+BOOST: halk
+DEBUFF: din
+TİER: n
+
+
+[KART 126/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📚
+
+KART METNİ:
+"Halk, çocuklarının medrese yerine mahalle mekteplerinde okuyabilmesini istiyor. Ulema medrese eğitiminin zorunlu tutulması gerektiğini söylüyor."
+
+MOMENTUM: DM ←→ PA
+
+SOL SEÇİM:
+"Medreseyi zorunlu tut"
+
+SAĞ SEÇİM:
+"Mahalle mekteplerini serbest bırak"
+BOOST: halk
+DEBUFF: din
+TİER: s
+
+
+[KART 127/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌸
+
+KART METNİ:
+"Halk, bahar şenliklerinde eski geleneksel ritüellerin canlandırılmasını istiyor. Ulema bu ritüellerin İslam öncesi adetler olduğunu söylüyor."
+
+MOMENTUM: DM ←→ HS
+
+SOL SEÇİM:
+"Eski ritüelleri yasakla"
+
+SAĞ SEÇİM:
+"Geleneksel bahar şenliklerine izin ver"
+BOOST: halk
+DEBUFF: din
+TİER: n
+
+
+[KART 128/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎠
+
+KART METNİ:
+"Halk, panayırlarda falcı ve büyücülerin tezgâh açmasını serbest istiyor. Ulema bu kişilerin dini inançları bozduğunu söylüyor."
+
+MOMENTUM: DM ←→ HS
+
+SOL SEÇİM:
+"Falcıları kapat"
+
+SAĞ SEÇİM:
+"Panayırlarda falcılara izin ver"
+BOOST: halk
+DEBUFF: din
+TİER: w
+
+
+[KART 129/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🕯️
+
+KART METNİ:
+"Halk, ölüleri anmak için eski geleneksel törenler düzenlemek istiyor. Ulema bu törenlerin dini kurallara uymadığını söylüyor."
+
+MOMENTUM: DM ←→ HS
+
+SOL SEÇİM:
+"Geleneksel anma törenlerini yasakla"
+
+SAĞ SEÇİM:
+"Anma törenlerine izin ver"
+BOOST: halk
+DEBUFF: din
+TİER: n
+
+
+[KART 130/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎶
+
+KART METNİ:
+"Halk arasında dini olmayan halk türkülerinin meydan ve çarşılarda seslendirilmesi yaygınlaştı. Ulema bu türkülerin yasaklanmasını istiyor."
+
+MOMENTUM: DM ←→ HS
+
+SOL SEÇİM:
+"Türküleri yasakla"
+
+SAĞ SEÇİM:
+"Halk türkülerine dokunma"
+BOOST: halk
+DEBUFF: din
+TİER: n
+
+
+[KART 131/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌊
+
+KART METNİ:
+"Halk, su kenarında karma piknik ve eğlence alanları açılmasını istiyor. Ulema bu tür karma ortamların ahlaka aykırı olduğunu söylüyor."
+
+MOMENTUM: DM ←→ HS
+
+SOL SEÇİM:
+"Karma eğlence alanlarını yasakla"
+
+SAĞ SEÇİM:
+"Su kenarı eğlence alanı aç"
+BOOST: halk
+DEBUFF: din
+TİER: w
+
+
+[KART 132/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌺
+
+KART METNİ:
+"Halk, şehir meydanlarına çiçek bahçeleri ve dinlenme alanları yapılmasını istiyor. Ulema bu alanların karma kullanımına karşı çıkıyor."
+
+MOMENTUM: DM ←→ HS
+
+SOL SEÇİM:
+"Karma bahçeleri yasakla"
+
+SAĞ SEÇİM:
+"Şehirde çiçek bahçeleri ve dinlenme alanı aç"
+BOOST: halk
+DEBUFF: din
+TİER: n
+
+
+[KART 133/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📰
+
+KART METNİ:
+"Şehirde her hafta haberler duyurmak isteyen bir topluluk var. Halk bu işe heves gösteriyor. Ulema bunun din dışı sözleri yayacağını söylüyor."
+
+MOMENTUM: MO ←→ PA
+
+SOL SEÇİM:
+"Duyuruları yasakla"
+
+SAĞ SEÇİM:
+"Haftalık duyurulara izin ver"
+BOOST: halk
+DEBUFF: din
+TİER: s
+
+
+[KART 134/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌍
+
+KART METNİ:
+"Halk, yabancı tüccarların şehirde serbestçe dolaşıp ticaret yapmasını istiyor. Ulema bu yabancıların dini bütünlüğü bozacağını söylüyor."
+
+MOMENTUM: DM ←→ PA
+
+SOL SEÇİM:
+"Yabancı tüccarları kısıtla"
+
+SAĞ SEÇİM:
+"Yabancı tüccarlara serbest dolaşım ver"
+BOOST: halk
+DEBUFF: din
+TİER: n
+
+
+[KART 135/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎪
+
+KART METNİ:
+"Halk, şehre gelen acem sirk gösterilerini izlemek istiyor. Ulema bu gösterilerin ahlaka aykırı olduğunu söylüyor."
+
+MOMENTUM: DM ←→ PA
+
+SOL SEÇİM:
+"Acem sirk gösterilerini yasakla"
+
+SAĞ SEÇİM:
+"Acem sirk gösterilerine izin ver"
+BOOST: halk
+DEBUFF: din
+TİER: w
+
+
+[KART 136/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏊
+
+KART METNİ:
+"Halk, çamaşır yıkarken bazen nehre girip yüzüyor. Ulema karma yüzmenin dinen yasak olduğunu söylüyor."
+
+MOMENTUM: DM ←→ HS
+
+SOL SEÇİM:
+"Nehirde yüzmeyi yasakla"
+
+SAĞ SEÇİM:
+"Nehirde yüzmeye dokunma"
+BOOST: halk
+DEBUFF: din
+TİER: n
+
+
+[KART 137/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌙
+
+KART METNİ:
+"Halk, ramazan sonrası bayram gecelerinde sokak kutlamalarının uzatılmasını istiyor. Ulema bu kutlamaların kontrolden çıkacağını ve sınırlandırılması gerektiğini söylüyor."
+
+MOMENTUM: MO ←→ HS
+
+SOL SEÇİM:
+"Bayram kutlamalarını kısıtla"
+
+SAĞ SEÇİM:
+"Bayram gecesi kutlamalarını uzat"
+BOOST: halk
+DEBUFF: din
+TİER: n
+
+
+[KART 138/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🍖
+
+KART METNİ:
+"Halk, belirli ramazan günlerinde et satışının serbest bırakılmasını istiyor. Ulema bu günlerde orucun zorunlu olduğunu söylüyor."
+
+MOMENTUM: DM ←→ HS
+
+SOL SEÇİM:
+"Et satışını yasaklı tut"
+
+SAĞ SEÇİM:
+"Dini günlerde et satışına izin ver"
+BOOST: halk
+DEBUFF: din
+TİER: w
+
+
+[KART 139/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌧️
+
+KART METNİ:
+"Köylüler, kurak geçen bu yıl için vergilerin azaltılmasını istiyor. Defterdar ise hazine için bu gelirden vazgeçilemeyeceğini söylüyor."
+
+MOMENTUM: MA ←→ HS
+
+SOL SEÇİM:
+"Vergileri azaltma"
+
+SAĞ SEÇİM:
+"Vergileri azalt"
+BOOST: halk
+DEBUFF: hazine
+TİER: n
+
+
+[KART 140/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🛁
+
+KART METNİ:
+"Payitaht halkı yeni bir hamam inşa edilmesini talep ediyor. Defterdar ise şu an bu masrafa girilmemesi gerektiğini söylüyor."
+
+MOMENTUM: MA ←→ HS
+
+SOL SEÇİM:
+"Hamamı inşa etme"
+
+SAĞ SEÇİM:
+"Hamamı inşa et"
+BOOST: halk
+DEBUFF: hazine
+TİER: w
+
+
+[KART 141/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌉
+
+KART METNİ:
+"Halk, nehir geçişlerinde yaşanan boğulma kazaları nedeniyle köprü yapılmasını istiyor. Defterdar ise şu an hazinede bu inşaat için para bulunmadığını söylüyor."
+
+MOMENTUM: MA ←→ HS
+
+SOL SEÇİM:
+"Köprüyü inşa etme"
+
+SAĞ SEÇİM:
+"Köprüyü inşa et"
+BOOST: halk
+DEBUFF: hazine
+TİER: n
+
+
+[KART 142/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏥
+
+KART METNİ:
+"Halk, şehirde yoksullar için ücretsiz bir darüşşifa açılmasını istiyor. Defterdar bu tesisin yıllık bakım masraflarının hazineyi zorlayacağını söylüyor."
+
+MOMENTUM: MA ←→ HS
+
+SOL SEÇİM:
+"Darüşşifayı açma"
+
+SAĞ SEÇİM:
+"Darüşşifa aç"
+BOOST: halk
+DEBUFF: hazine
+TİER: s
+
+
+[KART 143/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌱
+
+KART METNİ:
+"Köylüler, susuz kalan tarlalar için sulama kanalı yapılmasını istiyor. Defterdar bu inşaatın çok uzun ve masraflı olacağını söylüyor."
+
+MOMENTUM: MA ←→ HS
+
+SOL SEÇİM:
+"Sulama kanalını inşa etme"
+
+SAĞ SEÇİM:
+"Sulama kanalı inşa et"
+BOOST: halk
+DEBUFF: hazine
+TİER: n
+
+
+[KART 144/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏫
+
+KART METNİ:
+"Halk, çocukları için ücretsiz mahalle mektebi açılmasını istiyor. Defterdar mektep öğretmenlerinin maaşlarının hazineyi zorlayacağını söylüyor."
+
+MOMENTUM: MA ←→ HS
+
+SOL SEÇİM:
+"Ücretsiz mektebi açma"
+
+SAĞ SEÇİM:
+"Ücretsiz mahalle mektebi aç"
+BOOST: halk
+DEBUFF: hazine
+TİER: w
+
+
+[KART 145/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🧺
+
+KART METNİ:
+"Kışın dondurucu soğuğunda yoksul halk yakacak odun yardımı istiyor. Defterdar bu yardımın her yıl tekrarlanan büyük bir maliyet olduğunu söylüyor."
+
+MOMENTUM: MA ←→ HS
+
+SOL SEÇİM:
+"Yakacak yardımı yapma"
+
+SAĞ SEÇİM:
+"Yoksullara yakacak yardımı yap"
+BOOST: halk
+DEBUFF: hazine
+TİER: n
+
+
+[KART 146/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🕌
+
+KART METNİ:
+"Halk, şehrin en büyük meydanına bir çeşme yapılmasını istiyor. Defterdar bu çeşmenin gereksiz masrafa yol açacağını söylüyor."
+
+MOMENTUM: MA ←→ HS
+
+SOL SEÇİM:
+"Çeşmeyi inşa etme"
+
+SAĞ SEÇİM:
+"Meydan çeşmesi inşa et"
+BOOST: halk
+DEBUFF: hazine
+TİER: n
+
+
+[KART 147/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌾
+
+KART METNİ:
+"Kıtlık tehlikesiyle karşı karşıya kalan köylülere tohum yardımı yapılması isteniyor. Defterdar bu yardımın hazineyi zorlayacağını söylüyor."
+
+MOMENTUM: MA ←→ HS
+
+SOL SEÇİM:
+"Tohum yardımı yapma"
+
+SAĞ SEÇİM:
+"Köylülere tohum yardımı yap"
+BOOST: halk
+DEBUFF: hazine
+TİER: s
+
+
+[KART 148/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎪
+
+KART METNİ:
+"Halk, şehirde büyük bir yıllık panayır kurulmasını istiyor. Defterdar bu işin masrafının getirisini aşabileceğini söylüyor."
+
+MOMENTUM: MA ←→ HS
+
+SOL SEÇİM:
+"Panayırı kurma"
+
+SAĞ SEÇİM:
+"Yıllık panayır kur"
+BOOST: halk
+DEBUFF: hazine
+TİER: w
+
+
+[KART 149/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 👨‍🌾
+
+KART METNİ:
+"Anadolu\'daki köyler, sefer için çağrılan azapların sayısının azaltılmasını istiyor. Serdar-ı Ekrem bunun ordunun gücünü zayıflatacağını söylüyor."
+
+MOMENTUM: AS ←→ HS
+
+SOL SEÇİM:
+"Askerleri geri gönderme"
+
+SAĞ SEÇİM:
+"Askerleri köylerine gönder"
+BOOST: halk
+DEBUFF: ordu
+TİER: s
+
+
+[KART 150/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🐎
+
+KART METNİ:
+"Köylüler, ordunun atlarının tarlalarına zarar verdiğini söyleyerek askerlerin köy dışında konaklamasını istiyor. Komutanlar ise bu düzenlemenin seferi güçleştireceğini söylüyor."
+
+MOMENTUM: AS ←→ HS
+
+SOL SEÇİM:
+"Askerler kalmaya devam etsin"
+
+SAĞ SEÇİM:
+"Askerleri köy dışına çıkar"
+BOOST: halk
+DEBUFF: ordu
+TİER: n
+
+
+[KART 151/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌙
+
+KART METNİ:
+"Şehir halkı, gece nöbetlerindeki asker gürültüsünden şikâyetçi; nöbetçi sayısının azaltılmasını istiyor. Komutanlar ise şehir güvenliği için azaltılmaması gerektiğini söylüyor."
+
+MOMENTUM: AS ←→ HS
+
+SOL SEÇİM:
+"Nöbetleri azaltma"
+
+SAĞ SEÇİM:
+"Nöbetçi sayısını azalt"
+BOOST: halk
+DEBUFF: ordu
+TİER: w
+
+
+[KART 152/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌿
+
+KART METNİ:
+"Köylüler, ordunun kullandığı otlakların bir bölümünün hayvancılık için kendilerine bırakılmasını istiyor. Komutanlar bu otlakların ordunun atları için zorunlu olduğunu söylüyor."
+
+MOMENTUM: AS ←→ HS
+
+SOL SEÇİM:
+"Otlakları orduya bırak"
+
+SAĞ SEÇİM:
+"Otlakların bir kısmını köylülere ver"
+BOOST: halk
+DEBUFF: ordu
+TİER: n
+
+
+[KART 153/204]
+─────────────────────────────────────────────────────────
+EMOJİ: ⚒️
+
+KART METNİ:
+"Köylüler, köy yakınındaki askeri kışlaların taşınmasını istiyor; askerlerden rahatsız olduklarını söylüyor. Serdar-ı Ekrem ise bu kışlaların yerinin ordu için mühim olduğunu söylüyor."
+
+MOMENTUM: AS ←→ HS
+
+SOL SEÇİM:
+"Kışlaları taşıma"
+
+SAĞ SEÇİM:
+"Kışlaları köyden uzağa taşı"
+BOOST: halk
+DEBUFF: ordu
+TİER: w
+
+
+[KART 154/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎯
+
+KART METNİ:
+"Ordunun ok talim alanı bir köyün hemen yanında kurulmuş. Köylüler kaza tehlikesi nedeniyle talim alanının taşınmasını istiyor. Komutanlar bu alanın çok elverişli olduğunu söylüyor."
+
+MOMENTUM: AS ←→ HS
+
+SOL SEÇİM:
+"Talim alanını koru"
+
+SAĞ SEÇİM:
+"Talim alanını taşı"
+BOOST: halk
+DEBUFF: ordu
+TİER: n
+
+
+[KART 155/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🐓
+
+KART METNİ:
+"Halk, askerlerin köylerde baskı kurarak yiyecek topladığından şikâyetçi. Serdar-ı Ekrem bu uygulamanın orduyu beslemek için zorunlu olduğunu söylüyor."
+
+MOMENTUM: AS ←→ HS
+
+SOL SEÇİM:
+"Askerlerin yiyecek toplamasına izin ver"
+
+SAĞ SEÇİM:
+"Köylerde zorla yiyecek toplamayı yasakla"
+BOOST: halk
+DEBUFF: ordu
+TİER: s
+
+
+[KART 156/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🚪
+
+KART METNİ:
+"Halk, sefere çağrılan gençlerin bir süre daha köyde kalmasını istiyor. Serdar bunun orduyu geciktireceğini söylüyor."
+
+MOMENTUM: AS ←→ HS
+
+SOL SEÇİM:
+"Mühlet tanıma"
+
+SAĞ SEÇİM:
+"Mühlet tanı"
+BOOST: halk
+DEBUFF: ordu
+TİER: n
+
+
+[KART 157/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌅
+
+KART METNİ:
+"Halk, sınır bölgesindeki köylülerin başka yerlere taşınmasını; savaş tehlikesinden uzak durmaları gerektiğini söylüyor. Serdar-ı Ekrem bu köylülerin sınırı koruduğunu belirtiyor."
+
+MOMENTUM: AS ←→ HS
+
+SOL SEÇİM:
+"Köylüleri yerinde bırak"
+
+SAĞ SEÇİM:
+"Sınır köylülerini taşı"
+BOOST: halk
+DEBUFF: ordu
+TİER: w
+
+
+[KART 158/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎓
+
+KART METNİ:
+"Halk, askerlik çağına gelen gençler için zanaat öğrenenlere mühlet verilmesini istiyor. Serdar-ı Ekrem bu mühletin orduya zamanında asker gelmesini engelleyeceğini söylüyor."
+
+MOMENTUM: AS ←→ HS
+
+SOL SEÇİM:
+"Askerlik ertelemesine izin verme"
+
+SAĞ SEÇİM:
+"Zanaat öğrenenler için askerlik ertelemesi uygula"
+BOOST: halk
+DEBUFF: ordu
+TİER: s
+
+
+[KART 159/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🕌
+
+KART METNİ:
+"Ulema, şehre yeni bir medrese kazandırmak istiyor ve bunun için hazineden destek talep ediyor. Defterdar ise mevcut bütçenin buna yetmeyeceğini söylüyor."
+
+MOMENTUM: MA ←→ DM
+
+SOL SEÇİM:
+"Medreseye destek verme"
+
+SAĞ SEÇİM:
+"Medreseye destek ver"
+BOOST: din
+DEBUFF: hazine
+TİER: n
+
+
+[KART 160/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🛍️
+
+KART METNİ:
+"Ulema, cuma namazı vakitlerinde tüm dükkânların kapatılmasını istiyor. Tüccarlar ise bunun ticareti ciddi biçimde yavaşlatacağını söylüyor."
+
+MOMENTUM: MA ←→ DM
+
+SOL SEÇİM:
+"Dükkânlar açık kalsın"
+
+SAĞ SEÇİM:
+"Cuma vakti dükkânları kapat"
+BOOST: din
+DEBUFF: hazine
+TİER: w
+
+
+[KART 161/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌿
+
+KART METNİ:
+"Bir şeyh, kurduğu dergâhın büyümesi için devlet desteği istiyor. Defterdar ise bu paranın hazineden karşılanamayacağını söylüyor."
+
+MOMENTUM: MA ←→ DM
+
+SOL SEÇİM:
+"Dergâha destek verme"
+
+SAĞ SEÇİM:
+"Dergâha destek ver"
+BOOST: din
+DEBUFF: hazine
+TİER: s
+
+
+[KART 162/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🕌
+
+KART METNİ:
+"Ulema, şehrin dört bir yanına yeni minareler eklenmesini istiyor. Defterdar bu inşaatın büyük bir masraf olduğunu söylüyor."
+
+MOMENTUM: MA ←→ DM
+
+SOL SEÇİM:
+"Minare inşaatını reddet"
+
+SAĞ SEÇİM:
+"Yeni minareler inşa et"
+BOOST: din
+DEBUFF: hazine
+TİER: n
+
+
+[KART 163/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📿
+
+KART METNİ:
+"Ulema, hacca gidecek yoksul vatandaşlara devlet bütçesinden yol parası verilmesini istiyor. Defterdar bu uygulamanın hazineyi yoracağını söylüyor."
+
+MOMENTUM: MA ←→ DM
+
+SOL SEÇİM:
+"Yol parasını verme"
+
+SAĞ SEÇİM:
+"Yoksullara hac yol parası ver"
+BOOST: din
+DEBUFF: hazine
+TİER: w
+
+
+[KART 164/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌙
+
+KART METNİ:
+"Ulema, Kadir Gecesi\'nde tüm şehirde kandil yakılması ve halka şeker dağıtılması geleneğinin devlet tarafından karşılanmasını istiyor. Defterdar bu masrafın gereksiz olduğunu söylüyor."
+
+MOMENTUM: MA ←→ DM
+
+SOL SEÇİM:
+"Devlet karşılamasın"
+
+SAĞ SEÇİM:
+"Kandil masraflarını devlet karşılasın"
+BOOST: din
+DEBUFF: hazine
+TİER: n
+
+
+[KART 165/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📖
+
+KART METNİ:
+"Ulema, yurt dışından getirtilen nadide dini el yazmalarının satın alınmasını istiyor. Defterdar bu el yazmalarının çok pahalı olduğunu söylüyor."
+
+MOMENTUM: MA ←→ DM
+
+SOL SEÇİM:
+"El yazmalarını satın alma"
+
+SAĞ SEÇİM:
+"Nadir dini el yazmaları satın al"
+BOOST: din
+DEBUFF: hazine
+TİER: n
+
+
+[KART 166/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏛️
+
+KART METNİ:
+"Ulema, eski ve küçük mescitlerin yıkılıp yerlerine büyük camiler yapılmasını istiyor. Defterdar bu inşaatın çok uzun ve pahalı bir süreç olduğunu söylüyor."
+
+MOMENTUM: MA ←→ DM
+
+SOL SEÇİM:
+"Mevcut mescitleri koru"
+
+SAĞ SEÇİM:
+"Büyük cami inşaatı başlat"
+BOOST: din
+DEBUFF: hazine
+TİER: s
+
+
+[KART 167/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎓
+
+KART METNİ:
+"Ulema, medrese hocalarına verilen maaşların artırılmasını istiyor. Defterdar halihazırda bu maaşların yüksek olduğunu söylüyor."
+
+MOMENTUM: MA ←→ DM
+
+SOL SEÇİM:
+"Hoca maaşlarını artırma"
+
+SAĞ SEÇİM:
+"Medrese hocalarının maaşlarını artır"
+BOOST: din
+DEBUFF: hazine
+TİER: n
+
+
+[KART 168/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌿
+
+KART METNİ:
+"Ulema, devlet korumasında büyük bir dini bahçe kurulmasını istiyor. Defterdar bunun lüks bir harcama olduğunu söylüyor."
+
+MOMENTUM: MA ←→ DM
+
+SOL SEÇİM:
+"Bahçeyi reddet"
+
+SAĞ SEÇİM:
+"Dini botanik bahçesi kur"
+BOOST: din
+DEBUFF: hazine
+TİER: w
+
+
+[KART 169/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🕌
+
+KART METNİ:
+"Ulema, her mahallede en az bir adet ücretsiz Kuran kursu açılmasını istiyor. Defterdar bu kursların eğitmenlerinin maaşlarını karşılamanın hazineyi zorlayacağını söylüyor."
+
+MOMENTUM: MA ←→ DM
+
+SOL SEÇİM:
+"Ücretsiz Kuran kurslarını açma"
+
+SAĞ SEÇİM:
+"Her mahallede ücretsiz Kuran kursu aç"
+BOOST: din
+DEBUFF: hazine
+TİER: n
+
+
+[KART 170/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📿
+
+KART METNİ:
+"Ulema, şehirdeki tüm camilerin halı ve mobilyalarının yenilenmesini istiyor. Defterdar bu yenilemenin çok büyük bir harcama kalemi olduğunu söylüyor."
+
+MOMENTUM: MA ←→ DM
+
+SOL SEÇİM:
+"Cami mobilyalarına dokunma"
+
+SAĞ SEÇİM:
+"Tüm camilerin halı ve mobilyasını yenile"
+BOOST: din
+DEBUFF: hazine
+TİER: s
+
+
+[KART 171/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌙
+
+KART METNİ:
+"Ulema, her yıl büyük bir dini tören düzenlenmesini ve tüm masrafların devlet tarafından karşılanmasını istiyor. Defterdar bu törenlerin her yıl büyük bir maliyet oluşturacağını söylüyor."
+
+MOMENTUM: MA ←→ DM
+
+SOL SEÇİM:
+"Devlet karşılamasın"
+
+SAĞ SEÇİM:
+"Yıllık büyük dini tören düzenle"
+BOOST: din
+DEBUFF: hazine
+TİER: n
+
+
+[KART 172/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🕋
+
+KART METNİ:
+"Ulema, askerlerin namaz vakitlerinde talim yapmamasını istiyor. Serdar-ı Ekrem ise talimlerin durdurulmasının savaş hazırlığını bozacağını söylüyor."
+
+MOMENTUM: AS ←→ DM
+
+SOL SEÇİM:
+"Talimlere devam et"
+
+SAĞ SEÇİM:
+"Namaz vakti talimleri durdur"
+BOOST: din
+DEBUFF: ordu
+TİER: n
+
+
+[KART 173/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎺
+
+KART METNİ:
+"Ulema, askerlerin kamplarda müzik aleti çalmasının yasaklanmasını istiyor. Komutanlar ise müziğin askerin moralini ayakta tuttuğunu söylüyor."
+
+MOMENTUM: AS ←→ DM
+
+SOL SEÇİM:
+"Müziğe dokunma"
+
+SAĞ SEÇİM:
+"Kamplarda müziği yasakla"
+BOOST: din
+DEBUFF: ordu
+TİER: w
+
+
+[KART 174/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🍶
+
+KART METNİ:
+"Ulema, orduda içki içen askerlerin ağır şekilde cezalandırılmasını istiyor. Komutanlar ise bu uygulamanın askerler arasında gerginlik yaratacağını söylüyor."
+
+MOMENTUM: AS ←→ DM
+
+SOL SEÇİM:
+"Mevcut uygulamaya devam et"
+
+SAĞ SEÇİM:
+"Ağır ceza uygula"
+BOOST: din
+DEBUFF: ordu
+TİER: n
+
+
+[KART 175/204]
+─────────────────────────────────────────────────────────
+EMOJİ: ☪️
+
+KART METNİ:
+"Ulema, askeri kışlaların yanına mutlaka mescit inşa edilmesini istiyor. Serdar-ı Ekrem bu inşaatların kışla düzenini bozacağını söylüyor."
+
+MOMENTUM: AS ←→ DM
+
+SOL SEÇİM:
+"Kışlalara mescit inşa etme"
+
+SAĞ SEÇİM:
+"Her kışlaya mescit yaptır"
+BOOST: din
+DEBUFF: ordu
+TİER: n
+
+
+[KART 176/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📯
+
+KART METNİ:
+"Ulema, savaş öncesi askerlere dini vaaz verilmesi için alimler ordugâha davet edilmesini istiyor. Serdar-ı Ekrem bu alimler için gereksiz taşıma yükü olacağını söylüyor."
+
+MOMENTUM: AS ←→ DM
+
+SOL SEÇİM:
+"Alimleri ordugâha alma"
+
+SAĞ SEÇİM:
+"Alimler savaş öncesi ordugâha gelsin"
+BOOST: din
+DEBUFF: ordu
+TİER: w
+
+
+[KART 177/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🕊️
+
+KART METNİ:
+"Ulema, cihat ilan edilmeden yabancı topraklara sefer düzenlenmesinin dinen yanlış olduğunu söylüyor. Serdar-ı Ekrem ise bu seferin aciliyetini vurguluyor."
+
+MOMENTUM: AS ←→ DM
+
+SOL SEÇİM:
+"Sefere çık"
+
+SAĞ SEÇİM:
+"Cihat ilan edip sefere çık"
+BOOST: din
+DEBUFF: ordu
+TİER: s
+
+
+[KART 178/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌙
+
+KART METNİ:
+"Ulema, ramazan ayında tüm askeri seferlerin durdurulmasını istiyor. Serdar-ı Ekrem düşmanın bu durumu fırsat olarak kullanacağını söylüyor."
+
+MOMENTUM: AS ←→ DM
+
+SOL SEÇİM:
+"Ramazanda seferlere devam et"
+
+SAĞ SEÇİM:
+"Ramazanda seferleri durdur"
+BOOST: din
+DEBUFF: ordu
+TİER: n
+
+
+[KART 179/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📜
+
+KART METNİ:
+"Ulema, fethedilen topraklara çok sayıda alimin görevlendirilmesini istiyor. Serdar-ı Ekrem bu alimlerin yönetim ve güvenliği aksatacağını söylüyor."
+
+MOMENTUM: AS ←→ DM
+
+SOL SEÇİM:
+"Alimleri bu görevden uzak tut"
+
+SAĞ SEÇİM:
+"Fethedilen topraklara alim gönder"
+BOOST: din
+DEBUFF: ordu
+TİER: n
+
+
+[KART 180/204]
+─────────────────────────────────────────────────────────
+EMOJİ: ⚔️
+
+KART METNİ:
+"Ulema, savaşta ele geçirilen esirlerin fidye yerine serbest bırakılmasının dinen daha doğru olduğunu söylüyor. Serdar-ı Ekrem fidyenin ordu için önemli bir gelir olduğunu belirtiyor."
+
+MOMENTUM: AS ←→ DM
+
+SOL SEÇİM:
+"Esirleri fidye karşılığı tut"
+
+SAĞ SEÇİM:
+"Esirleri serbest bırak"
+BOOST: din
+DEBUFF: ordu
+TİER: w
+
+
+[KART 181/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏕️
+
+KART METNİ:
+"Ulema, askeri karargâhlarda içki ve kumar oynandığına dair söylentileri soruşturmak ve bu kişileri cezalandırmak istiyor. Serdar-ı Ekrem böyle bir soruşturmanın ordu içinde gerginlik yaratacağını söylüyor."
+
+MOMENTUM: AS ←→ DM
+
+SOL SEÇİM:
+"Soruşturmayı başlatma"
+
+SAĞ SEÇİM:
+"Karargâhta içki ve kumar soruşturması başlat"
+BOOST: din
+DEBUFF: ordu
+TİER: n
+
+
+[KART 182/204]
+─────────────────────────────────────────────────────────
+EMOJİ: ☪️
+
+KART METNİ:
+"Ulema, orduda görev yapan alimlerin sayısının artırılmasını istiyor. Serdar-ı Ekrem bu alimlerin ordugâhta yer kaplayacağını belirtiyor."
+
+MOMENTUM: AS ←→ DM
+
+SOL SEÇİM:
+"Ordu alimi sayısını artırma"
+
+SAĞ SEÇİM:
+"Orduda görevli alim sayısını artır"
+BOOST: din
+DEBUFF: ordu
+TİER: n
+
+
+[KART 183/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 📜
+
+KART METNİ:
+"Ulema, savaş ganimetinin beşte birinin dini vakıflara bırakılmasını istiyor. Serdar-ı Ekrem bu payın orduyu zayıflatacağını söylüyor."
+
+MOMENTUM: AS ←→ DM
+
+SOL SEÇİM:
+"Ganimet paylaşımına dokunma"
+
+SAĞ SEÇİM:
+"Ganimetin beşte birini vakıflara ver"
+BOOST: din
+DEBUFF: ordu
+TİER: w
+
+
+[KART 184/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🕊️
+
+KART METNİ:
+"Ulema, komşu Müslüman devletle sınır anlaşmazlığının savaş yerine müzakereyle çözülmesini istiyor. Serdar-ı Ekrem müzakerenin zayıflık işareti sayılacağını söylüyor."
+
+MOMENTUM: AS ←→ DM
+
+SOL SEÇİM:
+"Askeri çözümü tercih et"
+
+SAĞ SEÇİM:
+"Müzakere yolunu seç"
+BOOST: din
+DEBUFF: ordu
+TİER: s
+
+
+[KART 185/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🍺
+
+KART METNİ:
+"Ulema, şehirdeki meyhanelerin kapatılmasını istiyor. Halk ise meyhanelerin kapatılmasının akşam eğlencelerini tamamen ortadan kaldıracağını söylüyor."
+
+MOMENTUM: HS ←→ DM
+
+SOL SEÇİM:
+"Meyhaneler açık kalsın"
+
+SAĞ SEÇİM:
+"Meyhaneleri kapat"
+BOOST: din
+DEBUFF: halk
+TİER: s
+
+
+[KART 186/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🛒
+
+KART METNİ:
+"Ulema, kadınların çarşıya çıkmasının belirli saatlerle sınırlandırılmasını istiyor. Halk ise bunun günlük hayatı ve alışverişi ciddi ölçüde güçleştireceğini söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Kısıtlama getirme"
+
+SAĞ SEÇİM:
+"Kadınların çarşı saatlerini kısıtla"
+BOOST: din
+DEBUFF: halk
+TİER: n
+
+
+[KART 187/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 👗
+
+KART METNİ:
+"Ulema, gençlerin renkli ve gösterişli kıyafetler giymesinin yasaklanmasını istiyor. Gençler ise bu yasağı anlamsız buluyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Giyim özgürlüğüne dokunma"
+
+SAĞ SEÇİM:
+"Sade giyim zorunluluğu getir"
+BOOST: din
+DEBUFF: halk
+TİER: n
+
+
+[KART 188/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌅
+
+KART METNİ:
+"Ulema, Ramazan ayında gündüzleri çarşıda yemek yenilmesinin yasaklanmasını istiyor. Halk ise bu yasağın yolcular ve çalışanlar için büyük zorluk yaratacağını söylüyor."
+
+MOMENTUM: HS ←→ DM
+
+SOL SEÇİM:
+"Yasak çıkarma"
+
+SAĞ SEÇİM:
+"Ramazanda gündüz yemeyi yasakla"
+BOOST: din
+DEBUFF: halk
+TİER: w
+
+
+[KART 189/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🐕
+
+KART METNİ:
+"Ulema, şehirdeki başıboş köpeklerin toplatılıp uzak bölgelere götürülmesini istiyor. Halk ise bu köpekleri sevip beslediğini söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Köpeklere dokunma"
+
+SAĞ SEÇİM:
+"Köpekleri toplatıp şehir dışına çıkar"
+BOOST: din
+DEBUFF: halk
+TİER: n
+
+
+[KART 190/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎲
+
+KART METNİ:
+"Ulema, çarşıda oynanan zar ve satranç gibi oyunların yasaklanmasını istiyor. Halk bu oyunların zararsız bir eğlence olduğunu söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Oyunlara dokunma"
+
+SAĞ SEÇİM:
+"Çarşıda zar ve satranç oynamayı yasakla"
+BOOST: din
+DEBUFF: halk
+TİER: w
+
+
+[KART 191/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 💇
+
+KART METNİ:
+"Ulema, berber dükkanlarının yalnızca erkeklere hizmet vermesini ve kadınların buraya girmesinin yasaklanmasını istiyor. Halk bu yasağın hayatı zorlaştıracağını söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Berber dükkanlarına karışma"
+
+SAĞ SEÇİM:
+"Kadınların berbere girmesini yasakla"
+BOOST: din
+DEBUFF: halk
+TİER: n
+
+
+[KART 192/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌅
+
+KART METNİ:
+"Ulema, güneş doğmadan önce çarşıda tezgâh açılmamasını istiyor. Esnaf bu yasağın ticareti olumsuz etkileyeceğini söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Erken tezgâh açmaya dokunma"
+
+SAĞ SEÇİM:
+"Güneş doğmadan tezgâh açmayı yasakla"
+BOOST: din
+DEBUFF: halk
+TİER: n
+
+
+[KART 193/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌿
+
+KART METNİ:
+"Ulema, tıp için kullanıldığı iddia edilen bazı otların sarhoşluğa yol açtığını söyleyerek satışının yasaklanmasını istiyor. Esnaf bu otların meşru ilaç amaçlı kullanıldığını söylüyor."
+
+MOMENTUM: HS ←→ DM
+
+SOL SEÇİM:
+"Ot satışına dokunma"
+
+SAĞ SEÇİM:
+"Şüpheli otların satışını yasakla"
+BOOST: din
+DEBUFF: halk
+TİER: w
+
+
+[KART 194/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎠
+
+KART METNİ:
+"Ulema, panayırlarda yapılan bazı oyunların ve gösterilerin dine uygun olmadığını söyleyerek kaldırılmasını istiyor. Esnaf ve aileler ise bu eğlencelerin halkın tek neşesi olduğunu savunuyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Panayır eğlencelerine dokunma"
+
+SAĞ SEÇİM:
+"Panayırlarda oyun ve gösterileri yasakla"
+BOOST: din
+DEBUFF: halk
+TİER: n
+
+
+[KART 195/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌙
+
+KART METNİ:
+"Ulema, yatsı namazından sonra ateş yakılarak yapılan sohbet ve eğlencelerin yasaklanmasını istiyor. Halk bu toplantıların masum bir gelenek olduğunu söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Gece sohbetlerine dokunma"
+
+SAĞ SEÇİM:
+"Yatsı sonrası ateş başı sohbetlerini yasakla"
+BOOST: din
+DEBUFF: halk
+TİER: s
+
+
+[KART 196/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 👘
+
+KART METNİ:
+"Ulema, halkın cenaze törenlerinde yas kıyafeti giymesini zorunlu kılmak istiyor. Halk bu uygulamanın kişisel özgürlüklere müdahale olduğunu söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Yas kıyafetini zorunlu kılma"
+
+SAĞ SEÇİM:
+"Cenazede yas kıyafetini zorunlu kıl"
+BOOST: din
+DEBUFF: halk
+TİER: n
+
+
+[KART 197/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🏮
+
+KART METNİ:
+"Ulema, dini bayramlarda haricindeki günlerde renkli fener ve süslemelerin yasaklanmasını istiyor. Halk bu süslemelerin şehre neşe kattığını söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Süslemelere dokunma"
+
+SAĞ SEÇİM:
+"Dini bayram dışında süslemeleri yasakla"
+BOOST: din
+DEBUFF: halk
+TİER: w
+
+
+[KART 198/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🕯️
+
+KART METNİ:
+"Ulema, gece geç saatte dışarıda dolaşmanın yasaklanmasını istiyor. Halk bu yasağın kişisel özgürlüklerini kısıtladığını söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Gece sokağa çıkma yasağı getirme"
+
+SAĞ SEÇİM:
+"Gece geç saatte sokağa çıkmayı yasakla"
+BOOST: din
+DEBUFF: halk
+TİER: n
+
+
+[KART 199/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌿
+
+KART METNİ:
+"Ulema, meyhane ve kahvehanelerin erken saatte kapanmasını istiyor. Esnaf bu erken kapanmanın gelirlerini büyük ölçüde azaltacağını söylüyor."
+
+MOMENTUM: HS ←→ DM
+
+SOL SEÇİM:
+"Kapanış saatine dokunma"
+
+SAĞ SEÇİM:
+"Meyhane ve kahvehanelere erken kapanma saati getir"
+BOOST: din
+DEBUFF: halk
+TİER: w
+
+
+[KART 200/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🎵
+
+KART METNİ:
+"Ulema, cenaze törenlerinde ağıt yakılmasını ve yüksek sesle ağlanmasını yasaklamak istiyor. Halk bu geleneğin yüzyıllardır sürdüğünü söylüyor."
+
+MOMENTUM: HS ←→ DM
+
+SOL SEÇİM:
+"Cenaze geleneklerine dokunma"
+
+SAĞ SEÇİM:
+"Cenazelerde ağıt ve yüksek sesle ağlamayı yasakla"
+BOOST: din
+DEBUFF: halk
+TİER: n
+
+
+[KART 201/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🛒
+
+KART METNİ:
+"Ulema, çarşıda kadın ve erkeklerin aynı tezgâhtan alışveriş yapmasını yasaklamak istiyor. Halk bu uygulamanın alışverişi imkânsız hale getireceğini söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"Çarşı düzenine dokunma"
+
+SAĞ SEÇİM:
+"Çarşıda karma alışverişi yasakla"
+BOOST: din
+DEBUFF: halk
+TİER: s
+
+
+[KART 202/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🌅
+
+KART METNİ:
+"Ulema, yabancı ülkelerden gelen tüccarların Müslüman mahallelerinde konaklamasını yasaklamak istiyor. Halk bu yasağın ticareti sekteye uğratacağını söylüyor."
+
+MOMENTUM: PA ←→ MO
+
+SOL SEÇİM:
+"Yabancı konaklama yasağı getirme"
+
+SAĞ SEÇİM:
+"Yabancıların Müslüman mahallelerinde konaklamasını yasakla"
+BOOST: din
+DEBUFF: halk
+TİER: n
+
+
+[KART 203/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 👶
+
+KART METNİ:
+"Ulema, çocuklara yalnızca dini isimler verilmesini zorunlu kılmak istiyor. Aileler bu kısıtlamanın geleneksel aile isimlerini ortadan kaldıracağını söylüyor."
+
+MOMENTUM: HS ←→ MO
+
+SOL SEÇİM:
+"İsim seçimine karışma"
+
+SAĞ SEÇİM:
+"Yalnızca dini isim zorunluluğu getir"
+BOOST: din
+DEBUFF: halk
+TİER: w
+
+
+[KART 204/204]
+─────────────────────────────────────────────────────────
+EMOJİ: 🍺
+
+KART METNİ:
+"Ulema, saray ve zengin konaklarında düzenlenen büyük ziyafetlerdeki et israfının sınırlandırılmasını istiyor. Kasaplar ve tüccarlar bunun satışlarını düşüreceğini söylüyor."
+
+MOMENTUM: HS ←→ DM
+
+SOL SEÇİM:
+"Et israfına dokunma"
+
+SAĞ SEÇİM:
+"Ziyafetlerde et israfını sınırla"
+BOOST: din
+DEBUFF: halk
+TİER: n
