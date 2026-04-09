@@ -1,0 +1,2487 @@
+================================================================================
+PROJECT MARCH V23 HOTFIX - OYUN METİNLERİ KAPSAMLI ÇIKARTMASI
+================================================================================
+
+Oyun: Osmanlı İmparatorluğu Strateji/Karar Verme Oyunu
+Kaynak: /home/user/V17/project_march_v23_hotfix.html
+Çıkartma: 2026-04-09
+
+================================================================================
+BÖLÜM 1: SUCCESS EPILOG POOL (Başarı Sonlandırma Metinleri)
+================================================================================
+Satırlar: 1415-1432 (18 satır)
+
+const SUCCESS_EPILOG_POOL = [
+  `Gücünü akılla kullandın.\nBu seni ayakta tuttu.`,
+  `Zor kararlar verdin.\nVe bedelini ödemeyi göze aldın.`,
+  `Ne çok serttin, ne çok yumuşak.\nBu seni ayakta tuttu.`,
+  `Dengeleri gözetmeyi öğrendin.\nBu seni güçlü kıldı.`,
+  `Gücünü paylaştın.\nBu yüzden onu kaybetmedin.`,
+  `Her kararı tarttın.\nBu seni farklı kıldı.`,
+  `Ne zaman duracağını bildin.\nBu seni güçlü yaptı.`,
+  `Hırsını kontrol ettin.\nBu seni ayakta tuttu.`,
+  `Yükü taşıdın.\nVe altında ezilmedin.`,
+  `Gücü büyüttün.\nAma ona kapılmadın.`,
+  `Hikâyeni tamamladın.\nAma bu son değil.`,
+  `Taht seni değiştirmedi.\nSen tahtı değiştirdin.`,
+  `Yıkılmadın.\nBu başlı başına bir zaferdi.`,
+  `Düşmedin.\nÇünkü dengede kaldın.`,
+  `Saltanatını korudun.\nAma bedelini unutmadın.`
+];
+
+
+================================================================================
+BÖLÜM 2: FAILURE EPILOG POOL (Başarısızlık Sonlandırma Metinleri)
+================================================================================
+Satırlar: 1433-1450 (18 satır)
+
+const FAILURE_EPILOG_POOL = [
+  `Dengeyi kaybettin.\nTaht seni taşıyamadı.`,
+  `Güç seni ileri taşıdı…\nama sonunda yalnız bıraktı.`,
+  `Yanlış zamanda doğru karar verdin.\nAma yetmedi.`,
+  `Sessiz hatalar yaptın.\nVe sessizce düştün.`,
+  `Gücü büyüttün.\nAma onu yönetemedin.`,
+  `Dengeyi görmezden geldin.\nVe o seni terk etti.`,
+  `Bazı riskler alınmaz.\nSen aldın.`,
+  `Serttin.\nAma kırıldın.`,
+  `Kontrol sende değildi.\nSadece öyle sandın.`,
+  `Dengeyi bozmak kolaydı.\nKurmak zordu.`,
+  `Bir saltanat sona erdi.\nAma hikâye kaldı.`
+];
+
+const FIRST_DEATH_STORAGE_KEY = 'project_march_first_death_cinematic_seen';
+let cinematicQueue = Promise.resolve();
+let runUsedSuccessEpilogs = new Set();
+let runUsedFailureEpilogs = new Set();
+
+================================================================================
+BÖLÜM 3: KART METİNLERİ (CARDS) - Ana Karar Kartları
+================================================================================
+Satırlar: 1618-1852 (235 satır)
+Format: JavaScript array, 4 başlık kategorisi (HAZİNE/ORDU, HAZİNE/HALK, vb.)
+
+const CARDS = [
+
+  // ── HAZİNE BOOST / ORDU DEBUFF ──
+  {id:'4fc28ea1-8d4c-40ec-a7d8-319f27c398bc',momentum:{l:'AS',r:'MA'},em:'⚓',txt:'Kaptan Paşa, ele geçirilen korsan gemisinin yükünü askerlere dağıtmak istiyor. Defterdar ise tüm yükün hazineye aktarılmasını öneriyor.',l:'Askerlere dağıt',r:'Hazineye aktar',boost:'hazine',debuff:'ordu',tier:'n'},
+  {id:'N002',momentum:{l:'PA',r:'MA'},em:'📜',txt:'Sadrazam, sınırlarımız içinde yaşayan yabancı ulusların askere alınmasını öneriyor. Defterdar ise onlardan cizye (baş vergisi) toplanmasını istiyor.',l:'Askere al',r:'Cizye al',boost:'hazine',debuff:'ordu',tier:'w'},
+  {id:'N003',momentum:{l:'AS',r:'MA'},em:'🏇',txt:'Defterdar, bazı tımarlı sipahilerin sefer yükünün hafifletilmesini öneriyor. Komutanlar ordunun gevşememesi gerektiğini söylüyor.',l:'Yükü hafifletme',r:'Yükü hafiflet',boost:'hazine',debuff:'ordu',tier:'s'},
+  {id:'b6715a8d-748a-426f-b2f2-9ee222124688',momentum:{l:'AS',r:'MA'},em:'🪙',txt:'Darphane başı, akçenin ayarını düşürüp daha çok para basılmasını öneriyor. Serdar-ı Ekrem, değeri bozuk akçenin askeri öfkelendireceğini söylüyor.',l:'Sikkelere dokunma',r:'Sikke içindeki gümüşü azalt',boost:'hazine',debuff:'ordu',tier:'n',mb:true,mbKey:'sikke_tağşiş'},
+  {id:'N005',momentum:{l:'AS',r:'MA'},em:'🏗️',txt:'Defterdar, ordu için inşa edilmekte olan yeni kışlanın yapımını durdurmayı öneriyor. Serdar-ı Ekrem yarım kalan inşaatın orduya zarar vereceğini söylüyor.',l:'Kışla inşaatını sürdür',r:'Kışla inşaatını durdur',boost:'hazine',debuff:'ordu',tier:'w',mb:true,mbKey:'kishla_durdur'},
+  {id:'e62fdabf-1494-4c08-a0c4-79a0110318d7',momentum:{l:'AS',r:'MA'},em:'🎁',txt:'Defterdar, komutanlara her yıl verilen bayram hediyelerinin kaldırılmasını öneriyor. Serdar-ı Ekrem bu geleneğin komutanların bağlılığını koruduğunu söylüyor.',l:'Hediyeleri koru',r:'Komutan hediyelerini kaldır',boost:'hazine',debuff:'ordu',tier:'n'},
+  {id:'ce59ee7a-1cce-4755-80de-d7f4645215fe',momentum:{l:'AS',r:'MA'},em:'🌾',txt:'Defterdar, depodaki eski silah ve teçhizat parçalarının satılmasını öneriyor. Serdar-ı Ekrem, savaş gününde eski demirin bile işe yarayacağını söylüyor.',l:'Depoda tut',r:'Satılsın',boost:'hazine',debuff:'ordu',tier:'n'},
+  {id:'N008',momentum:{l:'AS',r:'MA'},em:'⚓',txt:'Defterdar, donanma gemilerinin bir kısmını ticaret gemisi olarak kiraya vermeyi öneriyor. Kaptan Paşa bu gemilere savaşta ihtiyaç olacağını söylüyor.',l:'Savaş gemilerine dokunma',r:'Savaş gemilerini kiraya ver',boost:'hazine',debuff:'ordu',tier:'w'},
+  {id:'8863c99e-9393-45c9-9b6b-41758aec5a1d',momentum:{l:'AS',r:'MA'},em:'🗡️',txt:'Defterdar, kullanılmayan silah depolarını satışa çıkarmayı öneriyor. Serdar-ı Ekrem bu silahların ileride gerekli olabileceğini söylüyor.',l:'Silah depolarını koru',r:'Kullanılmayan silahları sat',boost:'hazine',debuff:'ordu',tier:'n'},
+  {id:'N010',momentum:{l:'AS',r:'MA'},em:'🏇',txt:'Defterdar, at yetiştirilen devlet ahırlarının başkalarına bırakılmasını öneriyor. Serdar-ı Ekrem devlet ahırlarının ordu için vazgeçilmez olduğunu söylüyor.',l:'Devlet ahırlarını koru',r:'Devlet ahırlarını başkalarına bırak',boost:'hazine',debuff:'ordu',tier:'s'},
+  {id:'1394fa71-1773-402a-9779-f4e8a4426a48',momentum:{l:'AS',r:'MA'},em:'🐪',txt:'Kervan yollarını koruyan sipahilerin sayısı çok fazla. Defterdar bir kısmının görevden alınmasını öneriyor. Komutanlar ise yol güvenliğinin bozulacağını söylüyor.',l:'Sipahileri görevde tut',r:'Bir kısmını görevden al',boost:'hazine',debuff:'ordu',tier:'n'},
+  {id:'N012',momentum:{l:'AS',r:'MA'},em:'🏦',txt:'Defterdar, ordu için ayrılan yıllık bütçenin bir kısmını hazineye aktarmayı öneriyor. Serdar-ı Ekrem bu kesintinin orduyu zayıflatacağını söylüyor.',l:'Ordu bütçesini koru',r:'Bütçeyi hazineye aktar',boost:'hazine',debuff:'ordu',tier:'w'},
+  {id:'ea0510d7-304e-4785-beff-a4c37a136f10',momentum:{l:'AS',r:'MA'},em:'⚖️',txt:'Yeniçerilere ödenen ulufe çok yükseldi. Defterdar maaşlarda kesintiye gidilmesini istiyor. Komutanlar ise askerlerin isyan çıkarabileceği konusunda uyarıyor.',l:'Maaşlara dokunma',r:'Maaşlarda kesinti yap',boost:'hazine',debuff:'ordu',tier:'n'},
+  {id:'51692ad6-c69a-4412-9bb6-5943d4236fd4',momentum:{l:'AS',r:'MA'},em:'🗺️',txt:'Sınır boylarındaki küçük karakolların bir kısmı boşaltılabilir. Defterdar bu şekilde büyük tasarruf sağlanacağını söylüyor. Komutanlar ise sınırın zayıflayacağını belirtiyor.',l:'Karakolları koru',r:'Karakolları boşalt',boost:'hazine',debuff:'ordu',tier:'n'},
+  {id:'N015',momentum:{l:'AS',r:'MA'},em:'🎖️',txt:'Savaşta yaralanan askerlere ödenen emekli maaşları hazineyi zorluyor. Defterdar bu ödemelerin düşürülmesini öneriyor. Serdar-ı Ekrem ise bu duruma karşı çıkıyor.',l:'Gazi maaşlarına dokunma',r:'Maaşları düşür',boost:'hazine',debuff:'ordu',tier:'s'},
+  {id:'N016',momentum:{l:'AS',r:'MA'},em:'🌊',txt:'Kaptan Paşa kış aylarında limanı bekleyen donanma gemilerinin bekçilerini soruyor. Defterdar kış boyunca gemi bekçilerinin görevden alınmasını öneriyor.',l:'Bekçileri görevde tut',r:'Kışın bekçileri çıkar',boost:'hazine',debuff:'ordu',tier:'w'},
+  {id:'57613075-6538-4707-bf96-370dd5850dec',momentum:{l:'AS',r:'MA'},em:'🧱',txt:'Sınır kalelerinden biri harap durumda. Defterdar orayı bırakıp hazineden tasarruf etmemizi öneriyor. Komutanlar ise bu kalenin hudut için mühim olduğunu söylüyor.',l:'Kaleyi terk etme',r:'Kaleyi terk et',boost:'hazine',debuff:'ordu',tier:'n'},
+  {id:'83615318-951f-4f31-b282-4b337e4d4a3d',momentum:{l:'AS',r:'MA'},em:'📦',txt:'Ordunun erzak deposunda fazlalık var. Defterdar fazla erzakın satılmasını öneriyor. Serdar-ı Ekrem ise olası bir seferde bu erzağa ihtiyaç duyulacağını söylüyor.',l:'Erzakı sakla',r:'Fazla erzakı sat',boost:'hazine',debuff:'ordu',tier:'n'},
+  {id:'N019',momentum:{l:'AS',r:'MA'},em:'🔔',txt:'Saraydaki muhafız sayısı çok fazla. Defterdar yarısının terhis edilmesiyle büyük tasarruf sağlanacağını söylüyor. Serdar-ı Ekrem ise saray güvenliğinin zayıflayacağını belirtiyor.',l:'Muhafızları koru',r:'Muhafızların yarısını terhis et',boost:'hazine',debuff:'ordu',tier:'w'},
+
+  // ── HAZİNE BOOST / HALK DEBUFF ──
+  {id:'e757349c-e3c8-492a-9eff-36c7cb4e67e1',momentum:{l:'HS',r:'MA'},em:'⚖️',txt:'Kadı, izinsiz işletilen bazı toprakları tespit etti. Defterdar bu toprakların vergisini hazineye aktarmak istiyor. Halk ise "biz burada nesiller boyu yaşıyoruz" diyor.',l:'Halkı rahatsız etme',r:'Vergiyi hazineye al',boost:'hazine',debuff:'halk',tier:'n'},
+  {id:'N021',momentum:{l:'HS',r:'MA'},em:'🌾',txt:'Defterdar, vergi borcunu ödeyemeyen köylerden tahsilat yapılmasını istiyor. Köylüler ise bu yılın ürününün zayıf olduğunu söylüyor.',l:'Tahsilattan vazgeç',r:'Zorla tahsilat yap',boost:'hazine',debuff:'halk',tier:'w'},
+  {id:'4b94606e-f814-4f8e-b489-d0f8fd52d0b3',momentum:{l:'HS',r:'MA'},em:'📋',txt:'Defterdar, vakıflara ayrılan devlet bütçesinde kesintiye gitmek istiyor. Halk ise bu vakıfların hastane, çeşme ve imareti ayakta tuttuğunu söylüyor.',l:'Vakıf bütçelerini koru',r:'Vakıf bütçelerini kes',boost:'hazine',debuff:'halk',tier:'n'},
+  {id:'N023',momentum:{l:'HS',r:'MA'},em:'🏪',txt:'Hileli ürün satan bir tüccar yakalandı. Defterdar tüccarın varlıklarına el konulmasını istiyor. Mağdurlar ise paralarının iade edilmesini talep ediyor.',l:'Parayı mağdurlara iade et',r:'Varlıklara el koy',boost:'hazine',debuff:'halk',tier:'w'},
+  {id:'d116b7a1-39aa-46ee-b1b9-2708010cc73f',momentum:{l:'HS',r:'MA'},em:'🌊',txt:'Taşan nehir köylerin tarlalarını mahvetti. Halk tazminat istiyor. Defterdar ise bu tazminatın karşılanamayacağını söylüyor.',l:'Tazminat öde',r:'Tazminat ödeme',boost:'hazine',debuff:'halk',tier:'n'},
+  {id:'aa58af72-9044-4d04-97b8-51ce357db297',momentum:{l:'HS',r:'MA'},em:'🏘️',txt:'Bir kasabada yangın çıktı ve pek çok ev yandı. Halk yeniden yapım için devlet yardımı istiyor. Defterdar bu yardımın bütçeyi zorlayacağını söylüyor.',l:'Yardım gönder',r:'Yardım gönderme',boost:'hazine',debuff:'halk',tier:'n'},
+  {id:'N026',momentum:{l:'HS',r:'MA'},em:'🧂',txt:'Defterdar tuz üzerindeki devlet tekeline yüksek fiyat koyulmasını öneriyor. Halk bu fiyat artışının geçimi zorlaştıracağını söylüyor.',l:'Fiyatı artırma',r:'Tuz fiyatını yükselt',boost:'hazine',debuff:'halk',tier:'s'},
+  {id:'ecdc4758-534c-4268-a721-b6169c125b65',momentum:{l:'HS',r:'MA'},em:'🐄',txt:'Defterdar, köylülerin hayvanlarından ek bir baş vergisi alınmasını öneriyor. Köylüler bu verginin geçimlerini imkânsız hale getireceğini söylüyor.',l:'Hayvan vergisinden vazgeç',r:'Hayvan vergisi uygula',boost:'hazine',debuff:'halk',tier:'n'},
+  {id:'N028',momentum:{l:'HS',r:'MA'},em:'🛤️',txt:'Yol kenarlarına çeşmeler yapılması için halktan ek vergi toplanması öneriliyor. Halk zaten vergi ödediğini söyleyerek itiraz ediyor.',l:'Ek vergi toplama',r:'Ek yol vergisi al',boost:'hazine',debuff:'halk',tier:'w'},
+  {id:'84a67ad6-0c44-481b-b24d-526a48fa2190',momentum:{l:'HS',r:'MA'},em:'🏛️',txt:'Defterdar, şehir pazarlarından alınan vergi oranını artırmak istiyor. Esnaf bu artışın pek çok dükkânı kapatmak zorunda bırakacağını söylüyor.',l:'Pazar vergisini artırma',r:'Pazar vergisini artır',boost:'hazine',debuff:'halk',tier:'n'},
+  {id:'N030',momentum:{l:'HS',r:'MA'},em:'🌿',txt:'Köylüler ormanlardan odun toplayarak geçimini sağlıyor. Defterdar bu ormanları devlet mülkü ilan edip gelir elde etmek istiyor. Köylüler ise geçim kaynaklarının ellerinden alınacağını söylüyor.',l:'Ormanları halka bırak',r:'Ormanları devlet mülkü ilan et',boost:'hazine',debuff:'halk',tier:'s'},
+  {id:'d4b2adc3-412b-43dc-a257-61343bc8d741',momentum:{l:'HS',r:'MA'},em:'🐟',txt:'Defterdar, balıkçılardan yıllık av ücreti alınmasını öneriyor. Balıkçılar bu ücretin küçük balıkçıları mahvedeceğini söylüyor.',l:'Av ücretinden vazgeç',r:'Balıkçılardan av ücreti al',boost:'hazine',debuff:'halk',tier:'n'},
+  {id:'N032',momentum:{l:'HS',r:'MA'},em:'🏺',txt:'Devlet çömlekçi ve zanaatkârlardan ek piyasa vergisi almak istiyor. Zanaatkârlar bu verginin küçük ustaları işsiz bırakacağını söylüyor.',l:'Zanaat vergisinden vazgeç',r:'Zanaatkârlardan ek vergi al',boost:'hazine',debuff:'halk',tier:'w'},
+  {id:'7fd55df2-afdf-45df-907c-cdea70511487',momentum:{l:'HS',r:'MA'},em:'🌾',txt:'Defterdar, öşür oranını artırmak istiyor. Köylüler bu artışın zaten kıt olan geçimlerini büsbütün imkânsız hale getireceğini söylüyor.',l:'Öşür oranını artırma',r:'Öşür oranını artır',boost:'hazine',debuff:'halk',tier:'n'},
+  {id:'0f531947-bbc5-42da-a3ba-d41826bf1c42',momentum:{l:'HS',r:'MA'},em:'🧱',txt:'Defterdar, şehirdeki eski köprülerin onarım masraflarının halktan ek vergi toplanarak karşılanmasını öneriyor. Halk bu köprüleri devletin onarması gerektiğini söylüyor.',l:'Vergi toplama',r:'Halktan köprü onarım vergisi al',boost:'hazine',debuff:'halk',tier:'n'},
+  {id:'N035',momentum:{l:'HS',r:'MA'},em:'🐑',txt:'Defterdar, çobanlardan her yıl sürü başına ek bir vergi alınmasını öneriyor. Çobanlar bu verginin küçük sürüleri olan yoksul köylüleri ezeceğini söylüyor.',l:'Sürü vergisinden vazgeç',r:'Çobanlardan sürü vergisi al',boost:'hazine',debuff:'halk',tier:'w'},
+  {id:'b0a88fc3-095f-4803-b75a-a4984b26dc9b',momentum:{l:'HS',r:'MA'},em:'🏺',txt:'Defterdar, şehirdeki çeşme ve su yollarının bakımı için halktan su vergisi alınmasını öneriyor. Halk bu hizmetin devletin görevi olduğunu söylüyor.',l:'Su vergisi toplama',r:'Halktan su vergisi al',boost:'hazine',debuff:'halk',tier:'n'},
+  {id:'N037',momentum:{l:'HS',r:'MA'},em:'🌊',txt:'Taşınan mallara uygulanan gümrük vergisi artırılmak isteniyor. Tüccarlar bu artışın fiyatları yükseltip halkı ezeceğini söylüyor.',l:'Gümrük vergisini artırma',r:'Gümrük vergisini artır',boost:'hazine',debuff:'halk',tier:'s'},
+  {id:'c5d5deb5-379b-4bfa-9015-fc3f5ac18b83',momentum:{l:'HS',r:'MA'},em:'🛖',txt:'Defterdar, köylülerden yıllık saray vergisi toplanmasını öneriyor. Köylüler bu yeni verginin zaten ağır olan yüklerini daha da artıracağını söylüyor.',l:'Saray vergisinden vazgeç',r:'Köylülerden saray vergisi al',boost:'hazine',debuff:'halk',tier:'n'},
+  {id:'867fdbbc-8874-4fc4-aee6-d8b9685c1bcd',momentum:{l:'HS',r:'MA'},em:'🌿',txt:'Defterdar, şehirlerde satılan ilaç ve şifalık otlardan yeni bir vergi alınmasını öneriyor. Esnaf bu verginin ilaçları pahalılaştırıp yoksulların elini daraltacağını söylüyor.',l:'Bu vergiden vazgeç',r:'İlaç ve bitkisel ürünlerden vergi al',boost:'hazine',debuff:'halk',tier:'n'},
+
+  // ── HAZİNE BOOST / DİN DEBUFF ──
+  {id:'134e4310-4ca1-4f9c-a36a-e9de68c5c667',momentum:{l:'DM',r:'PA'},em:'🕌',txt:'Yabancı bir elçi, kutsal emanetlerin geçici olarak kendi ülkesine götürülmesine izin verilmesi karşılığında büyük bir meblağ teklif ediyor. Ulema bunu kabul etmememizi söylüyor.',l:'Teklifi reddet',r:'Parayı al, izin ver',boost:'hazine',debuff:'din',tier:'n'},
+  {id:'N041',momentum:{l:'DM',r:'PA'},em:'💱',txt:'Yabancı bir tüccar, yüksek faizle hazineye borç para vermek istiyor. Ulema faizin dinen yasak olduğunu hatırlatıyor.',l:'Teklifi reddet',r:'Faizli borcu kabul et',boost:'hazine',debuff:'din',tier:'s'},
+  {id:'07d5ae98-b6d6-47ff-8f0e-ac0bb67606c0',momentum:{l:'DM',r:'PA'},em:'🍇',txt:'Bir girişimci, "üzüm suyu" adı altında devlet yatırımı istiyor. Ulema bunun aslında içki ticareti olduğunu söylüyor.',l:'Yatırımı reddet',r:'Yatırımı kabul et',boost:'hazine',debuff:'din',tier:'n'},
+  {id:'57d498a4-0112-4753-80f9-a0224f2010be',momentum:{l:'DM',r:'MA'},em:'🕯️',txt:'Defterdar, cami kandillerinde kullanılan yağı devlet tekeline almayı ve buradan gelir elde etmeyi öneriyor. Ulema bu tekelin ibadet hizmetlerini aksatacağını söylüyor.',l:'Kandil yağına dokunma',r:'Kandil yağını devlet tekeline al',boost:'hazine',debuff:'din',tier:'n'},
+  {id:'N044',momentum:{l:'DM',r:'MA'},em:'📿',txt:'Defterdar, hacca giden vatandaşlara sağlanan yol yardımını kaldırmak istiyor. Ulema bu yardımın dini bir vecibe olduğunu söylüyor.',l:'Hac yardımını koru',r:'Hac yardımını kaldır',boost:'hazine',debuff:'din',tier:'w'},
+  {id:'80c90e90-23cb-4280-a991-c865863d146c',momentum:{l:'DM',r:'MA'},em:'🌙',txt:'Defterdar, Ramazan ayında saraydan halka dağıtılan erzak geleneğini bu yıl durdurmak istiyor. Ulema bu geleneğin sultanlığın şerefini koruduğunu söylüyor.',l:'Ramazan erzakını dağıt',r:'Ramazan erzakını dağıtma',boost:'hazine',debuff:'din',tier:'n'},
+  {id:'N046',momentum:{l:'DM',r:'MA'},em:'🏛️',txt:'Defterdar, vakıf mülklerinin kira gelirlerini hazineye aktarmayı öneriyor. Ulema bu mülklerin dini hizmetleri karşıladığını söylüyor.',l:'Vakıf gelirlerine dokunma',r:'Vakıf gelirlerini hazineye al',boost:'hazine',debuff:'din',tier:'s'},
+  {id:'b8f212d4-ceda-4a66-bc5d-36f53cff3710',momentum:{l:'DM',r:'MO'},em:'🕌',txt:'Şehirdeki bazı küçük mescitler bakımsız kalmış. Defterdar bunların kapatılıp büyük camilere katılmasını öneriyor. Ulema bu mescitlerin mahalle halkı için vazgeçilmez olduğunu söylüyor.',l:'Mescitlere dokunma',r:'Küçük mescitleri kapat',boost:'hazine',debuff:'din',tier:'n'},
+  {id:'N048',momentum:{l:'DM',r:'MA'},em:'📖',txt:'Defterdar, dini kitapların çoğaltılmasına verilen devlet desteğini kesmek istiyor. Ulema bu desteğin ilmin yayılması için şart olduğunu söylüyor.',l:'Dini kitap desteğini koru',r:'Dini kitap desteğini kes',boost:'hazine',debuff:'din',tier:'w'},
+  {id:'23cb72ba-2542-4e28-8aff-5899bd8e963f',momentum:{l:'DM',r:'MA'},em:'🎓',txt:'Medreselerde okuyan öğrencilere verilen burs miktarı düşürülmek isteniyor. Ulema bu bursların kesilmesiyle pek çok öğrencinin eğitimini bırakacağını söylüyor.',l:'Bursları koru',r:'Burs miktarını düşür',boost:'hazine',debuff:'din',tier:'n'},
+  {id:'f9df8f46-3d54-49b9-ac11-75fb48243dda',momentum:{l:'DM',r:'MA'},em:'🏛️',txt:'Defterdar, dini vakıfların işlettiği kervansaraylardan kira bedeli talep edilmesini öneriyor. Ulema bu kervansarayların yolcuları ücretsiz barındırmak için kurulduğunu söylüyor.',l:'Kervansaraylardan kira talep etme',r:'Vakıf kervansaraylarından kira al',boost:'hazine',debuff:'din',tier:'n'},
+  {id:'08c76be6-56ae-4078-96c1-758b63fda566',momentum:{l:'DM',r:'MA'},em:'🌙',txt:'Defterdar, Ramazan ayına özel çarşı ve pazarlardan ek bir bayram vergisi alınmasını öneriyor. Ulema bu mübarek ayda ek vergi konulmasının uygun olmadığını söylüyor.',l:'Ramazan vergisini koyma',r:'Ramazan çarşılarından bayram vergisi al',boost:'hazine',debuff:'din',tier:'n'},
+  {id:'N053',momentum:{l:'DM',r:'MA'},em:'🏗️',txt:'Defterdar, yeni cami inşaatlarını hazineden değil halktan bağış toplayarak karşılamayı öneriyor. Ulema cami inşaatının devletin sorumluluğu olduğunu söylüyor.',l:'Cami inşaatını devlet karşılasın',r:'Cami inşaatı için halktan bağış topla',boost:'hazine',debuff:'din',tier:'s'},
+  {id:'d244933f-fcbc-41b1-96de-442b865960b4',momentum:{l:'DM',r:'MA'},em:'📖',txt:'Defterdar, medreselerin devletten aldığı yakacak ve erzak yardımını kesmek istiyor. Ulema bu yardım olmadan pek çok öğrencinin aç kalacağını söylüyor.',l:'Medrese yardımını koru',r:'Medrese erzak ve yakacak yardımını kes',boost:'hazine',debuff:'din',tier:'n'},
+  {id:'N055',momentum:{l:'DM',r:'MA'},em:'🎓',txt:'Defterdar, devlet tarafından karşılanan dini törenlerin sayısını yılda ikiye indirmeyi öneriyor. Ulema bu törenlerin toplumsal birliği pekiştirdiğini söylüyor.',l:'Tören sayısına dokunma',r:'Devletin karşıladığı dini törenleri azalt',boost:'hazine',debuff:'din',tier:'w'},
+  {id:'1ef4d66e-8b73-47e8-996c-e25bec7e3bb7',momentum:{l:'DM',r:'MA'},em:'🌿',txt:'Defterdar, şifa evi ve darüşşifaları dini vakıflardan alıp ücretli hale getirmeyi öneriyor. Ulema bu yerlerin yoksullara ücretsiz hizmet vermek için kurulduğunu söylüyor.',l:'Darüşşifaları ücretli hale getirme',r:'Darüşşifaları ücretli hale getir',boost:'hazine',debuff:'din',tier:'n'},
+  {id:'N057',momentum:{l:'DM',r:'MA'},em:'🕌',txt:'Defterdar, büyük camilerin etrafındaki dükkan ve hanların kira gelirlerini hazineye aktarmayı öneriyor. Ulema bu gelirlerin cami giderlerine harcanması gerektiğini söylüyor.',l:'Cami çevresi gelirlerine dokunma',r:'Cami çevresi kira gelirlerini hazineye al',boost:'hazine',debuff:'din',tier:'s'},
+  {id:'9c067f89-006a-4c02-9d27-d093865d902d',momentum:{l:'DM',r:'MA'},em:'🏺',txt:'Defterdar, hacılardan alınan dini emanet koruma ücretinin artırılmasını öneriyor. Ulema bu ücretin yoksul hacılar için çok yüksek olduğunu söylüyor.',l:'Emanet ücretini artırma',r:'Hacılardan alınan emanet ücretini artır',boost:'hazine',debuff:'din',tier:'n'},
+  {id:'d07d2705-f416-46de-86c0-0f6c65048987',momentum:{l:'DM',r:'MA'},em:'📿',txt:'Defterdar, şehre gelen dini gezginlerden konaklama vergisi alınmasını öneriyor. Ulema bu uygulamanın ilim yolculuklarını engelleyeceğini söylüyor.',l:'Dini gezginlere dokunma',r:'Dini gezginlerden konaklama vergisi al',boost:'hazine',debuff:'din',tier:'n'},
+
+  // ── ORDU BOOST / HAZİNE DEBUFF ──
+  {id:'c01b0d54-b20a-49d1-8ff1-fce8e0586dc9',momentum:{l:'MA',r:'AS'},em:'🛡️',txt:'Serdar-ı Ekrem, ordunun kullandığı zırhların ve silahların yenilenmesi gerektiğini söylüyor. Defterdar bunun hazineye büyük yük bindireceğini belirtiyor.',l:'Ekipmanları yenileme',r:'Ekipmanları yenile',boost:'ordu',debuff:'hazine',tier:'n'},
+  {id:'N061',momentum:{l:'MA',r:'AS'},em:'⛵',txt:'Kaptan Paşa, açık denizlerde rakiplerimizle baş edebilmek için donanmanın yenilenmesi gerektiğini söylüyor. Defterdar çok masraflı olacağı konusunda uyarıyor.',l:'Donanmayı yenileme',r:'Donanmayı yenile',boost:'ordu',debuff:'hazine',tier:'w'},
+  {id:'N062',momentum:{l:'MA',r:'AS'},em:'🗡️',txt:'Sadrazam, Yeniçeri ocağının genişletilmesini ve yeni asker alınmasını öneriyor. Defterdar ise bu kadar askerin maaşını ödemenin hazineyi zorlayacağını söylüyor.',l:'Yeni asker alma',r:'Yeni askerler al',boost:'ordu',debuff:'hazine',tier:'s'},
+  {id:'6f3fb31b-932e-4da8-a922-ee8392f6df26',momentum:{l:'MA',r:'AS'},em:'🔥',txt:'Dökümhanede büyük bir yangın çıktı ve silah üretimi durdu. Serdar-ı Ekrem yeni bir dökümhane inşa edilmesini istiyor. Defterdar önce bütçeyi toparlamamız gerektiğini söylüyor.',l:'İnşaatı ertele',r:'İnşaata hemen başla',boost:'ordu',debuff:'hazine',tier:'n'},
+  {id:'006e1cf6-03a0-4b3b-83f8-9e9f0973107a',momentum:{l:'MA',r:'AS'},em:'🏹',txt:'Serdar-ı Ekrem, yeni fethedilen topraklara kalıcı bir garnizon kurulmasını istiyor. Defterdar bunun yıllarca sürecek büyük bir maliyet olduğunu söylüyor.',l:'Garnizon kurma',r:'Garnizon kur',boost:'ordu',debuff:'hazine',tier:'n'},
+  {id:'N065',momentum:{l:'MA',r:'AS'},em:'🐎',txt:'Serdar-ı Ekrem, süvari birliklerinin atlarının yenilenmesi gerektiğini söylüyor. Defterdar bu kadar at satın almanın hazineyi zorlayacağını belirtiyor.',l:'Atları yenileme',r:'Yeni atlar satın al',boost:'ordu',debuff:'hazine',tier:'w'},
+  {id:'c1ba0cfe-aeea-462f-a56f-f32760844147',momentum:{l:'MA',r:'AS'},em:'🗼',txt:'Serdar-ı Ekrem, hakim bir tepede yeni bir gözetleme kulesi inşa edilmesini istiyor. Defterdar bunun büyük bir masraf olduğunu söylüyor.',l:'Kule inşa etme',r:'Gözetleme kulesi inşa et',boost:'ordu',debuff:'hazine',tier:'n'},
+  {id:'N067',momentum:{l:'MA',r:'AS'},em:'🌊',txt:'Kaptan Paşa, kıyı savunması için yeni toplar döktürülmesini istiyor. Defterdar bu topların çok pahalıya mal olacağını söylüyor.',l:'Yeni top döktürme',r:'Kıyı topları döktür',boost:'ordu',debuff:'hazine',tier:'s'},
+  {id:'90c6952d-1bce-44c1-ad90-b4c1d5549209',momentum:{l:'MA',r:'AS'},em:'🧭',txt:'Serdar-ı Ekrem, ordunun harita ve pusula gibi savaş araçlarını yenilemek istiyor. Defterdar bu harcamayı gereksiz buluyor.',l:'Mevcut araçlarla idare et',r:'Savaş araçlarını yenile',boost:'ordu',debuff:'hazine',tier:'n'},
+  {id:'N069',momentum:{l:'MA',r:'AS'},em:'🏕️',txt:'Serdar-ı Ekrem, askerlerin kışlık barınma koşullarını iyileştirmek için yeni çadır ve malzeme istiyor. Defterdar mevcut malzemelerin yeterli olduğunu söylüyor.',l:'Mevcut malzemelerle kal',r:'Yeni kışlık malzeme al',boost:'ordu',debuff:'hazine',tier:'w'},
+  {id:'f2264ed9-55a3-4517-94a7-1519527fff59',momentum:{l:'MA',r:'PA'},em:'⚗️',txt:'Serdar-ı Ekrem, Avrupalı bir mühendisten yeni savunma yöntemleri öğrenilmesini istiyor. Defterdar bu yabancı uzmana ödenen ücretin çok yüksek olduğunu söylüyor.',l:'Yabancı uzmanı reddet',r:'Yabancı uzmanı işe al',boost:'ordu',debuff:'hazine',tier:'n'},
+  {id:'9c06f538-4768-49a0-9692-597063d7edc3',momentum:{l:'MA',r:'AS'},em:'🛶',txt:'Kaptan Paşa, nehir geçişlerinde kullanılmak üzere yeni sal ve kayık alınmasını istiyor. Defterdar bunun öncelikli bir harcama olmadığını söylüyor.',l:'Mevcut taşıtlarla idare et',r:'Yeni geçiş araçları al',boost:'ordu',debuff:'hazine',tier:'n'},
+  {id:'N072',momentum:{l:'MA',r:'PA'},em:'🔭',txt:'Serdar-ı Ekrem, düşman hareketlerini uzaktan görmek için yeni göz aletleri getirtmek istiyor. Defterdar bu iş için yabancı tüccara çok para ödeneceğini söylüyor.',l:'Getirtme',r:'Göz aletleri getirt',boost:'ordu',debuff:'hazine',tier:'w'},
+  {id:'e1dd4b7f-8cfd-476a-b872-61a97c95739b',momentum:{l:'MA',r:'AS'},em:'🧱',txt:'Serdar-ı Ekrem, savaş makinelerinin yenilenmesini istiyor. Defterdar bu makinelerin artık pek kullanılmadığını ve paranın boşa gideceğini söylüyor.',l:'Makineleri yenileme',r:'Savaş makinelerini yenile',boost:'ordu',debuff:'hazine',tier:'n'},
+  {id:'N074',momentum:{l:'PA',r:'AS'},em:'🏹',txt:'Serdar-ı Ekrem, okçu birliklerini ıslah etmek için Doğu\'dan usta okçular getirtmek istiyor. Defterdar bu ustalar için ödenecek ücretin çok yüksek olduğunu söylüyor.',l:'Yabancı okçuları getirtme',r:'Doğu\'dan usta okçular getirt',boost:'ordu',debuff:'hazine',tier:'s'},
+  {id:'5e2edfe4-a2f2-453e-a3a5-147b45352584',momentum:{l:'MA',r:'AS'},em:'🌊',txt:'Kaptan Paşa, deniz seferlerinde rehberlik edecek deneyimli denizciler kiralamak istiyor. Defterdar bu kiralık denizcilerin çok pahalıya mal olacağını söylüyor.',l:'Kiralık denizci alma',r:'Deneyimli denizciler kirala',boost:'ordu',debuff:'hazine',tier:'n'},
+  {id:'N076',momentum:{l:'MA',r:'AS'},em:'🔐',txt:'Serdar-ı Ekrem, düşman casuslarını tespit etmek için gizli bir istihbarat ağı kurmak istiyor. Defterdar bu ağın kurulmasının büyük bir başlangıç maliyeti gerektirdiğini söylüyor.',l:'İstihbarat ağını kurma',r:'Gizli istihbarat ağı kur',boost:'ordu',debuff:'hazine',tier:'w'},
+  {id:'f079792e-9b71-473e-8480-6695fe8d7460',momentum:{l:'MA',r:'AS'},em:'🐎',txt:'Serdar-ı Ekrem, süvari birliklerini hızlandırmak için hafif zırh üretilmesini istiyor. Defterdar bunun pahalı ve uzun soluklu bir iş olduğunu söylüyor.',l:'Hafif zırh üretimini ertele',r:'Süvari için hafif zırh üret',boost:'ordu',debuff:'hazine',tier:'n'},
+  {id:'N078',momentum:{l:'MA',r:'AS'},em:'🏰',txt:'Serdar-ı Ekrem, başkenti kuşatmaya karşı koruyacak yeni bir sur hattı inşa etmek istiyor. Defterdar mevcut surların yeterli olduğunu söylüyor.',l:'Yeni sur inşa etme',r:'Yeni sur hattı inşa et',boost:'ordu',debuff:'hazine',tier:'s'},
+  {id:'9a40607a-fb7e-472a-b955-24e270145ddb',momentum:{l:'MA',r:'AS'},em:'🧪',txt:'Serdar-ı Ekrem, barut üretimini artırmak için yeni bir imalathane kurmak istiyor. Defterdar bu imalathanenin şehir içinde tehlike yaratabileceğini söylüyor.',l:'İmalathaneyi kurma',r:'Yeni barut imalathanesi kur',boost:'ordu',debuff:'hazine',tier:'n'},
+
+  // ── ORDU BOOST / HALK DEBUFF ──
+  {id:'4a3609e9-a1c3-43ef-8a77-6b50b81748b1',momentum:{l:'HS',r:'MO'},em:'📯',txt:'Sadrazam, savaş dönemlerinde zorla asker toplama yetkisi veren bir kanun çıkarmak istiyor. Halk ise çocuklarının zorla alınmasından korktuğunu söylüyor.',l:'Kanunu çıkarma',r:'Kanunu çıkar',boost:'ordu',debuff:'halk',tier:'n'},
+  {id:'N081',momentum:{l:'HS',r:'AS'},em:'🏰',txt:'Bir ordu komutanı, sefer hazırlığı için köylülerin arazilerinin geçici olarak askeri alan ilan edilmesini istiyor. Köylüler ise tarlalarından sürülmek istemediklerini söylüyor.',l:'Köylülere dokunma',r:'Arazi toplama izni ver',boost:'ordu',debuff:'halk',tier:'w'},
+  {id:'6bc0d405-ce5a-4b76-ba34-db6a651e8282',momentum:{l:'HS',r:'AS'},em:'🏗️',txt:'Serdar-ı Ekrem, sınır kalelerini güçlendirmek için köylülerden ücret ödemeden işçi toplanmasını istiyor. Köylüler bunun köyleri için büyük bir yük olacağını söylüyor.',l:'Zorla işçi toplama',r:'Zorla işçi topla',boost:'ordu',debuff:'halk',tier:'n'},
+  {id:'N083',momentum:{l:'HS',r:'AS'},em:'🌾',txt:'Serdar-ı Ekrem, sefer hazırlığı için köylülerin hayvanlarına el konulmasını istiyor. Köylüler tarlalarında çalışacak hayvanları olmadan açlığa düşeceklerini söylüyor.',l:'Köylülerin hayvanlarına dokunma',r:'Hayvanları sefer için al',boost:'ordu',debuff:'halk',tier:'s'},
+  {id:'534c5b4f-f3a7-4724-b2e4-af88631e17ab',momentum:{l:'HS',r:'AS'},em:'🪵',txt:'Ordu, kale inşaatı için köylerden kereste ve taş toplanmasını istiyor. Köylüler kendi evlerini tamir etmek için bu malzemelere ihtiyaç duyduklarını söylüyor.',l:'Köylerin malzemelerine dokunma',r:'Malzemeleri topla',boost:'ordu',debuff:'halk',tier:'n'},
+  {id:'N085',momentum:{l:'HS',r:'AS'},em:'🏠',txt:'Ordunun kışlaması için halkın evlerine asker konuşlandırılması isteniyor. Halk yabancı askerlerin evlerine girmesini istemediğini söylüyor.',l:'Halka zorla konaklama uygulama',r:'Evlere asker konuşlandır',boost:'ordu',debuff:'halk',tier:'w'},
+  {id:'7011e3ba-6d23-461c-b153-71bec9700206',momentum:{l:'HS',r:'AS'},em:'🛣️',txt:'Serdar-ı Ekrem, askeri sevkiyat için köy yollarının genişletilmesini istiyor. Bunun için köylülerin bazı tarlalarına el konulması gerekiyor.',l:'Köylülerin tarlalarına dokunma',r:'Tarlaları yol için al',boost:'ordu',debuff:'halk',tier:'n'},
+  {id:'73d98d34-bb9e-4ff6-8c7f-83b67eb96811',momentum:{l:'HS',r:'AS'},em:'🔥',txt:'Ordu tatbikatları sırasında çıkan yangın bir köyün tarlalarını yaktı. Köylüler tazminat ve özür istiyor. Serdar-ı Ekrem tazminat ödenmesini zayıflık olarak görüyor.',l:'Köylülere tazminat öde',r:'Tazminat ödeme',boost:'ordu',debuff:'halk',tier:'n'},
+  {id:'N088',momentum:{l:'HS',r:'MO'},em:'🧒',txt:'Serdar-ı Ekrem, genç erkeklerin köylerinde birer ay askeri eğitim almasını zorunlu kılmak istiyor. Aileler çocuklarının eğitim ve tarla işlerinden geri kalacağını söylüyor.',l:'Zorunlu eğitimi uygulama',r:'Zorunlu köy eğitimini başlat',boost:'ordu',debuff:'halk',tier:'w'},
+  {id:'4ddc4303-e1d7-4227-a794-1ee0ae808cd9',momentum:{l:'HS',r:'AS'},em:'🌾',txt:'Serdar-ı Ekrem, savaş döneminde köylerin meyve ve sebze üretiminin öncelikle orduya verilmesini istiyor. Köylüler kendi geçimlerinin tehlikeye gireceğini söylüyor.',l:'Ordu önceliğini uygulama',r:'Meyve ve sebze üretiminde orduyu öncelikli kıl',boost:'ordu',debuff:'halk',tier:'n'},
+  {id:'N090',momentum:{l:'HS',r:'AS'},em:'🏘️',txt:'Serdar-ı Ekrem, şehir içindeki geniş arazilerin yeni kışla için alınmasını istiyor. Halk bu arazilerin pazar yeri ve mesire olarak kullanıldığını söylüyor.',l:'Arazilere dokunma',r:'Arazileri kışla için al',boost:'ordu',debuff:'halk',tier:'s'},
+  {id:'a4e74aac-a1b5-4bfd-898a-cf4489e8544f',momentum:{l:'HS',r:'MO'},em:'🚪',txt:'Serdar-ı Ekrem, savaş döneminde şehirden çıkışları askeri izne bağlamak istiyor. Halk bunun ticareti ve aile ziyaretlerini engelleyeceğini söylüyor.',l:'Seyahat özgürlüğüne dokunma',r:'Şehir çıkışlarını askeri izne bağla',boost:'ordu',debuff:'halk',tier:'n'},
+  {id:'N092',momentum:{l:'HS',r:'AS'},em:'🌊',txt:'Serdar-ı Ekrem, balıkçı teknelerinin savaş döneminde ordu taşımacılığına tahsis edilmesini istiyor. Balıkçılar geçim kaynakları olmadan açlığa düşeceklerini söylüyor.',l:'Balıkçı teknelerine dokunma',r:'Balıkçı teknelerini orduya tahsis et',boost:'ordu',debuff:'halk',tier:'w'},
+  {id:'01b79c46-fe3d-407a-a648-ec81d1cf19f9',momentum:{l:'HS',r:'AS'},em:'🐂',txt:'Serdar-ı Ekrem, köylülerden sefer için öküz ve araba toplanmasını istiyor. Köylüler bu hayvanlar olmadan tarlaları süremeyeceklerini söylüyor.',l:'Köylülerin hayvanlarına dokunma',r:'Köylülerden öküz ve araba topla',boost:'ordu',debuff:'halk',tier:'n'},
+  {id:'9bca3ea1-7c99-4921-9c46-a6ae0953c080',momentum:{l:'HS',r:'MO'},em:'🔔',txt:'Serdar-ı Ekrem, demirci ve marangozların önce orduya hizmet etmesini istiyor. Esnaf kendi müşterilerini kaybederlerse iflasın kaçınılmaz olacağını söylüyor.',l:'Esnafı serbest bırak',r:'Esnafı önce orduya çalıştır',boost:'ordu',debuff:'halk',tier:'n'},
+  {id:'N095',momentum:{l:'HS',r:'MO'},em:'🌙',txt:'Serdar-ı Ekrem, savaş döneminde şehirde gece nöbetleri için halktan zorunlu gönüllü toplanmasını istiyor. Halk bu zorunluluğun uykusuz ve yorgun insanlar yaratacağını söylüyor.',l:'Zorunlu gece nöbetini uygulama',r:'Halktan zorunlu gece nöbetçisi topla',boost:'ordu',debuff:'halk',tier:'w'},
+  {id:'31839adb-8272-4c97-a074-d7e92a914219',momentum:{l:'HS',r:'MO'},em:'🎯',txt:'Serdar-ı Ekrem, on beş yaşından büyük her erkeğin ayda bir gün zorunlu atış talimi yapmasını istiyor. Halk bu zorunluluğun iş ve tarla günlerini mahvedeceğini söylüyor.',l:'Zorunlu talimi uygulama',r:'Halka zorunlu aylık atış talimi getir',boost:'ordu',debuff:'halk',tier:'n'},
+  {id:'11c1d7ad-8637-4b0e-bd44-133b9aa1079d',momentum:{l:'AS',r:'HS'},em:'🛡️',txt:'Halk, şehirdeki askeri devriyelerinin azaltılmasını istiyor; devriyecilerin çok baskıcı davrandığından şikâyetçi. Komutanlar ise devriye sayısının azaltılmasının güvenliği tehlikeye atacağını söylüyor.',l:'Devriye sayısını koru',r:'Devriye sayısını azalt',boost:'halk',debuff:'ordu',tier:'n',mb:true,mbKey:'devriye_azalt'},
+  {id:'0948abee-eb21-4cef-8634-e2d4d4b57f55',momentum:{l:'AS',r:'HS'},em:'🏠',txt:'Halk, uzak sınır kalelerine gönderilen askerlerin daha sık izne gönderilmesini istiyor. Serdar-ı Ekrem sık iznin kale savunmasını zayıflatacağını söylüyor.',l:'İzin sıklığını artırma',r:'Sınır askerlerinin iznini sıklaştır',boost:'halk',debuff:'ordu',tier:'n',mb:true,mbKey:'sinir_izin'},
+  {id:'N100',momentum:{l:'AS',r:'HS'},em:'🌾',txt:'Köylüler, sınır bölgesindeki asker tatbikatlarının tarlalarına zarar verdiğini söylüyor ve tatbikatların başka bölgede yapılmasını istiyor. Serdar-ı Ekrem bu bölgenin ordu için mühim olduğunu söylüyor.',l:'Tatbikatlar burada devam etsin',r:'Tatbikatları köyden uzağa taşı',boost:'halk',debuff:'ordu',tier:'w',mb:true,mbKey:'tatbikat_tasi'},
+
+  // ── ORDU BOOST / DİN DEBUFF ──
+  {id:'N101',momentum:{l:'DM',r:'AS'},em:'📚',txt:'Serdar-ı Ekrem, yaklaşan büyük sefer için medrese öğrencilerinin de askere alınması gerektiğini söylüyor. Ulema bu durumun dini eğitimi sekteye uğratacağını belirtiyor.',l:'Medrese öğrencilerine dokunma',r:'Öğrencileri askere al',boost:'ordu',debuff:'din',tier:'s'},
+  {id:'b41f0129-fdfc-47c2-aa56-1509347c949b',momentum:{l:'DM',r:'AS'},em:'🏫',txt:'Serdar-ı Ekrem, sefer erzakını depolamak için bazı medrese binalarının geçici olarak kullanılmasını istiyor. Ulema bu durumun eğitim faaliyetlerini durduracağını söylüyor.',l:'Medreselere dokunma',r:'Medreseleri depoya çevir',boost:'ordu',debuff:'din',tier:'n'},
+  {id:'N103',momentum:{l:'DM',r:'AS'},em:'🌙',txt:'Komutanlar, savaş meydanında hız kazanmak için ibadet vakitlerinde de talim ve hareket yapılabilmesini istiyor. Ulema bunun kabul edilemez olduğunu söylüyor.',l:'İbadet düzenini koru',r:'İbadet düzenini gevşet',boost:'ordu',debuff:'din',tier:'w'},
+  {id:'5ed1d32f-8c31-4be6-a710-13a171542e9a',momentum:{l:'DM',r:'AS'},em:'⚔️',txt:'Serdar-ı Ekrem, fethedilen topraklardaki camilerin kışlaya dönüştürülmesini istiyor. Ulema bu yapıların ibadete açık kalması gerektiğini söylüyor.',l:'Camilere dokunma',r:'Camileri kışlaya çevir',boost:'ordu',debuff:'din',tier:'n'},
+  {id:'90d7e851-f367-44dd-91b0-f5c67424e9b0',momentum:{l:'DM',r:'AS'},em:'📯',txt:'Serdar-ı Ekrem, savaş ilanının baskın için cuma hutbesinden önce yapılmasını istiyor. Ulema bu durumun dini geleneğe aykırı olduğunu söylüyor.',l:'Geleneğe uy',r:'Cuma öncesi savaş ilan et',boost:'ordu',debuff:'din',tier:'n'},
+  {id:'N106',momentum:{l:'DM',r:'AS'},em:'🗡️',txt:'Ordu, sefer sırasında ele geçirilen kutsal kitapların ganimet sayılmasını istiyor. Ulema bu kitapların derhal iade edilmesi gerektiğini söylüyor.',l:'Kitapları iade et',r:'Kitapları ganimet say',boost:'ordu',debuff:'din',tier:'w'},
+  {id:'N107',momentum:{l:'DM',r:'AS'},em:'🏕️',txt:'Serdar-ı Ekrem, sefer süresince askerlerin oruç tutmamasını istiyor; oruçlu askerlerin yorulduğunu söylüyor. Ulema buna kesinlikle karşı çıkıyor.',l:'Oruca saygı göster',r:'Sefer sırasında orucu kaldır',boost:'ordu',debuff:'din',tier:'s'},
+  {id:'a25e4752-e8c8-42d8-bac1-0862eeb9490e',momentum:{l:'DM',r:'AS'},em:'🌙',txt:'Serdar-ı Ekrem, yeni fethedilen topraklarda ezan okunmasını bir süre ertelemek istiyor; halkın alışması için zaman gerektiğini söylüyor. Ulema bunu kabul edilemez buluyor.',l:'Ezanı hemen oku',r:'Ezan okumayı ertele',boost:'ordu',debuff:'din',tier:'n'},
+  {id:'a6c2598b-ce31-49e8-97cb-1012e8b47121',momentum:{l:'DM',r:'AS'},em:'📜',txt:'Serdar-ı Ekrem, bazı dini vakıfların topraklarının askeri amaçla kullanılmasını istiyor. Ulema bu topraklara dokunulmaması gerektiğini söylüyor.',l:'Vakıf topraklarına dokunma',r:'Vakıf topraklarını askeri amaçla kullan',boost:'ordu',debuff:'din',tier:'n'},
+  {id:'N110',momentum:{l:'DM',r:'AS'},em:'🔔',txt:'Ordu, sefer boyunca sabah ezanından önce kolay toplanmak için davul ve boru çalınmasına izin isteniyor. Ulema bu durumun sabah namazına saygısızlık olduğunu söylüyor.',l:'Sabah ezanına saygı göster',r:'Sefer davuluna izin ver',boost:'ordu',debuff:'din',tier:'w'},
+  {id:'78da6035-3169-4dee-bd63-7bee44a8066d',momentum:{l:'DM',r:'AS'},em:'⚔️',txt:'Serdar-ı Ekrem, savaş ganimetinin tamamının ordu komutanlarınca paylaştırılmasını istiyor. Ulema ganimetin belirli bir kısmının fakirlere ve dini vakıflara verilmesi gerektiğini söylüyor.',l:'Ganimeti dini kurallara göre paylaştır',r:'Ganimetin tamamını komutanlar paylaştırsın',boost:'ordu',debuff:'din',tier:'n'},
+  {id:'N112',momentum:{l:'DM',r:'AS'},em:'🏛️',txt:'Serdar-ı Ekrem, şehirde büyük bir kışla inşa edilmesi için bazı mezarlık alanlarının kullanılmasını istiyor. Ulema mezarlıklara dokunulmasının dinen yasak olduğunu söylüyor.',l:'Mezarlıklara dokunma',r:'Mezarlık alanlarına kışla yap',boost:'ordu',debuff:'din',tier:'s'},
+  {id:'a7174866-4c64-4aa3-983f-5c91e85623d4',momentum:{l:'DM',r:'AS'},em:'📯',txt:'Serdar-ı Ekrem, orduya yeni asker kazandırmak için cuma hutbelerinin askerlik çağrısına dönüştürülmesini istiyor. Ulema hutbenin siyasi amaçla kullanılmasının kabul edilemez olduğunu söylüyor.',l:'Hutbeye dokunma',r:'Cuma hutbelerini asker toplama aracına dönüştür',boost:'ordu',debuff:'din',tier:'n'},
+  {id:'N114',momentum:{l:'DM',r:'AS'},em:'🌙',txt:'Serdar-ı Ekrem, yeni fethedilen topraklardaki camilerin bir kısmının geçici olarak ordu deposu olarak kullanılmasını istiyor. Ulema bu durumun ibadet mekanlarına saygısızlık olduğunu söylüyor.',l:'Camilere dokunma',r:'Camileri geçici ordu deposuna çevir',boost:'ordu',debuff:'din',tier:'w'},
+  {id:'4e6a8354-bac9-4ef6-bd5b-9e70a2eba14b',momentum:{l:'DM',r:'AS'},em:'🗡️',txt:'Serdar-ı Ekrem, şehirdeki alim ve din adamlarının da savaş döneminde askeri görev üstlenmesini istiyor. Ulema alimlerin savaş değil ilim ve ibadet için var olduğunu söylüyor.',l:'Alimleri askeri görevden muaf tut',r:'Alimleri de askeri göreve çağır',boost:'ordu',debuff:'din',tier:'n'},
+  {id:'8797da3e-c12d-4818-bd80-f1f45b142d04',momentum:{l:'DM',r:'AS'},em:'🔐',txt:'Serdar-ı Ekrem, camilerde korunmasız ibadet eden devlet adamlarının tehlikede olduğunu söyleyerek gece namazlarının kısıtlanmasını istiyor. Ulema bunu kesinlikle reddediyor.',l:'Gece namazlarına dokunma',r:'Gece namazlarını kısıtla',boost:'ordu',debuff:'din',tier:'n'},
+  {id:'N117',momentum:{l:'DM',r:'AS'},em:'🏹',txt:'Serdar-ı Ekrem, dini eğitimle eş zamanlı askerlik eğitimi uygulamak istiyor. Ulema bu uygulamanın dini eğitimin kalitesini düşüreceğini söylüyor.',l:'Dini eğitime dokunma',r:'Dini eğitimle eş zamanlı askerlik eğitimi uygula',boost:'ordu',debuff:'din',tier:'w'},
+  {id:'a0debf9c-299a-48a0-ad50-488d74d78be4',momentum:{l:'DM',r:'AS'},em:'🌊',txt:'Serdar-ı Ekrem, kıyı mescitlerini deniz gözetleme kulesi olarak kullanmak istiyor. Ulema bu yapıların yalnızca ibadet amaçlı kullanılması gerektiğini söylüyor.',l:'Mescitlere dokunma',r:'Kıyı mescitlerini gözetleme kulesi olarak kullan',boost:'ordu',debuff:'din',tier:'n'},
+  {id:'N119',momentum:{l:'DM',r:'AS'},em:'📜',txt:'Serdar-ı Ekrem, savaş vergisi toplanırken dini kurumların da pay ödemesini istiyor. Ulema dini kurumların her zaman vergiden muaf tutulması gerektiğini söylüyor.',l:'Dini kurumları vergiden muaf tut',r:'Dini kurumlardan da savaş vergisi al',boost:'ordu',debuff:'din',tier:'s'},
+  {id:'ae2178b9-7a69-4e78-b050-c3afdb825947',momentum:{l:'DM',r:'AS'},em:'🎺',txt:'Serdar-ı Ekrem, savaş öncesi moral için mehteran kurulmasını ve her gün boru ve davul çalınmasını istiyor. Ulema bu gürültünün ibadet saatlerini bozduğunu söylüyor.',l:'İbadet saatlerini koru',r:'Mehteran kur, her gün çalınsın',boost:'ordu',debuff:'din',tier:'n'},
+
+  // ── HALK BOOST / DİN DEBUFF ──
+  {id:'a1990b6c-0159-4dc9-a160-c2282243b9f5',momentum:{l:'DM',r:'HS'},em:'🎓',txt:'Halk, medreselerde okutulan bazı eski derslerin kaldırılmasını istiyor. Ulema ise bu derslerin köklü bir geleneğin parçası olduğunu söylüyor.',l:'Müfredatı değiştirme',r:'Bazı dersleri kaldır',boost:'halk',debuff:'din',tier:'n'},
+  {id:'N122',momentum:{l:'DM',r:'MO'},em:'📖',txt:'Halk, bir medrese eserinin sapkın düşünceler içerdiğini söyleyerek yasaklanmasını istiyor. Ulema ise bu eseri savunuyor ve yasaklanmaması gerektiğini belirtiyor.',l:'Esere dokunma',r:'Eseri yasakla',boost:'halk',debuff:'din',tier:'s'},
+  {id:'fac306d5-df40-4989-8b1b-d84c664b0f7f',momentum:{l:'DM',r:'HS'},em:'🎉',txt:'Halk, bayramlarda büyük şenlikler ve eğlenceler düzenlemek istiyor. Ulema ise bu eğlencelerin dini kurallara aykırı olduğunu söylüyor.',l:'Şenlikleri yasakla',r:'Şenliklere izin ver',boost:'halk',debuff:'din',tier:'n'},
+  {id:'N124',momentum:{l:'MO',r:'HS'},em:'🎵',txt:'Gençler şehir meydanında müzikli ve danslı eğlenceler düzenliyor. Ulema bu eğlenceleri yasaklamanı istiyor; gençler ise devam etmesini istiyor.',l:'Eğlenceleri yasakla',r:'Eğlencelere karışma',boost:'halk',debuff:'din',tier:'w'},
+  {id:'0f002ba5-a4fd-4c29-bd81-5035a49ba016',momentum:{l:'MO',r:'PA'},em:'🎭',txt:'Halk, şehirde tiyatro ve gösteri izni verilmesini istiyor. Ulema bu tür gösterilerin ahlakı bozduğunu ve yasaklanması gerektiğini söylüyor.',l:'Gösterileri yasakla',r:'Tiyatroya izin ver',boost:'halk',debuff:'din',tier:'n'},
+  {id:'N126',momentum:{l:'MO',r:'PA'},em:'🎨',txt:'Bazı sanatçılar şehirde resim ve heykel sergilemek istiyor.. Halk bu sanat eserlerini görmekten çok heyecanlı. Ulema ise bu tür tasvirlerin dinen yasak olduğunu söylüyor.',l:'Sergiyi yasakla',r:'Sergiyi aç',boost:'halk',debuff:'din',tier:'w'},
+  {id:'36130e41-987a-4c6c-b3fe-e31d289ecc3d',momentum:{l:'DM',r:'HS'},em:'💃',txt:'Halk, düğün törenlerinde kadın ve erkeklerin birlikte eğlenmesine izin verilmesini istiyor. Ulema bu durumun dini kurallara aykırı olduğunu söylüyor.',l:'Karma düğünleri yasakla',r:'Karma düğünlere izin ver',boost:'halk',debuff:'din',tier:'n'},
+  {id:'N128',momentum:{l:'DM',r:'PA'},em:'📚',txt:'Halk, çocuklarının medrese yerine mahalle mekteplerinde okuyabilmesini istiyor. Ulema medrese eğitiminin zorunlu tutulması gerektiğini söylüyor.',l:'Medreseyi zorunlu tut',r:'Mahalle mekteplerini serbest bırak',boost:'halk',debuff:'din',tier:'s'},
+  {id:'d2274cf6-fb49-43fa-a0c4-6312df757113',momentum:{l:'DM',r:'HS'},em:'🌸',txt:'Halk, bahar şenliklerinde eski geleneksel ritüellerin canlandırılmasını istiyor. Ulema bu ritüellerin İslam öncesi adetler olduğunu söylüyor.',l:'Eski ritüelleri yasakla',r:'Geleneksel bahar şenliklerine izin ver',boost:'halk',debuff:'din',tier:'n'},
+  {id:'N130',momentum:{l:'DM',r:'HS'},em:'🎠',txt:'Halk, panayırlarda falcı ve büyücülerin tezgâh açmasını serbest istiyor. Ulema bu kişilerin dini inançları bozduğunu söylüyor.',l:'Falcıları kapat',r:'Panayırlarda falcılara izin ver',boost:'halk',debuff:'din',tier:'w'},
+  {id:'80f9732d-8fe4-4c79-9a62-f8f7135bcbe4',momentum:{l:'DM',r:'HS'},em:'🕯️',txt:'Halk, ölüleri anmak için eski geleneksel törenler düzenlemek istiyor. Ulema bu törenlerin dini kurallara uymadığını söylüyor.',l:'Geleneksel anma törenlerini yasakla',r:'Anma törenlerine izin ver',boost:'halk',debuff:'din',tier:'n'},
+  {id:'4ce0b88e-e067-470d-964b-bf7cb448c211',momentum:{l:'DM',r:'HS'},em:'🎶',txt:'Halk arasında dini olmayan halk türkülerinin meydan ve çarşılarda seslendirilmesi yaygınlaştı. Ulema bu türkülerin yasaklanmasını istiyor.',l:'Türküleri yasakla',r:'Halk türkülerine dokunma',boost:'halk',debuff:'din',tier:'n'},
+  {id:'N133',momentum:{l:'DM',r:'HS'},em:'🌊',txt:'Halk, su kenarında karma piknik ve eğlence alanları açılmasını istiyor. Ulema bu tür karma ortamların ahlaka aykırı olduğunu söylüyor.',l:'Karma eğlence alanlarını yasakla',r:'Su kenarı eğlence alanı aç',boost:'halk',debuff:'din',tier:'w'},
+  {id:'548ab738-8e47-478f-b37a-f1433bb6e849',momentum:{l:'DM',r:'HS'},em:'🌺',txt:'Halk, şehir meydanlarına çiçek bahçeleri ve dinlenme alanları yapılmasını istiyor. Ulema bu alanların karma kullanımına karşı çıkıyor.',l:'Karma bahçeleri yasakla',r:'Şehirde çiçek bahçeleri ve dinlenme alanı aç',boost:'halk',debuff:'din',tier:'n'},
+  {id:'N135',momentum:{l:'MO',r:'PA'},em:'📰',txt:'Şehirde her hafta haberler duyurmak isteyen bir topluluk var. Halk bu işe heves gösteriyor. Ulema bunun din dışı sözleri yayacağını söylüyor.',l:'Duyuruları yasakla',r:'Haftalık duyurulara izin ver',boost:'halk',debuff:'din',tier:'s'},
+  {id:'a6d44381-c503-4706-8353-b5239271a6c7',momentum:{l:'DM',r:'PA'},em:'🌍',txt:'Halk, yabancı tüccarların şehirde serbestçe dolaşıp ticaret yapmasını istiyor. Ulema bu yabancıların dini bütünlüğü bozacağını söylüyor.',l:'Yabancı tüccarları kısıtla',r:'Yabancı tüccarlara serbest dolaşım ver',boost:'halk',debuff:'din',tier:'n'},
+  {id:'N137',momentum:{l:'DM',r:'PA'},em:'🎪',txt:'Halk, şehre gelen acem sirk gösterilerini izlemek istiyor. Ulema bu gösterilerin ahlaka aykırı olduğunu söylüyor.',l:'Acem sirk gösterilerini yasakla',r:'Acem sirk gösterilerine izin ver',boost:'halk',debuff:'din',tier:'w'},
+  {id:'38829822-725f-45a3-acb1-385ab71dc949',momentum:{l:'DM',r:'HS'},em:'🏊',txt:'Halk, çamaşır yıkarken bazen nehre girip yüzüyor. Ulema karma yüzmenin dinen yasak olduğunu söylüyor.',l:'Nehirde yüzmeyi yasakla',r:'Nehirde yüzmeye dokunma',boost:'halk',debuff:'din',tier:'n'},
+  {id:'04487e0c-3e05-4603-b3a4-8fb6e4d29fdf',momentum:{l:'MO',r:'HS'},em:'🌙',txt:'Halk, ramazan sonrası bayram gecelerinde sokak kutlamalarının uzatılmasını istiyor. Ulema bu kutlamaların kontrolden çıkacağını ve sınırlandırılması gerektiğini söylüyor.',l:'Bayram kutlamalarını kısıtla',r:'Bayram gecesi kutlamalarını uzat',boost:'halk',debuff:'din',tier:'n'},
+  {id:'N140',momentum:{l:'DM',r:'HS'},em:'🍖',txt:'Halk, belirli ramazan günlerinde et satışının serbest bırakılmasını istiyor. Ulema bu günlerde orucun zorunlu olduğunu söylüyor.',l:'Et satışını yasaklı tut',r:'Dini günlerde et satışına izin ver',boost:'halk',debuff:'din',tier:'w'},
+
+  // ── HALK BOOST / HAZİNE DEBUFF ──
+  {id:'41421db4-d418-4234-8bed-2af01c4778d6',momentum:{l:'MA',r:'HS'},em:'🌧️',txt:'Köylüler, kurak geçen bu yıl için vergilerin azaltılmasını istiyor. Defterdar ise hazine için bu gelirden vazgeçilemeyeceğini söylüyor.',l:'Vergileri azaltma',r:'Vergileri azalt',boost:'halk',debuff:'hazine',tier:'n'},
+  {id:'N142',momentum:{l:'MA',r:'HS'},em:'🛁',txt:'Payitaht halkı yeni bir hamam inşa edilmesini talep ediyor. Defterdar ise şu an bu masrafa girilmemesi gerektiğini söylüyor.',l:'Hamamı inşa etme',r:'Hamamı inşa et',boost:'halk',debuff:'hazine',tier:'w'},
+  {id:'5301faad-403e-40c2-a286-df812629730c',momentum:{l:'MA',r:'HS'},em:'🌉',txt:'Halk, nehir geçişlerinde yaşanan boğulma kazaları nedeniyle köprü yapılmasını istiyor. Defterdar ise şu an hazinede bu inşaat için para bulunmadığını söylüyor.',l:'Köprüyü inşa etme',r:'Köprüyü inşa et',boost:'halk',debuff:'hazine',tier:'n'},
+  {id:'N144',momentum:{l:'MA',r:'HS'},em:'🏥',txt:'Halk, şehirde yoksullar için ücretsiz bir darüşşifa açılmasını istiyor. Defterdar bu tesisin yıllık bakım masraflarının hazineyi zorlayacağını söylüyor.',l:'Darüşşifayı açma',r:'Darüşşifa aç',boost:'halk',debuff:'hazine',tier:'s'},
+  {id:'60c38d12-84fd-4da6-9674-19d768334d8f',momentum:{l:'MA',r:'HS'},em:'🌱',txt:'Köylüler, susuz kalan tarlalar için sulama kanalı yapılmasını istiyor. Defterdar bu inşaatın çok uzun ve masraflı olacağını söylüyor.',l:'Sulama kanalını inşa etme',r:'Sulama kanalı inşa et',boost:'halk',debuff:'hazine',tier:'n'},
+  {id:'N146',momentum:{l:'MA',r:'HS'},em:'🏫',txt:'Halk, çocukları için ücretsiz mahalle mektebi açılmasını istiyor. Defterdar mektep öğretmenlerinin maaşlarının hazineyi zorlayacağını söylüyor.',l:'Ücretsiz mektebi açma',r:'Ücretsiz mahalle mektebi aç',boost:'halk',debuff:'hazine',tier:'w'},
+  {id:'04d85867-c6a9-4f38-898a-7022ab1e91fa',momentum:{l:'MA',r:'HS'},em:'🧺',txt:'Kışın dondurucu soğuğunda yoksul halk yakacak odun yardımı istiyor. Defterdar bu yardımın her yıl tekrarlanan büyük bir maliyet olduğunu söylüyor.',l:'Yakacak yardımı yapma',r:'Yoksullara yakacak yardımı yap',boost:'halk',debuff:'hazine',tier:'n'},
+  {id:'deb8f218-5a77-47e1-a2a6-d2c08d967dbb',momentum:{l:'MA',r:'HS'},em:'🕌',txt:'Halk, şehrin en büyük meydanına bir çeşme yapılmasını istiyor. Defterdar bu çeşmenin gereksiz masrafa yol açacağını söylüyor.',l:'Çeşmeyi inşa etme',r:'Meydan çeşmesi inşa et',boost:'halk',debuff:'hazine',tier:'n'},
+  {id:'N149',momentum:{l:'MA',r:'HS'},em:'🌾',txt:'Kıtlık tehlikesiyle karşı karşıya kalan köylülere tohum yardımı yapılması isteniyor. Defterdar bu yardımın hazineyi zorlayacağını söylüyor.',l:'Tohum yardımı yapma',r:'Köylülere tohum yardımı yap',boost:'halk',debuff:'hazine',tier:'s'},
+  {id:'N150',momentum:{l:'MA',r:'HS'},em:'🎪',txt:'Halk, şehirde büyük bir yıllık panayır kurulmasını istiyor. Defterdar bu işin masrafının getirisini aşabileceğini söylüyor.',l:'Panayırı kurma',r:'Yıllık panayır kur',boost:'halk',debuff:'hazine',tier:'w'},
+
+  // ── HALK BOOST / ORDU DEBUFF ──
+  {id:'N151',momentum:{l:'AS',r:'HS'},em:'👨‍🌾',txt:'Anadolu\'daki köyler, sefer için çağrılan azapların sayısının azaltılmasını istiyor. Serdar-ı Ekrem bunun ordunun gücünü zayıflatacağını söylüyor.',l:'Askerleri geri gönderme',r:'Askerleri köylerine gönder',boost:'halk',debuff:'ordu',tier:'s'},
+  {id:'f6119e63-cbd4-42c8-9971-338b2578ef71',momentum:{l:'AS',r:'HS'},em:'🐎',txt:'Köylüler, ordunun atlarının tarlalarına zarar verdiğini söyleyerek askerlerin köy dışında konaklamasını istiyor. Komutanlar ise bu düzenlemenin seferi güçleştireceğini söylüyor.',l:'Askerler kalmaya devam etsin',r:'Askerleri köy dışına çıkar',boost:'halk',debuff:'ordu',tier:'n'},
+  {id:'N153',momentum:{l:'AS',r:'HS'},em:'🌙',txt:'Şehir halkı, gece nöbetlerindeki asker gürültüsünden şikâyetçi; nöbetçi sayısının azaltılmasını istiyor. Komutanlar ise şehir güvenliği için azaltılmaması gerektiğini söylüyor.',l:'Nöbetleri azaltma',r:'Nöbetçi sayısını azalt',boost:'halk',debuff:'ordu',tier:'w'},
+  {id:'fc85010f-4e64-4563-ab90-455b7dd5fb1d',momentum:{l:'AS',r:'HS'},em:'🌿',txt:'Köylüler, ordunun kullandığı otlakların bir bölümünün hayvancılık için kendilerine bırakılmasını istiyor. Komutanlar bu otlakların ordunun atları için zorunlu olduğunu söylüyor.',l:'Otlakları orduya bırak',r:'Otlakların bir kısmını köylülere ver',boost:'halk',debuff:'ordu',tier:'n'},
+  {id:'N155',momentum:{l:'AS',r:'HS'},em:'⚒️',txt:'Köylüler, köy yakınındaki askeri kışlaların taşınmasını istiyor; askerlerden rahatsız olduklarını söylüyor. Serdar-ı Ekrem ise bu kışlaların yerinin ordu için mühim olduğunu söylüyor.',l:'Kışlaları taşıma',r:'Kışlaları köyden uzağa taşı',boost:'halk',debuff:'ordu',tier:'w'},
+  {id:'3addb583-7b97-495c-aab0-e0976d02fdd9',momentum:{l:'AS',r:'HS'},em:'🎯',txt:'Ordunun ok talim alanı bir köyün hemen yanında kurulmuş. Köylüler kaza tehlikesi nedeniyle talim alanının taşınmasını istiyor. Komutanlar bu alanın çok elverişli olduğunu söylüyor.',l:'Talim alanını koru',r:'Talim alanını taşı',boost:'halk',debuff:'ordu',tier:'n'},
+  {id:'N157',momentum:{l:'AS',r:'HS'},em:'🐓',txt:'Halk, askerlerin köylerde baskı kurarak yiyecek topladığından şikâyetçi. Serdar-ı Ekrem bu uygulamanın orduyu beslemek için zorunlu olduğunu söylüyor.',l:'Askerlerin yiyecek toplamasına izin ver',r:'Köylerde zorla yiyecek toplamayı yasakla',boost:'halk',debuff:'ordu',tier:'s'},
+  {id:'83ed8ba1-0c55-4d67-bb2a-fbfe66a53461',momentum:{l:'AS',r:'HS'},em:'🚪',txt:'Halk, sefere çağrılan gençlerin bir süre daha köyde kalmasını istiyor. Serdar bunun orduyu geciktireceğini söylüyor.',l:'Mühlet tanıma',r:'Mühlet tanı',boost:'halk',debuff:'ordu',tier:'n'},
+  {id:'N159',momentum:{l:'AS',r:'HS'},em:'🌅',txt:'Halk, sınır bölgesindeki köylülerin başka yerlere taşınmasını; savaş tehlikesinden uzak durmaları gerektiğini söylüyor. Serdar-ı Ekrem bu köylülerin sınırı koruduğunu belirtiyor.',l:'Köylüleri yerinde bırak',r:'Sınır köylülerini taşı',boost:'halk',debuff:'ordu',tier:'w'},
+  {id:'N160',momentum:{l:'AS',r:'HS'},em:'🎓',txt:'Halk, askerlik çağına gelen gençler için zanaat öğrenenlere mühlet verilmesini istiyor. Serdar-ı Ekrem bu mühletin orduya zamanında asker gelmesini engelleyeceğini söylüyor.',l:'Askerlik ertelemesine izin verme',r:'Zanaat öğrenenler için askerlik ertelemesi uygula',boost:'halk',debuff:'ordu',tier:'s'},
+
+  // ── DİN BOOST / HAZİNE DEBUFF ──
+  {id:'ba6a427c-85d2-4f14-8b5c-93ad1a47f2d1',momentum:{l:'MA',r:'DM'},em:'🕌',txt:'Ulema, şehre yeni bir medrese kazandırmak istiyor ve bunun için hazineden destek talep ediyor. Defterdar ise mevcut bütçenin buna yetmeyeceğini söylüyor.',l:'Medreseye destek verme',r:'Medreseye destek ver',boost:'din',debuff:'hazine',tier:'n',mb:true,mbKey:'medrese_destek'},
+  {id:'N162',momentum:{l:'MA',r:'DM'},em:'🛍️',txt:'Ulema, cuma namazı vakitlerinde tüm dükkânların kapatılmasını istiyor. Tüccarlar ise bunun ticareti ciddi biçimde yavaşlatacağını söylüyor.',l:'Dükkânlar açık kalsın',r:'Cuma vakti dükkânları kapat',boost:'din',debuff:'hazine',tier:'w'},
+  {id:'N163',momentum:{l:'MA',r:'DM'},em:'🌿',txt:'Bir şeyh, kurduğu dergâhın büyümesi için devlet desteği istiyor. Defterdar ise bu paranın hazineden karşılanamayacağını söylüyor.',l:'Dergâha destek verme',r:'Dergâha destek ver',boost:'din',debuff:'hazine',tier:'s'},
+  {id:'c7f519a8-b0c9-44e8-bfbf-e7a6a91aef2c',momentum:{l:'MA',r:'DM'},em:'🕌',txt:'Ulema, şehrin dört bir yanına yeni minareler eklenmesini istiyor. Defterdar bu inşaatın büyük bir masraf olduğunu söylüyor.',l:'Minare inşaatını reddet',r:'Yeni minareler inşa et',boost:'din',debuff:'hazine',tier:'n'},
+  {id:'N165',momentum:{l:'MA',r:'DM'},em:'📿',txt:'Ulema, hacca gidecek yoksul vatandaşlara devlet bütçesinden yol parası verilmesini istiyor. Defterdar bu uygulamanın hazineyi yoracağını söylüyor.',l:'Yol parasını verme',r:'Yoksullara hac yol parası ver',boost:'din',debuff:'hazine',tier:'w'},
+  {id:'N166',momentum:{l:'MA',r:'DM'},em:'🌙',txt:'Ulema, Kadir Gecesi\'nde tüm şehirde kandil yakılması ve halka şeker dağıtılması geleneğinin devlet tarafından karşılanmasını istiyor. Defterdar bu masrafın gereksiz olduğunu söylüyor.',l:'Devlet karşılamasın',r:'Kandil masraflarını devlet karşılasın',boost:'din',debuff:'hazine',tier:'n'},
+  {id:'d6b50d5c-eaae-4f01-b875-6c770c0fa130',momentum:{l:'MA',r:'DM'},em:'📖',txt:'Ulema, yurt dışından getirtilen nadide dini el yazmalarının satın alınmasını istiyor. Defterdar bu el yazmalarının çok pahalı olduğunu söylüyor.',l:'El yazmalarını satın alma',r:'Nadir dini el yazmaları satın al',boost:'din',debuff:'hazine',tier:'n'},
+  {id:'N168',momentum:{l:'MA',r:'DM'},em:'🏛️',txt:'Ulema, eski ve küçük mescitlerin yıkılıp yerlerine büyük camiler yapılmasını istiyor. Defterdar bu inşaatın çok uzun ve pahalı bir süreç olduğunu söylüyor.',l:'Mevcut mescitleri koru',r:'Büyük cami inşaatı başlat',boost:'din',debuff:'hazine',tier:'s'},
+  {id:'09b3800f-82e4-48c5-8615-e8aaf3b3ab17',momentum:{l:'MA',r:'DM'},em:'🎓',txt:'Ulema, medrese hocalarına verilen maaşların artırılmasını istiyor. Defterdar halihazırda bu maaşların yüksek olduğunu söylüyor.',l:'Hoca maaşlarını artırma',r:'Medrese hocalarının maaşlarını artır',boost:'din',debuff:'hazine',tier:'n'},
+  {id:'N170',momentum:{l:'MA',r:'DM'},em:'🌿',txt:'Ulema, devlet korumasında büyük bir dini bahçe kurulmasını istiyor. Defterdar bunun lüks bir harcama olduğunu söylüyor.',l:'Bahçeyi reddet',r:'Dini botanik bahçesi kur',boost:'din',debuff:'hazine',tier:'w'},
+  {id:'685566ec-8ecf-4015-a1a6-86bba87fd394',momentum:{l:'MA',r:'DM'},em:'🕌',txt:'Ulema, her mahallede en az bir adet ücretsiz Kuran kursu açılmasını istiyor. Defterdar bu kursların eğitmenlerinin maaşlarını karşılamanın hazineyi zorlayacağını söylüyor.',l:'Ücretsiz Kuran kurslarını açma',r:'Her mahallede ücretsiz Kuran kursu aç',boost:'din',debuff:'hazine',tier:'n'},
+  {id:'N172',momentum:{l:'MA',r:'DM'},em:'📿',txt:'Ulema, şehirdeki tüm camilerin halı ve mobilyalarının yenilenmesini istiyor. Defterdar bu yenilemenin çok büyük bir harcama kalemi olduğunu söylüyor.',l:'Cami mobilyalarına dokunma',r:'Tüm camilerin halı ve mobilyasını yenile',boost:'din',debuff:'hazine',tier:'s'},
+  {id:'fad004c7-bbd3-47c8-bb02-c8aa66c9186b',momentum:{l:'MA',r:'DM'},em:'🌙',txt:'Ulema, her yıl büyük bir dini tören düzenlenmesini ve tüm masrafların devlet tarafından karşılanmasını istiyor. Defterdar bu törenlerin her yıl büyük bir maliyet oluşturacağını söylüyor.',l:'Devlet karşılamasın',r:'Yıllık büyük dini tören düzenle',boost:'din',debuff:'hazine',tier:'n'},
+
+  // ── DİN BOOST / ORDU DEBUFF ──
+  {id:'51e1a455-74d3-4be3-ac07-16b18da8ecba',momentum:{l:'AS',r:'DM'},em:'🕋',txt:'Ulema, askerlerin namaz vakitlerinde talim yapmamasını istiyor. Serdar-ı Ekrem ise talimlerin durdurulmasının savaş hazırlığını bozacağını söylüyor.',l:'Talimlere devam et',r:'Namaz vakti talimleri durdur',boost:'din',debuff:'ordu',tier:'n'},
+  {id:'N175',momentum:{l:'AS',r:'DM'},em:'🎺',txt:'Ulema, askerlerin kamplarda müzik aleti çalmasının yasaklanmasını istiyor. Komutanlar ise müziğin askerin moralini ayakta tuttuğunu söylüyor.',l:'Müziğe dokunma',r:'Kamplarda müziği yasakla',boost:'din',debuff:'ordu',tier:'w'},
+  {id:'984f2aa5-96e0-49dc-997a-cf5812172396',momentum:{l:'AS',r:'DM'},em:'🍶',txt:'Ulema, orduda içki içen askerlerin ağır şekilde cezalandırılmasını istiyor. Komutanlar ise bu uygulamanın askerler arasında gerginlik yaratacağını söylüyor.',l:'Mevcut uygulamaya devam et',r:'Ağır ceza uygula',boost:'din',debuff:'ordu',tier:'n'},
+  {id:'53b5b25d-51f2-4767-8b04-53043050d188',momentum:{l:'AS',r:'DM'},em:'☪️',txt:'Ulema, askeri kışlaların yanına mutlaka mescit inşa edilmesini istiyor. Serdar-ı Ekrem bu inşaatların kışla düzenini bozacağını söylüyor.',l:'Kışlalara mescit inşa etme',r:'Her kışlaya mescit yaptır',boost:'din',debuff:'ordu',tier:'n'},
+  {id:'N178',momentum:{l:'AS',r:'DM'},em:'📯',txt:'Ulema, savaş öncesi askerlere dini vaaz verilmesi için alimler ordugâha davet edilmesini istiyor. Serdar-ı Ekrem bu alimler için gereksiz taşıma yükü olacağını söylüyor.',l:'Alimleri ordugâha alma',r:'Alimler savaş öncesi ordugâha gelsin',boost:'din',debuff:'ordu',tier:'w'},
+  {id:'N179',momentum:{l:'AS',r:'DM'},em:'🕊️',txt:'Ulema, cihat ilan edilmeden yabancı topraklara sefer düzenlenmesinin dinen yanlış olduğunu söylüyor. Serdar-ı Ekrem ise bu seferin aciliyetini vurguluyor.',l:'Sefere çık',r:'Cihat ilan edip sefere çık',boost:'din',debuff:'ordu',tier:'s'},
+  {id:'1a960f00-c0fa-483a-84a3-a96e6dccb660',momentum:{l:'AS',r:'DM'},em:'🌙',txt:'Ulema, ramazan ayında tüm askeri seferlerin durdurulmasını istiyor. Serdar-ı Ekrem düşmanın bu durumu fırsat olarak kullanacağını söylüyor.',l:'Ramazanda seferlere devam et',r:'Ramazanda seferleri durdur',boost:'din',debuff:'ordu',tier:'n'},
+  {id:'9d32522b-c6e7-4359-a862-b63f433ea8b3',momentum:{l:'AS',r:'DM'},em:'📜',txt:'Ulema, fethedilen topraklara çok sayıda alimin görevlendirilmesini istiyor. Serdar-ı Ekrem bu alimlerin yönetim ve güvenliği aksatacağını söylüyor.',l:'Alimleri bu görevden uzak tut',r:'Fethedilen topraklara alim gönder',boost:'din',debuff:'ordu',tier:'n'},
+  {id:'N182',momentum:{l:'AS',r:'DM'},em:'⚔️',txt:'Ulema, savaşta ele geçirilen esirlerin fidye yerine serbest bırakılmasının dinen daha doğru olduğunu söylüyor. Serdar-ı Ekrem fidyenin ordu için önemli bir gelir olduğunu belirtiyor.',l:'Esirleri fidye karşılığı tut',r:'Esirleri serbest bırak',boost:'din',debuff:'ordu',tier:'w'},
+  {id:'968c2a06-8b18-48e7-9f11-d069fee2b3d6',momentum:{l:'AS',r:'DM'},em:'🏕️',txt:'Ulema, askeri karargâhlarda içki ve kumar oynandığına dair söylentileri soruşturmak ve bu kişileri cezalandırmak istiyor. Serdar-ı Ekrem böyle bir soruşturmanın ordu içinde gerginlik yaratacağını söylüyor.',l:'Soruşturmayı başlatma',r:'Karargâhta içki ve kumar soruşturması başlat',boost:'din',debuff:'ordu',tier:'n'},
+  {id:'d36dec9c-a9b1-40dc-841e-a1c5ddde7f9a',momentum:{l:'AS',r:'DM'},em:'☪️',txt:'Ulema, orduda görev yapan alimlerin sayısının artırılmasını istiyor. Serdar-ı Ekrem bu alimlerin ordugâhta yer kaplayacağını belirtiyor.',l:'Ordu alimi sayısını artırma',r:'Orduda görevli alim sayısını artır',boost:'din',debuff:'ordu',tier:'n'},
+  {id:'N185',momentum:{l:'AS',r:'DM'},em:'📜',txt:'Ulema, savaş ganimetinin beşte birinin dini vakıflara bırakılmasını istiyor. Serdar-ı Ekrem bu payın orduyu zayıflatacağını söylüyor.',l:'Ganimet paylaşımına dokunma',r:'Ganimetin beşte birini vakıflara ver',boost:'din',debuff:'ordu',tier:'w'},
+  {id:'N186',momentum:{l:'AS',r:'DM'},em:'🕊️',txt:'Ulema, komşu Müslüman devletle sınır anlaşmazlığının savaş yerine müzakereyle çözülmesini istiyor. Serdar-ı Ekrem müzakerenin zayıflık işareti sayılacağını söylüyor.',l:'Askeri çözümü tercih et',r:'Müzakere yolunu seç',boost:'din',debuff:'ordu',tier:'s'},
+
+  // ── DİN BOOST / HALK DEBUFF ──
+  {id:'N187',momentum:{l:'HS',r:'DM'},em:'🍺',txt:'Ulema, şehirdeki meyhanelerin kapatılmasını istiyor. Halk ise meyhanelerin kapatılmasının akşam eğlencelerini tamamen ortadan kaldıracağını söylüyor.',l:'Meyhaneler açık kalsın',r:'Meyhaneleri kapat',boost:'din',debuff:'halk',tier:'s'},
+  {id:'eb22d6a9-557d-40cd-a8af-5c425c9fb617',momentum:{l:'HS',r:'MO'},em:'🛒',txt:'Ulema, kadınların çarşıya çıkmasının belirli saatlerle sınırlandırılmasını istiyor. Halk ise bunun günlük hayatı ve alışverişi ciddi ölçüde güçleştireceğini söylüyor.',l:'Kısıtlama getirme',r:'Kadınların çarşı saatlerini kısıtla',boost:'din',debuff:'halk',tier:'n'},
+  {id:'037b9812-9752-4556-9c42-c4b0fb842122',momentum:{l:'HS',r:'MO'},em:'👗',txt:'Ulema, gençlerin renkli ve gösterişli kıyafetler giymesinin yasaklanmasını istiyor. Gençler ise bu yasağı anlamsız buluyor.',l:'Giyim özgürlüğüne dokunma',r:'Sade giyim zorunluluğu getir',boost:'din',debuff:'halk',tier:'n'},
+  {id:'N190',momentum:{l:'HS',r:'DM'},em:'🌅',txt:'Ulema, Ramazan ayında gündüzleri çarşıda yemek yenilmesinin yasaklanmasını istiyor. Halk ise bu yasağın yolcular ve çalışanlar için büyük zorluk yaratacağını söylüyor.',l:'Yasak çıkarma',r:'Ramazanda gündüz yemeyi yasakla',boost:'din',debuff:'halk',tier:'w'},
+  {id:'ecf24697-e132-430b-be35-c29bacab4a97',momentum:{l:'HS',r:'MO'},em:'🐕',txt:'Ulema, şehirdeki başıboş köpeklerin toplatılıp uzak bölgelere götürülmesini istiyor. Halk ise bu köpekleri sevip beslediğini söylüyor.',l:'Köpeklere dokunma',r:'Köpekleri toplatıp şehir dışına çıkar',boost:'din',debuff:'halk',tier:'n'},
+  {id:'N192',momentum:{l:'HS',r:'MO'},em:'🎲',txt:'Ulema, çarşıda oynanan zar ve satranç gibi oyunların yasaklanmasını istiyor. Halk bu oyunların zararsız bir eğlence olduğunu söylüyor.',l:'Oyunlara dokunma',r:'Çarşıda zar ve satranç oynamayı yasakla',boost:'din',debuff:'halk',tier:'w'},
+  {id:'aa7acefa-5c39-4b77-994b-4eccf6d089cf',momentum:{l:'HS',r:'MO'},em:'💇',txt:'Ulema, berber dükkanlarının yalnızca erkeklere hizmet vermesini ve kadınların buraya girmesinin yasaklanmasını istiyor. Halk bu yasağın hayatı zorlaştıracağını söylüyor.',l:'Berber dükkanlarına karışma',r:'Kadınların berbere girmesini yasakla',boost:'din',debuff:'halk',tier:'n'},
+  {id:'9cf8e570-8789-4e40-8109-021f731d2416',momentum:{l:'HS',r:'MO'},em:'🌅',txt:'Ulema, güneş doğmadan önce çarşıda tezgâh açılmamasını istiyor. Esnaf bu yasağın ticareti olumsuz etkileyeceğini söylüyor.',l:'Erken tezgâh açmaya dokunma',r:'Güneş doğmadan tezgâh açmayı yasakla',boost:'din',debuff:'halk',tier:'n'},
+  {id:'N195',momentum:{l:'HS',r:'DM'},em:'🌿',txt:'Ulema, tıp için kullanıldığı iddia edilen bazı otların sarhoşluğa yol açtığını söyleyerek satışının yasaklanmasını istiyor. Esnaf bu otların meşru ilaç amaçlı kullanıldığını söylüyor.',l:'Ot satışına dokunma',r:'Şüpheli otların satışını yasakla',boost:'din',debuff:'halk',tier:'w'},
+  {id:'7d632d43-e11d-43b0-bfa8-bc52dacd9558',momentum:{l:'HS',r:'MO'},em:'🎠',txt:'Ulema, panayırlarda yapılan bazı oyunların ve gösterilerin dine uygun olmadığını söyleyerek kaldırılmasını istiyor. Esnaf ve aileler ise bu eğlencelerin halkın tek neşesi olduğunu savunuyor.',l:'Panayır eğlencelerine dokunma',r:'Panayırlarda oyun ve gösterileri yasakla',boost:'din',debuff:'halk',tier:'n'},
+  {id:'N197',momentum:{l:'HS',r:'MO'},em:'🌙',txt:'Ulema, yatsı namazından sonra ateş yakılarak yapılan sohbet ve eğlencelerin yasaklanmasını istiyor. Halk bu toplantıların masum bir gelenek olduğunu söylüyor.',l:'Gece sohbetlerine dokunma',r:'Yatsı sonrası ateş başı sohbetlerini yasakla',boost:'din',debuff:'halk',tier:'s'},
+  {id:'4a08e921-ec7b-4f33-9c00-c970de1fbc92',momentum:{l:'HS',r:'MO'},em:'👘',txt:'Ulema, halkın cenaze törenlerinde yas kıyafeti giymesini zorunlu kılmak istiyor. Halk bu uygulamanın kişisel özgürlüklere müdahale olduğunu söylüyor.',l:'Yas kıyafetini zorunlu kılma',r:'Cenazede yas kıyafetini zorunlu kıl',boost:'din',debuff:'halk',tier:'n'},
+  {id:'N199',momentum:{l:'HS',r:'MO'},em:'🏮',txt:'Ulema, dini bayramlarda haricindeki günlerde renkli fener ve süslemelerin yasaklanmasını istiyor. Halk bu süslemelerin şehre neşe kattığını söylüyor.',l:'Süslemelere dokunma',r:'Dini bayram dışında süslemeleri yasakla',boost:'din',debuff:'halk',tier:'w'},
+  {id:'1b3b97a4-6ed0-4f00-bdd4-60af438391f7',momentum:{l:'HS',r:'MO'},em:'🕯️',txt:'Ulema, gece geç saatte dışarıda dolaşmanın yasaklanmasını istiyor. Halk bu yasağın kişisel özgürlüklerini kısıtladığını söylüyor.',l:'Gece sokağa çıkma yasağı getirme',r:'Gece geç saatte sokağa çıkmayı yasakla',boost:'din',debuff:'halk',tier:'n'},
+  {id:'N201',momentum:{l:'HS',r:'DM'},em:'🌿',txt:'Ulema, meyhane ve kahvehanelerin erken saatte kapanmasını istiyor. Esnaf bu erken kapanmanın gelirlerini büyük ölçüde azaltacağını söylüyor.',l:'Kapanış saatine dokunma',r:'Meyhane ve kahvehanelere erken kapanma saati getir',boost:'din',debuff:'halk',tier:'w'},
+  {id:'cb241e4c-537f-42ee-b6e8-74aa0f69cebe',momentum:{l:'HS',r:'DM'},em:'🎵',txt:'Ulema, cenaze törenlerinde ağıt yakılmasını ve yüksek sesle ağlanmasını yasaklamak istiyor. Halk bu geleneğin yüzyıllardır sürdüğünü söylüyor.',l:'Cenaze geleneklerine dokunma',r:'Cenazelerde ağıt ve yüksek sesle ağlamayı yasakla',boost:'din',debuff:'halk',tier:'n'},
+  {id:'N203',momentum:{l:'HS',r:'MO'},em:'🛒',txt:'Ulema, çarşıda kadın ve erkeklerin aynı tezgâhtan alışveriş yapmasını yasaklamak istiyor. Halk bu uygulamanın alışverişi imkânsız hale getireceğini söylüyor.',l:'Çarşı düzenine dokunma',r:'Çarşıda karma alışverişi yasakla',boost:'din',debuff:'halk',tier:'s'},
+  {id:'ada689cc-bb2d-44b3-9777-e853b5496c78',momentum:{l:'PA',r:'MO'},em:'🌅',txt:'Ulema, yabancı ülkelerden gelen tüccarların Müslüman mahallelerinde konaklamasını yasaklamak istiyor. Halk bu yasağın ticareti sekteye uğratacağını söylüyor.',l:'Yabancı konaklama yasağı getirme',r:'Yabancıların Müslüman mahallelerinde konaklamasını yasakla',boost:'din',debuff:'halk',tier:'n'},
+  {id:'N205',momentum:{l:'HS',r:'MO'},em:'👶',txt:'Ulema, çocuklara yalnızca dini isimler verilmesini zorunlu kılmak istiyor. Aileler bu kısıtlamanın geleneksel aile isimlerini ortadan kaldıracağını söylüyor.',l:'İsim seçimine karışma',r:'Yalnızca dini isim zorunluluğu getir',boost:'din',debuff:'halk',tier:'w'},
+  {id:'71c5a3e5-7734-4f8f-8f08-996211379265',momentum:{l:'HS',r:'DM'},em:'🍺',txt:'Ulema, saray ve zengin konaklarında düzenlenen büyük ziyafetlerdeki et israfının sınırlandırılmasını istiyor. Kasaplar ve tüccarlar bunun satışlarını düşüreceğini söylüyor.',l:'Et israfına dokunma',r:'Ziyafetlerde et israfını sınırla',boost:'din',debuff:'halk',tier:'n'},
+];
+
+// ══════════════════════════════════════
+// HABERCİ KARTLARI — Stat uyarı/kutlama
+// type:'herald', stat, dir:'low'|'high'
+// ══════════════════════════════════════
+
+================================================================================
+BÖLÜM 4: HABERCİ KARTLARI (HERALD_CARDS) - Durum Bildirileri
+================================================================================
+Satırlar: 1853-1908 (56 satır)
+Format: Kategori ve stat seviye kombinasyonları (low/high)
+
+const HERALD_CARDS = {
+  hazine: {
+    low: [
+      {txt:'Saray hazinesindeki altın hızla tükeniyor sultanım. Kasalar eskisi kadar dolu değil.'},
+      {txt:'Defterdarlar endişeli. Gelirler giderleri karşılamıyor.'},
+      {txt:'Tüccarlar vergilerden kaçmaya başladı. Hazine hızla eriyor.'},
+    ],
+    high: [
+      {txt:'Hazinenin kasaları altınla doldu sultanım. Darphane gece gündüz çalışıyor.'},
+      {txt:'Tüccarlar memnun. Pazarlar zenginlikle dolu.'},
+      {txt:'Defterdar yüzü gülerek söyledi sultanım: Hazine hiç olmadığı kadar güçlü.'},
+    ]
+  },
+  ordu: {
+    low: [
+      {txt:'Kışlalardan iyi haber gelmiyor sultanım. Askerlerin morali zayıflıyor.'},
+      {txt:'Sınır karakollarından kötü haberler geliyor. Asker sayısı yetersiz.'},
+      {txt:'Yeniçeriler huzursuz. Nizam zayıflıyor.'},
+    ],
+    high: [
+      {txt:'Ordunun nizamı dillerde sultanım.'},
+      {txt:'Yeniçeriler meydanda zafer yürüyüşü yaptı.'},
+      {txt:'Sınırlar güvenli. Komutanlar sadakatlerini tekrar bildirdi.'},
+    ]
+  },
+  halk: {
+    low: [
+      {txt:'Pazar yerlerinde huzursuzluk var sultanım. Halkın sabrı tükeniyor.'},
+      {txt:'Şehirde söylentiler yayılıyor. İnsanlar yönetimden memnun değil.'},
+      {txt:'Köylerden şikayetler geliyor. Halkın morali düşük.'},
+    ],
+    high: [
+      {txt:'Şehirde şenlik havası var sultanım. Halk sizin adınıza dualar ediyor.'},
+      {txt:'Pazarlar kalabalık. İnsanlar yönetiminizden memnun.'},
+      {txt:'Köylerden iyi haberler geliyor. Halk arasında huzur ve barış hâkim.'},
+    ]
+  },
+  din: {
+    low: [
+      {txt:'Medreselerde huzursuzluk var sultanım. Bazı alimler kararlarınızı sorguluyor.'},
+      {txt:'Ulema arasında rahatsızlık büyüyor. Hutbelerde eleştiriler artmaya başladı.'},
+      {txt:'Din adamları arasında hoşnutsuzluk yayılıyor sultanım. Bazıları açıkça itiraz ediyor.'},
+    ],
+    high: [
+      {txt:'Ulema sizin adaletinizden övgüyle söz ediyor sultanım.'},
+      {txt:'Medreselerde adınız hayırla anılıyor. Alimler kararlarınızı destekliyor.'},
+      {txt:'Camilerde sizin için dualar ediliyor sultanım.'},
+    ]
+  }
+};
+
+// ══════════════════════════════════════
+// TAKİP OLAY KARTLARI (MB) — mb:true etiketli kartların sonuç olayları
+// Her mb kart için l (sol seçim) ve r (sağ seçim) sonuçları tanımlanır.
+// mbKey: mb:true kartındaki mbKey ile eşleşir.
+// ══════════════════════════════════════
+
+================================================================================
+BÖLÜM 5: TAKIP OLAY KARTLARI (MB_FOLLOWUPS) - Olay Zinciri
+================================================================================
+Satırlar: 1909-2018 (110 satır)
+Format: mb:true kartlarının seçim sonuçları
+
+const MB_FOLLOWUPS = {
+  devriye_azalt: {
+    l: {
+      type:'followup', em:'😤',
+      txt:'Devriyeler sürdü. Ancak halk şikâyetini dile getirmeye devam etti. Mahalle temsilcileri saraya dilekçe gönderdi.',
+      l:'Şikâyetleri dinle', r:'Düzen önemli, devam et',
+      lE:{boost:'halk',debuff:'ordu',val:5},
+      rE:{boost:'ordu',debuff:'halk',val:5}
+    },
+    r: {
+      type:'followup', em:'🚨',
+      txt:'Azaltılan devriyelerden cesaret alan fırsatçılar çarşıda at oynatmaya başladı. Esnaf çözüm istiyor.',
+      l:'Geçici devriye gönder', r:'Esnafa kendi koruma hakkı ver',
+      lE:{boost:'ordu',debuff:'hazine',val:8},
+      rE:{boost:'halk',debuff:'ordu',val:5}
+    }
+  },
+  sinir_izin: {
+    l: {
+      type:'followup', em:'😔',
+      txt:'İzin sıklığı artırılmadı. Sınır askerleri hayal kırıklığını mektupla dile getirdi. Kışlalarda huzursuzluk büyüyor.',
+      l:'Anlayış göster, söz ver', r:'Görev disiplin gerektirir',
+      lE:{boost:'halk',debuff:'ordu',val:5},
+      rE:{boost:'ordu',debuff:'halk',val:8}
+    },
+    r: {
+      type:'followup', em:'🏃',
+      txt:'İzinli askerlerden bazıları süre dolunca geri dönmedi. Sınırda küçük bir güvenlik açığı oluştu.',
+      l:'Kayıp askerleri takibe koy', r:'Gözden çıkar, sınırı yeniden düzenle',
+      lE:{boost:'ordu',debuff:'halk',val:8},
+      rE:{boost:'hazine',debuff:'ordu',val:8}
+    }
+  },
+  tatbikat_tasi: {
+    l: {
+      type:'followup', em:'😠',
+      txt:'Tatbikatlar köy yakınında sürdü. Köylüler bu kez daha kalabalık bir grupla saraya dilekçe yolladı.',
+      l:'Tazminat öde', r:'Dilekçeyi reddet',
+      lE:{boost:'halk',debuff:'hazine',val:8},
+      rE:{boost:'ordu',debuff:'halk',val:8}
+    },
+    r: {
+      type:'followup', em:'🐴',
+      txt:'Tatbikat alanı değiştirildi. Uzak bölgeye ek erzak ve hayvan taşımak gerekti. Lojistik masraflar arttı.',
+      l:'Masrafları karşıla', r:'Tatbikat sürelerini kısalt',
+      lE:{boost:'ordu',debuff:'hazine',val:10},
+      rE:{boost:'hazine',debuff:'ordu',val:8}
+    }
+  },
+  kishla_durdur: {
+    l: {
+      type:'followup', em:'🏗️',
+      txt:'Kışla inşaatı sürdü ama malzeme sıkıntısı başladı. Ustalar ücret artışı talep ediyor; inşaat yavaşladı.',
+      l:'Ek ödeme yap', r:'Mevcut kadroyla devam et',
+      lE:{boost:'ordu',debuff:'hazine',val:8},
+      rE:{boost:'hazine',debuff:'ordu',val:5}
+    },
+    r: {
+      type:'followup', em:'🪨',
+      txt:'Yarım kalan kışlanın etrafında çöplük ve gecekondu oluştu. Halk bu harabeyi eleştiriyor.',
+      l:'Alanı temizlet ve sat', r:'İnşaatı yeniden başlat',
+      lE:{boost:'hazine',debuff:'halk',val:5},
+      rE:{boost:'ordu',debuff:'hazine',val:10}
+    }
+  },
+  sikke_tağşiş: {
+    l: {
+      type:'followup', em:'💰',
+      txt:'Sikkeler değiştirilmedi. Ancak piyasada sahte sikke söylentisi yayıldı; tüccarlar şüpheyle bakıyor.',
+      l:'Duyuru yap, halkı bilgilendir', r:'Söylentiyi görmezden gel',
+      lE:{boost:'halk',debuff:'hazine',val:5},
+      rE:{boost:'hazine',debuff:'halk',val:5}
+    },
+    r: {
+      type:'followup', em:'⚔️',
+      txt:'Gümüşü azaltılmış sikkeler çarşıya çıktı. Yeniçeriler maaşlarının değersizleştiğini fark etti; kışlalarda gerginlik var.',
+      l:'Askerler için ek ikramiye ver', r:'Durumu önemseme',
+      lE:{boost:'ordu',debuff:'hazine',val:10},
+      rE:{boost:'hazine',debuff:'ordu',val:12}
+    }
+  },
+  medrese_destek: {
+    l: {
+      type:'followup', em:'📚',
+      txt:'Medreseye destek verilmedi. Ulema hayal kırıklığını vaazlarında dile getiriyor; halk arasında huzursuzluk yayılıyor.',
+      l:'Küçük bir bağış yap', r:'Kararda ısrar et',
+      lE:{boost:'din',debuff:'hazine',val:6},
+      rE:{boost:'hazine',debuff:'din',val:8}
+    },
+    r: {
+      type:'followup', em:'🕌',
+      txt:'Yeni medrese inşaatı başladı. Ancak ustalar ve malzeme için daha fazla para gerekiyor; bütçe zorlanıyor.',
+      l:'Ek kaynak ayır', r:'Mevcut bütçeyle sınırlı tut',
+      lE:{boost:'din',debuff:'hazine',val:10},
+      rE:{boost:'halk',debuff:'din',val:6}
+    }
+  }
+};
+
+// ══════════════════════════════════════
+// ZORLUK SİSTEMİ — Simetrik + Dinamik
+// ══════════════════════════════════════
+const TIER_VALS = { w:13, n:16, s:20 };  // Simetrik: boost = debuff
+
+
+
+// ══════════════════════════════════════
+// PARANOYA (EVHAM) SİSTEMİ — AYRI DESTE / AYRI HAVUZ
+// TİP A = Hafif Paranoya | TİP B = Orta Paranoya | TİP C = Ağır Paranoya
+// ══════════════════════════════════════
+
+================================================================================
+BÖLÜM 6: PARANOİA KARTLARI (PARANOIA_CARD_SOURCE) - Şüphe Kartları
+================================================================================
+Satırlar: 2019-2899 (881 satır)
+Format: String.raw metin kataloğu, A/B/C paranoya seviyeleri
+
+const PARANOIA_CARD_SOURCE = String.raw`
+A1 — Yeni Toplar
+Seviye: Hafif Paranoya
+Kaynak: Serdar
+Paranoya türü: İhanet ihtimali
+Kart metni:
+“Serdar, kaleler için yeni toplar döktürmek istiyor.
+Ama güçlü silahlar… bazen sahibine de döner.”
+Sol: Ertele
+- Ordu -1
+- Evham 0
+Sağ: Onayla
+- Ordu +2
+- Hazine -1
+- Evham +1
+
+A2 — Kusursuz Hesap
+Seviye: Hafif Paranoya
+Kaynak: Defterdar
+Paranoya türü: Bilgi çarpıtma
+Kart metni:
+“Defterdar, hesapların tertemiz olduğunu söylüyor.
+Bu kadar temiz kayıt… biraz fazla temiz değil mi?”
+Sol: Defterleri yeniden incelet
+- Hazine -1
+- Evham 0
+Sağ: Güven
+- Hazine +1
+- Evham +1
+
+A3 — Sessiz Çarşı
+Seviye: Hafif Paranoya
+Kaynak: Kethüda
+Paranoya türü: Sessizlikten şüphe
+Kart metni:
+“Kethüda, çarşının huzurlu olduğunu söylüyor.
+Ama kalabalığın sessizliği bazen razılıktan değil, korkudandır.”
+Sol: Nabız yokla
+- Halk -1
+- Evham 0
+Sağ: Huzur var de
+- Halk +1
+- Evham +1
+
+A4 — Aşırı Sadakat
+Seviye: Hafif Paranoya
+Kaynak: Şeyhülislam
+Paranoya türü: Aşırı uyum
+Kart metni:
+“Şeyhülislam, her kararının hikmetli olduğunu ilan ediyor.
+Sana hiç itiraz etmemesi… ne kadar hayırlı?”
+Sol: Mesafe koy
+- Din -1
+- Evham 0
+Sağ: Yakın tut
+- Din +2
+- Evham +1
+
+A5 — Gece Devriyeleri
+Seviye: Hafif Paranoya
+Kaynak: Serdar
+Paranoya türü: Kontrolün el değiştirmesi
+Kart metni:
+“Gece devriyeleri artırılsın deniyor.
+Şehir daha güvenli olur… ama kimin kontrolünde?”
+Sol: Şimdilik gerek yok
+- Ordu -1
+- Evham 0
+Sağ: Devriyeleri artır
+- Ordu +1
+- Halk -1
+- Evham +1
+
+A6 — Yeni Vergi Memurları
+Seviye: Hafif Paranoya
+Kaynak: Defterdar
+Paranoya türü: Bürokratik sızma
+Kart metni:
+“Defterdar, taşraya yeni vergi memurları göndermek istiyor.
+Sadık mı olacaklar… yoksa kendi düzenlerini mi kuracaklar?”
+Sol: Beklet
+- Hazine -1
+- Evham 0
+Sağ: Gönder
+- Hazine +2
+- Halk -1
+- Evham +1
+
+A7 — Dervişlerin Sözü
+Seviye: Hafif Paranoya
+Kaynak: Şeyhülislam
+Paranoya türü: Fısıltı
+Kart metni:
+“Bazı dervişler, halkın seni çok konuştuğunu söylüyor.
+Bu övgü mü… yoksa yaklaşan bir huzursuzluk mu?”
+Sol: Araştırma açma
+- Din +1
+- Evham 0
+Sağ: Kimler konuşuyor öğren
+- Halk -1
+- Evham +1
+
+A8 — Saray Hizmetkârları
+Seviye: Hafif Paranoya
+Kaynak: Saray içi
+Paranoya türü: İç çevreye güvensizlik
+Kart metni:
+“Saray hizmetkârlarının son günlerde çok şey duyduğu söyleniyor.
+Duydukları kadarını mı taşıyorlar?”
+Sol: Geçiştir
+- Halk +1
+- Evham 0
+Sağ: Hizmetkârları değiştir
+- Halk -1
+- Ordu +1
+- Evham +1
+
+A9 — Ulemadan Ortak Fetva
+Seviye: Hafif Paranoya
+Kaynak: Şeyhülislam
+Paranoya türü: Organize uyum
+Kart metni:
+“Ulema aynı yönde ortak fetva verdi.
+Aynı ses bazen düzen demektir… bazen de hazırlanmış metin.”
+Sol: Olduğu gibi kabul et
+- Din +1
+- Evham +1
+Sağ: Farklı görüş iste
+- Din -1
+- Evham 0
+
+A10 — Sınırdaki Sükûnet
+Seviye: Hafif Paranoya
+Kaynak: Serdar
+Paranoya türü: Görünürde huzur
+Kart metni:
+“Sınırdan uzun süredir kötü haber gelmiyor.
+Bu huzur… fırtına öncesi sessizlik olabilir.”
+Sol: Bekle ve izle
+- Evham 0
+Sağ: Önlem al
+- Ordu +1
+- Hazine -1
+- Evham +1
+
+B1 — Koridor Fısıltıları
+Seviye: Orta Paranoya
+Kaynak: Saray içi
+Paranoya türü: Belirsiz söylenti
+Kart metni:
+“Koridorlarda adın fısıldanıyor.
+Ama hiç kimse ne dendiğini açık etmiyor.”
+Sol: Aldırma
+- Halk -1
+- Evham +1
+Sağ: Üzerine git
+- Ordu +1
+- Evham +1
+
+B2 — Halkın Alkışı
+Seviye: Orta Paranoya
+Kaynak: Kethüda
+Paranoya türü: Samimiyet şüphesi
+Kart metni:
+“Meydanda sana büyük alkış var.
+Ama alkış… gönülden mi geliyor, korkudan mı?”
+Sol: Kabul et
+- Halk +2
+- Evham +1
+Sağ: Dağıtın kalabalığı
+- Halk -1
+- Ordu +1
+- Evham +1
+
+B3 — Sadık Komutan
+Seviye: Orta Paranoya
+Kaynak: Serdar
+Paranoya türü: Aşırı sadakat
+Kart metni:
+“Bir komutan, canını senin için vereceğini söylüyor.
+Bunu yüksek sesle söylemesi… güven mi, gösteri mi?”
+Sol: Ödüllendir
+- Ordu +1
+- Evham +1
+Sağ: Geri plana çek
+- Ordu -1
+- Evham +1
+
+B4 — Eksik Kayıt
+Seviye: Orta Paranoya
+Kaynak: Defterdar
+Paranoya türü: Eksik bilgi
+Kart metni:
+“Hazine kaydında küçük ama açıklanamayan boşluklar var.
+Azlığı mı rahatlatır seni… yoksa görünmesi mi?”
+Sol: Kapat üstünü
+- Hazine +1
+- Evham +1
+Sağ: Soruştur
+- Hazine -1
+- Evham +1
+
+B5 — Vaazlarda Aynı Cümle
+Seviye: Orta Paranoya
+Kaynak: Şeyhülislam
+Paranoya türü: Organize mesaj
+Kart metni:
+“Şehirdeki vaazlarda aynı cümle tekrar ediliyor.
+Bu birlik midir… yoksa yönlendirme mi?”
+Sol: Devam etsin
+- Din +2
+- Evham +1
+Sağ: Değiştirin hutbeleri
+- Din -1
+- Halk +1
+- Evham +1
+
+B6 — Gece Gelen Mektup
+Seviye: Orta Paranoya
+Kaynak: Saray içi
+Paranoya türü: Anonim ihbar
+Kart metni:
+“İmzasız bir mektup, vezirlerinden birinin seni aldattığını söylüyor.
+İmzasız söz… ne kadar değersiz, ne kadar tehlikeli?”
+Sol: Yok say
+- Halk -1
+- Evham +1
+Sağ: Gizlice takip ettir
+- Ordu +1
+- Evham +1
+
+B7 — Pazarın Bolluğu
+Seviye: Orta Paranoya
+Kaynak: Kethüda
+Paranoya türü: Fazla iyi görünen tablo
+Kart metni:
+“Pazarlar dolu, fiyatlar sakin.
+Her şey yolunda olduğunda… bazen en çok o zaman kuşkulanılır.”
+Sol: Memnun kal
+- Halk +1
+- Evham +1
+Sağ: Ayrıntılı denetim iste
+- Hazine -1
+- Evham +1
+
+B8 — Nöbet Değişimi
+Seviye: Orta Paranoya
+Kaynak: Serdar
+Paranoya türü: Güç yer değişimi
+Kart metni:
+“Saray nöbetçilerini değiştirmek istiyorlar.
+Eski yüzler mi daha güvenli… yeni yüzler mi?”
+Sol: Eskiler kalsın
+- Ordu -1
+- Evham +1
+Sağ: Hepsini değiştir
+- Ordu +1
+- Halk -1
+- Evham +1
+
+B9 — Ulemadan Uyarı
+Seviye: Orta Paranoya
+Kaynak: Şeyhülislam
+Paranoya türü: Manevi baskı
+Kart metni:
+“Bazı âlimler, fazla dünyevileştiğini fısıldıyor.
+Bu ikaz mıdır… mevzi kazanma hamlesi mi?”
+Sol: Ciddiye al
+- Din +1
+- Hazine -1
+- Evham +1
+Sağ: Geri çevir
+- Din -1
+- Evham +1
+
+B10 — Sessiz Vezirler
+Seviye: Orta Paranoya
+Kaynak: Saray içi
+Paranoya türü: Konuşmayan çevre
+Kart metni:
+“Divanda kimse sana karşı çıkmıyor.
+Bu saygı olabilir… ya da herkes aynı şeyi bekliyordur.”
+Sol: Olduğu gibi bırak
+- Halk +1
+- Evham +1
+Sağ: Tek tek konuştur
+- Halk -1
+- Evham +1
+
+C1 — Büyük Sefer
+Seviye: Ağır Paranoya
+Kaynak: Serdar
+Paranoya türü: Güç kumarı
+Kart metni:
+“Serdar büyük bir sefer teklif ediyor.
+Zafer kazanırsın… ya da ordu zaferin tadını senden bağımsız almaya başlar.”
+Sol: Bekle
+- Ordu +1
+- Evham 0
+Sağ: Sefer aç
+- Ordu +3
+- Hazine -2
+- Evham +2
+
+C2 — Ağır Vergi
+Seviye: Ağır Paranoya
+Kaynak: Defterdar
+Paranoya türü: Sert kontrolün geri tepmesi
+Kart metni:
+“Defterdar, kısa sürede büyük gelir için ağır vergi öneriyor.
+Hazine dolar… gönüller boşalır.”
+Sol: Ölçülü kal
+- Hazine +1
+- Evham 0
+Sağ: Vergiyi artır
+- Hazine +3
+- Halk -2
+- Evham +2
+
+C3 — Sert Fetva
+Seviye: Ağır Paranoya
+Kaynak: Şeyhülislam
+Paranoya türü: Dini güç yoğunlaşması
+Kart metni:
+“Şeyhülislam daha sert bir nizam istiyor.
+İtaat artar… ama söz tek elde toplanır.”
+Sol: Yumuşak kal
+- Din +1
+- Evham 0
+Sağ: Sert fetvayı destekle
+- Din +3
+- Halk -1
+- Evham +2
+
+C4 — Muhbir Ağı
+Seviye: Ağır Paranoya
+Kaynak: Saray içi
+Paranoya türü: Gözetim devleti
+Kart metni:
+“Saray çevresinde gizli muhbir ağı kurulması öneriliyor.
+Tehlikeyi erken duyarsın… ama herkes seni de duymaya başlar.”
+Sol: Gerek yok
+- Evham 0
+Sağ: Ağı kur
+- Ordu +1
+- Halk -2
+- Evham +2
+
+C5 — Askerî Törenler
+Seviye: Ağır Paranoya
+Kaynak: Serdar
+Paranoya türü: Gücün gösteriye dönüşmesi
+Kart metni:
+“Şehirde büyük askerî geçitler yapılması isteniyor.
+Güç görünür olur… ama fazla görünür güç, ayrı bir sahip de arayabilir.”
+Sol: Küçük tören yeter
+- Ordu +1
+- Evham 0
+Sağ: Büyük geçit yap
+- Ordu +2
+- Halk +1
+- Evham +2
+
+C6 — Hazinede Sıkı Tasfiye
+Seviye: Ağır Paranoya
+Kaynak: Defterdar
+Paranoya türü: İç temizlik sarmalı
+Kart metni:
+“Defterdar, hazinede geniş tasfiye istiyor.
+Kayıplar azalır… ama herkes birbirinden korkmaya başlar.”
+Sol: Yumuşak denetim
+- Hazine +1
+- Evham 0
+Sağ: Tasfiye başlat
+- Hazine +2
+- Halk -1
+- Evham +2
+
+C7 — Vaizleri Yay
+Seviye: Ağır Paranoya
+Kaynak: Şeyhülislam
+Paranoya türü: Fikir alanının tekleşmesi
+Kart metni:
+“Şehre daha fazla vaiz gönderilmesi öneriliyor.
+Birlik artar… ama tek sesin yankısı bazen duvarları çatlatır.”
+Sol: Mevcut düzen sürsün
+- Din +1
+- Evham 0
+Sağ: Vaizleri yay
+- Din +2
+- Halk -1
+- Evham +2
+
+C8 — Saray Yenilemesi
+Seviye: Ağır Paranoya
+Kaynak: Saray içi
+Paranoya türü: Mekânsal kontrol
+Kart metni:
+“Sarayın bazı bölümlerinin yeniden düzenlenmesi isteniyor.
+Düzen artar… ama kim nereye yerleşirse, orada yeni güç doğar.”
+Sol: Küçük değişiklik yap
+- Halk +1
+- Evham 0
+Sağ: Büyük yenileme başlat
+- Halk +2
+- Hazine -2
+- Evham +2
+
+C9 — Halkı Böl, Düzeni Kur
+Seviye: Ağır Paranoya
+Kaynak: Kethüda
+Paranoya türü: Toplumsal mühendislik
+Kart metni:
+“Kethüda, rakip toplulukları birbirine karşı dengeleyerek düzen kurulabileceğini söylüyor.
+Bugün işe yarar… yarın kimin büyüyeceği belli olmaz.”
+Sol: Uzak dur
+- Halk +1
+- Evham 0
+Sağ: Denge oyunu kur
+- Halk +2
+- Ordu +1
+- Evham +2
+
+C10 — Yakın Veziri Yücelt
+Seviye: Ağır Paranoya
+Kaynak: Saray içi
+Paranoya türü: Tek kişiye fazla güç verme
+Kart metni:
+“En güvendiğin veziri olağanüstü yetkilerle donatman öneriliyor.
+İşler hızlanır… ama bir kişi fazla büyür.”
+Sol: Yetkiyi bölüştür
+- Halk +1
+- Evham 0
+Sağ: Yetkiyi ver
+- Hazine +1
+- Ordu +1
+- Evham +2
+
+A11 — Mühürlü Fermanlar
+Seviye: Hafif Paranoya
+Kaynak: Saray içi
+Paranoya türü: Yetki taklidi
+Kart metni:
+“Taşraya giden bazı fermanların senin mührünü taşıdığı söyleniyor.
+Mühür görünüyorsa… irade de gerçekten sana mı ait?”
+Sol: Fermanları geri çağır
+- Hazine -1
+- Evham 0
+Sağ: Düzeni bozma, yürüsün
+- Halk +1
+- Evham +1
+
+A12 — Medreselerde Aynı Şerh
+Seviye: Hafif Paranoya
+Kaynak: Şeyhülislam
+Paranoya türü: Düşüncenin tekleşmesi
+Kart metni:
+“Birçok medresede aynı şerhin okutulduğu söyleniyor.
+Bu birlik midir… yoksa düşüncenin tek elde toplanması mı?”
+Sol: Başka şerhlere izin ver
+- Din -1
+- Evham 0
+Sağ: Tek şerhi koru
+- Din +1
+- Halk -1
+- Evham +1
+
+A13 — Tersane Siparişi
+Seviye: Hafif Paranoya
+Kaynak: Serdar
+Paranoya türü: Gizli silahlanma
+Kart metni:
+“Tersane ustaları, barış zamanına göre fazla demir ve kereste istiyor.
+Hazırlık mıdır bu… yoksa senden habersiz büyüyen bir iştah mı?”
+Sol: Siparişi kıs
+- Ordu -1
+- Evham 0
+Sağ: İstediklerini ver
+- Ordu +2
+- Hazine -1
+- Evham +1
+
+A14 — Sancak Beylerinin Hediyeleri
+Seviye: Hafif Paranoya
+Kaynak: Saray içi
+Paranoya türü: Borç ilişkisi
+Kart metni:
+“Bazı sancak beyleri sana olağandan kıymetli hediyeler gönderiyor.
+Sadakat mi sunuyorlar… yoksa senden ileride bir karşılık mı bekliyorlar?”
+Sol: Hediyeleri geri çevir
+- Halk -1
+- Evham 0
+Sağ: Kabul et
+- Hazine +1
+- Evham +1
+
+A15 — Kadıların Sessizliği
+Seviye: Hafif Paranoya
+Kaynak: Şeyhülislam
+Paranoya türü: Kurumsal suskunluk
+Kart metni:
+“Taşradaki bazı kadılar son zamanlarda az hüküm veriyor, çok susuyor.
+Sükûnet mi bu… yoksa bir şeyi görmezden gelme hali mi?”
+Sol: Teftiş gönder
+- Din -1
+- Evham 0
+Sağ: Düzeni bozma
+- Din +1
+- Evham +1
+
+A16 — Esnafın Fazla Memnuniyeti
+Seviye: Hafif Paranoya
+Kaynak: Kethüda
+Paranoya türü: Fazla iyi görünen huzur
+Kart metni:
+“Esnaf bu ay olağandan memnun görünüyor.
+Her yüz güldüğünde… bazen biri zararı sessizce üstleniyordur.”
+Sol: Kaynağını araştır
+- Hazine -1
+- Evham 0
+Sağ: Memnuniyet sürsün
+- Halk +1
+- Evham +1
+
+A17 — İkinci Anahtar
+Seviye: Hafif Paranoya
+Kaynak: Defterdar
+Paranoya türü: Erişim sızıntısı
+Kart metni:
+“Hazine odasının ikinci anahtarının kimde olduğu kesin bilinmiyor.
+Anahtar kaybolmadıysa… yetki mi çoğaldı?”
+Sol: Kilitleri değiştir
+- Hazine -1
+- Evham 0
+Sağ: Eski düzen sürsün
+- Hazine +1
+- Evham +1
+
+A18 — Yeniçeri Ağasının Övgüsü
+Seviye: Hafif Paranoya
+Kaynak: Serdar
+Paranoya türü: Yağlayıcı övgü
+Kart metni:
+“Yeniçeri ağası, adını kışladaki marşlara kattırmak istiyor.
+Anılmak hoş olabilir… ama askerin diline girmek kimin işine yarar?”
+Sol: Gerek yok de
+- Ordu -1
+- Evham 0
+Sağ: İzin ver
+- Ordu +1
+- Evham +1
+
+A19 — Bahşişsiz Şenlik
+Seviye: Hafif Paranoya
+Kaynak: Kethüda
+Paranoya türü: Bastırılmış beklenti
+Kart metni:
+“Şehirde büyük bir şenlik yapıldı ama beklenen bahşiş talebi yükselmedi.
+Terbiye midir bu… yoksa bastırılmış bir bekleyiş mi?”
+Sol: Kalabalığı dinle
+- Halk -1
+- Evham 0
+Sağ: Şenlikleri artır
+- Halk +1
+- Hazine -1
+- Evham +1
+
+A20 — Müneccimin Israrı
+Seviye: Hafif Paranoya
+Kaynak: Saray içi
+Paranoya türü: Uğur perdesi
+Kart metni:
+“Müneccimbaşı, bazı görüşmeleri uğursuz sayıp ertelemeni istiyor.
+Gökler mi konuşuyor… yoksa biri vakit mi kazanıyor?”
+Sol: Görüşmeyi yap
+- Din -1
+- Evham 0
+Sağ: Uğura uy
+- Din +1
+- Evham +1
+
+B11 — İki Ayrı Haberci
+Seviye: Orta Paranoya
+Kaynak: Saray içi
+Paranoya türü: Çatışan bilgi
+Kart metni:
+“Aynı günde gelen iki haberci, sınır için birbirine zıt şeyler söylüyor.
+Hangisi yalan… hangisi daha tehlikeli?”
+Sol: Sakin olana inan
+- Hazine +1
+- Evham +1
+Sağ: Kötü habere göre hazırlan
+- Ordu +1
+- Hazine -1
+- Evham +1
+
+B12 — Saray Nikâhı
+Seviye: Orta Paranoya
+Kaynak: Saray içi
+Paranoya türü: Akrabalık siyaseti
+Kart metni:
+“İki nüfuzlu aileyi saray nikâhıyla birbirine bağlaman öneriliyor.
+Bağ kurulur… ama hangi düğüm senin elini bağlar?”
+Sol: Nikâhı onayla
+- Halk +1
+- Evham +1
+Sağ: Vazgeçir
+- Halk -1
+- Din +1
+- Evham +1
+
+B13 — Aynı El Yazısı
+Seviye: Orta Paranoya
+Kaynak: Defterdar
+Paranoya türü: Sahte birlik
+Kart metni:
+“Farklı sancaklardan gelen birkaç hesap defteri aynı elden çıkmış gibi görünüyor.
+Düzen mi kurulmuş… yoksa düzen mi uydurulmuş?”
+Sol: Üstünü kapat
+- Hazine +1
+- Evham +1
+Sağ: Yazıcıları sorgula
+- Hazine -1
+- Evham +1
+
+B14 — Vaiz ile Komutan
+Seviye: Orta Paranoya
+Kaynak: Saray içi
+Paranoya türü: Çapraz ittifak
+Kart metni:
+“Bir vaiz ile bir komutanın sık sık baş başa görüldüğü söyleniyor.
+Dua mı paylaşıyorlar… yoksa niyet mi?”
+Sol: Önemseme
+- Din -1
+- Evham +1
+Sağ: Ayır
+- Ordu -1
+- Din +1
+- Evham +1
+
+B15 — Lonca Reislerinin Sözü
+Seviye: Orta Paranoya
+Kaynak: Kethüda
+Paranoya türü: Koordineli baskı
+Kart metni:
+“Lonca reisleri aynı anda aynı taleple kapına geldi.
+Bu düzenli bir talep mi… yoksa ölçülmüş bir baskı mı?”
+Sol: İmtiyaz ver
+- Halk +1
+- Hazine -1
+- Evham +1
+Sağ: Sert dur
+- Hazine +1
+- Halk -1
+- Evham +1
+
+B16 — Eski Defterdarın Adı
+Seviye: Orta Paranoya
+Kaynak: Defterdar
+Paranoya türü: Eski gölge
+Kart metni:
+“Görevden ayrılan eski defterdarın adı hâlâ bazı evraklarda geçiyor.
+Geçmişte kalan bir alışkanlık mı… yoksa içeride yaşayan bir el mi?”
+Sol: Geri çağırıp danış
+- Hazine +1
+- Evham +1
+Sağ: Adını unuttur
+- Hazine -1
+- Evham +1
+
+B17 — Kapalı Kapı Divanı
+Seviye: Orta Paranoya
+Kaynak: Saray içi
+Paranoya türü: Dışlama korkusu
+Kart metni:
+“Bazı vezirler, divanın bir kısmının kapalı kapılar ardında yapılmasını istiyor.
+Mahremiyet mi gerekir… yoksa seni dışarıda bırakmak mı?”
+Sol: İzin ver
+- Hazine +1
+- Evham +1
+Sağ: Herkes önünde konuşulsun
+- Halk +1
+- Evham +1
+
+B18 — Hacıların Sözü
+Seviye: Orta Paranoya
+Kaynak: Şeyhülislam
+Paranoya türü: Taşınan söylenti
+Kart metni:
+“Hacdan dönen birkaç kişi, şehirde aynı sözü yayıyor.
+İbret mi taşıyorlar… yoksa bir ağızdan mı konuşuyorlar?”
+Sol: Vaazlarda yer ver
+- Din +1
+- Evham +1
+Sağ: Söylentiyi bastır
+- Halk -1
+- Ordu +1
+- Evham +1
+
+B19 — Cebecibaşının Listesi
+Seviye: Orta Paranoya
+Kaynak: Serdar
+Paranoya türü: Aşırı hazırlık
+Kart metni:
+“Cebecibaşı, barış günleri için fazla uzun bir silah listesi sundu.
+Tedbir midir bu… yoksa başka bir ihtimal mi?”
+Sol: Listeyi onayla
+- Ordu +1
+- Hazine -1
+- Evham +1
+Sağ: Kısalt
+- Ordu -1
+- Evham +1
+
+B20 — Saray Aşçıları
+Seviye: Orta Paranoya
+Kaynak: Saray içi
+Paranoya türü: Hizmet yoluyla sızma
+Kart metni:
+“Saray mutfağında aynı hafta içinde çok sayıda aşçı değişti.
+Mutfak doyurur da… saraya başka ne taşır?”
+Sol: Olduğu gibi bırak
+- Halk +1
+- Evham +1
+Sağ: Hepsini soruştur
+- Hazine -1
+- Evham +1
+
+C11 — Merkezî Mühür Odası
+Seviye: Ağır Paranoya
+Kaynak: Saray içi
+Paranoya türü: Yetkinin tek elde toplanması
+Kart metni:
+“Tüm resmî mühürlerin tek odada toplanması öneriliyor.
+Kararlar hızlanır… ama anahtar tek elde birikir.”
+Sol: Eski usul sürsün
+- Hazine +1
+- Evham 0
+Sağ: Merkezîleştir
+- Hazine +2
+- Halk -1
+- Evham +2
+
+C12 — Sürekli Sıkıyönetim
+Seviye: Ağır Paranoya
+Kaynak: Serdar
+Paranoya türü: Kalıcı askerî gölge
+Kart metni:
+“Sorunlu sancaklarda sürekli olağanüstü nizam uygulanması isteniyor.
+Huzur gelir… ama alışkanlık da kudret üretir.”
+Sol: Yerel çözüm ara
+- Halk +1
+- Evham 0
+Sağ: Sürekli sıkıyönetim kur
+- Ordu +2
+- Halk -2
+- Evham +2
+
+C13 — Büyük Tüccarları Koru
+Seviye: Ağır Paranoya
+Kaynak: Defterdar
+Paranoya türü: Bağımlı ekonomi
+Kart metni:
+“Hazineyi besleyen birkaç büyük tüccara özel koruma verilmesi öneriliyor.
+Para akışı hızlanır… ama devlet eli birkaç kese için çalışır.”
+Sol: Serbest düzen sürsün
+- Hazine +1
+- Evham 0
+Sağ: Büyük tüccarları koru
+- Hazine +3
+- Halk -1
+- Evham +2
+
+C14 — Tek Vaiz, Tek Hutbe
+Seviye: Ağır Paranoya
+Kaynak: Şeyhülislam
+Paranoya türü: Monolitik söylem
+Kart metni:
+“Başkentteki büyük camilerde aynı vaizin dolaşması isteniyor.
+Söz berraklaşır… ama başka sesler söner.”
+Sol: Çeşit sürsün
+- Din +1
+- Evham 0
+Sağ: Tek hutbe düzeni kur
+- Din +3
+- Halk -1
+- Evham +2
+
+C15 — Saray Muhafızlarına Ayrıcalık
+Seviye: Ağır Paranoya
+Kaynak: Serdar
+Paranoya türü: Ayrıcalıklı sadakat
+Kart metni:
+“Saray muhafızlarına ayrı maaş ve ayrı kışla verilsin deniyor.
+Sadakat pekişir… ama kimin sadakati?”
+Sol: Mevcut düzen kalsın
+- Ordu +1
+- Evham 0
+Sağ: Ayrıcalık tanı
+- Ordu +2
+- Hazine -2
+- Evham +2
+
+C16 — Vakıf Gelirlerini Topla
+Seviye: Ağır Paranoya
+Kaynak: Defterdar
+Paranoya türü: Kutsal finansın merkezileşmesi
+Kart metni:
+“Dağınık vakıf gelirlerinin merkezde toplanması öneriliyor.
+Kayıp azalır… ama dinî kudreti de artar.”
+Sol: Dağınık kalsın
+- Din +1
+- Evham 0
+Sağ: Vakıfları merkeze bağla
+- Hazine +2
+- Din +1
+- Halk -1
+- Evham +2
+
+C17 — Gece Yasağı
+Seviye: Ağır Paranoya
+Kaynak: Kethüda
+Paranoya türü: Şehrin nefesini kesmek
+Kart metni:
+“Geceleri şehir kapılarının tam kapanması ve giriş çıkışın yasaklanması isteniyor.
+Suç azalır… ama belki de sessizlik hayırlı amaçlar için istenmiyor.”
+Sol: Gevşek tut
+- Halk +1
+- Evham 0
+Sağ: Gece yasağı koy
+- Ordu +1
+- Halk -2
+- Evham +2
+
+C18 — Hanedan Yemini
+Seviye: Ağır Paranoya
+Kaynak: Şeyhülislam
+Paranoya türü: Zorlanmış bağlılık
+Kart metni:
+“Bütün yüksek görevlilerin hanedan adına yeni yemin etmesi öneriliyor.
+Bağlılık görünür olur… ama zorlanan dil farklı konuşur.”
+Sol: Eski yemini yeter say
+- Halk +1
+- Evham 0
+Sağ: Yeni yemin iste
+- Din +1
+- Ordu +1
+- Halk -1
+- Evham +2
+
+C19 — Gölge Casus Ağı
+Seviye: Ağır Paranoya
+Kaynak: Saray içi
+Paranoya türü: Karanlık bilgi pazarı
+Kart metni:
+“Düşman topraklarından haber toplamak için karanlık adamlarla iş tutman öneriliyor.
+Bilgi artar… ama kapıdan giren gölge içeride kalır.”
+Sol: Resmî yoldan git
+- Ordu +1
+- Evham 0
+Sağ: Gölge ağı kur
+- Ordu +2
+- Hazine -1
+- Evham +2
+
+C20 — Nüfuzlu Ailelerin Çocukları
+Seviye: Ağır Paranoya
+Kaynak: Saray içi
+Paranoya türü: Rehinle güven kurma
+Kart metni:
+“Nüfuzlu ailelerin çocuklarının sarayda yetiştirilmesi öneriliyor.
+Bağlar sıkılaşır… ama onlarda yeni bir hanedan hayali doğar mı ?.”
+Sol: Gerek yok
+- Halk +1
+- Evham 0
+Sağ: Çocukları saraya topla
+- Ordu +1
+- Halk -1
+- Evham +2
+`;
+
+
+================================================================================
+BÖLÜM 7: PARANOİA DÜŞÜNCELERI (PARANOIA_THOUGHTS) - Oyuncu Refleksleri
+================================================================================
+Satırlar: 3070-3197 (128 satır)
+
+const PARANOIA_THOUGHTS = [
+  'Tahtın altındaki döşeme gıcırdıyor.',
+  'Dışarıdaki kalabalık seni mi alkışlıyor, yoksa sonunu mu?',
+  'Bugün kimse gözlerinin içine bakamadı.',
+  'Kapının önündeki nöbetçinin nefesini duyuyor musun?',
+  'Bu karar senin mi, bir başkasının mı?',
+  'Herkes yalan söylüyor.',
+  'Sadece sen ve yalnızlığın.',
+  'Güneş batınca kimseye güvenme.'
+];
+let paranoiaThoughtCounter = 0;
+let paranoiaLastThoughtIndex = -1;
+let paranoiaBubbleTimer = null;
+let paranoiaMidFlashTimer = null;
+let paranoiaRaiseStreak = 0;
+
+function getRandomParanoiaThought() {
+  if (!PARANOIA_THOUGHTS.length) return '';
+  let idx = Math.floor(Math.random() * PARANOIA_THOUGHTS.length);
+  if (PARANOIA_THOUGHTS.length > 1) {
+    while (idx === paranoiaLastThoughtIndex) idx = Math.floor(Math.random() * PARANOIA_THOUGHTS.length);
+  }
+  paranoiaLastThoughtIndex = idx;
+  return PARANOIA_THOUGHTS[idx];
+}
+
+function showParanoiaThoughtBubble(text) {
+  const bubble = document.getElementById('paranoia-bubble');
+  if (!bubble || !text) return;
+  if (paranoiaBubbleTimer) clearTimeout(paranoiaBubbleTimer);
+  bubble.textContent = text;
+  bubble.classList.remove('show');
+  void bubble.offsetWidth;
+  bubble.classList.add('show');
+  const duration = Math.max(2200, Math.min(3600, 1200 + text.length * 38));
+  paranoiaBubbleTimer = setTimeout(() => {
+    bubble.classList.remove('show');
+  }, duration);
+}
+
+function clearParanoiaMidFlashTimer() {
+  if (paranoiaMidFlashTimer) {
+    clearTimeout(paranoiaMidFlashTimer);
+    paranoiaMidFlashTimer = null;
+  }
+}
+
+function flashParanoiaNoose(duration = 520) {
+  const el = document.getElementById('paranoia-noose-wrap');
+  if (!el) return;
+  el.classList.remove('panic-flash');
+  void el.offsetWidth;
+  el.classList.add('panic-flash');
+  setTimeout(() => el.classList.remove('panic-flash'), duration);
+}
+
+function scheduleParanoiaMidFlash() {
+  clearParanoiaMidFlashTimer();
+  if (evham < 3 || evham >= 6) return;
+  const delay = 2800 + Math.random() * 4200;
+  paranoiaMidFlashTimer = setTimeout(() => {
+    flashParanoiaNoose(430);
+    scheduleParanoiaMidFlash();
+  }, delay);
+}
+
+function updateParanoiaNooseVisual() {
+  const el = document.getElementById('paranoia-noose-wrap');
+  if (!el) return;
+  el.classList.remove('lvl-low', 'lvl-mid', 'lvl-high', 'blink');
+  if (evham <= 2) {
+    clearParanoiaMidFlashTimer();
+    el.classList.add('lvl-low');
+    el.style.opacity = evham === 0 ? '0.08' : evham === 1 ? '0.14' : '0.2';
+  } else if (evham <= 5) {
+    el.classList.add('lvl-mid');
+    el.style.opacity = '0.56';
+    scheduleParanoiaMidFlash();
+  } else {
+    clearParanoiaMidFlashTimer();
+    el.classList.add('lvl-high', 'blink');
+    el.style.opacity = '0.92';
+  }
+}
+
+function updateParanoiaQuestionCue(distance = 0) {
+  const el = document.getElementById('paranoia-question');
+  if (!el) return;
+  el.classList.remove('show');
+  el.style.opacity = '0';
+}
+
+function maybeGetParanoiaThoughtAfterChoice(kind) {
+  if (kind !== 'normal' && kind !== 'thinking') return '';
+  if (evham < 4) {
+    paranoiaThoughtCounter = 0;
+    return '';
+  }
+  paranoiaThoughtCounter += 1;
+  const threshold = evham >= 6 ? 2 : 3;
+  if (paranoiaThoughtCounter >= threshold) {
+    paranoiaThoughtCounter = 0;
+    return getRandomParanoiaThought();
+  }
+  return '';
+}
+
+function applyParanoiaDelta(delta) {
+  let total = delta;
+  let burst = false;
+  if (delta > 0) {
+    paranoiaRaiseStreak += 1;
+    if (paranoiaRaiseStreak >= 2) {
+      total += 1;
+      burst = true;
+      paranoiaRaiseStreak = 0;
+    }
+  } else {
+    paranoiaRaiseStreak = 0;
+  }
+  evham = Math.max(0, Math.min(10, evham + total));
+  updateParanoiaNooseVisual();
+  if (burst) flashParanoiaNoose(700);
+  return { total, burst };
+}
+// ══════════════════════════════════════
+// MİZAH KARTLARI — stat etkilemez, her 10–12 turda bir gelir
+// ══════════════════════════════════════
+
+================================================================================
+BÖLÜM 8: MIZAH KARTLARI (HUMOR_CARDS) - Eğlence Kartları
+================================================================================
+Satırlar: 3198-3326 (129 satır)
+
+const HUMOR_CARDS = [
+  {
+    type:'humor', em:'😂',
+    txt:'Veziriniz soruyor:\n"Bir kadını kızdırmak mı daha tehlikeli, düşman hükümdarı mı?"',
+    l:'İki kadını birden kızdırmak.',
+    r:'Düşman bir kadını kızdırmak.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Sadrazam soruyor:\n"Hünkarım, bahar geldiğinde Manisa\'ya gider miyiz?"',
+    l:'Baharı görürsek…',
+    r:'Bahar gelsin gidelim.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Kahvehanelerde yeni bir kart oyunu popüler olmuş. Söylenene göre bu oyunda halk padişah gibi kararlar veriyormuş.',
+    l:'Halkın işi gücü yok.',
+    r:'Ben de merak ettim.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Harem ağalarından biri endişeyle soruyor:\n"Hünkarım… asker sayısı yetmezse bizi de orduya alırlar mı?"',
+    l:'Sıraya girin.',
+    r:'Merak etmeyin.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Saray habercisinin posta güvercinlerine kendi aşk mektuplarını taşıttığını öğreniyorsunuz.',
+    l:'Aşkın gözü kördür.',
+    r:'Odama çağırın bakalım.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Bir seyyah saraya geliyor. Gördüğü her şeyi abartarak yazdığını söylüyor.',
+    l:'Yazsın bakalım.',
+    r:'Benden de bahsetsin.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Bir şair sizi öven 356 beyitlik kasideye başlıyor.',
+    l:'Sabaha kadar dinlediniz.',
+    r:'Biraz daha uzun yazmasını istediniz.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Saray kedisi gelip tahtın üzerine oturdu.',
+    l:'Bırakın otursun.',
+    r:'Sarayın maskotu yapın.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Ulema günlerdir tartışıyor:\n"Kahve içmek haram mıdır?"',
+    l:'Tartışmaya devam edin.',
+    r:'İlginç görünüyor.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Yeniçeriler kazan başında homurdanıyor:\n"Pilav yine tatsız."',
+    l:'Pilavı düzeltin.',
+    r:'Pilav gayet iyi.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Yeniçeriler başlıklarının çok ağır olduğunu söylüyor.',
+    l:'Yeni başlıklar hazırlayın.',
+    r:'Şikayet etmeyi bırakın.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Bir adam fetva soruyor:\n"Komşunun horozu çok erken ötüyor."',
+    l:'Horozu sustursunlar.',
+    r:'Horozun suçu yok.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Bir adam fetva soruyor:\n"Kedim komşunun balığını yemiş."',
+    l:'Tazmin etsin.',
+    r:'Kedi suçlu değil.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Bir adam fetva soruyor:\n"Sakalım seyrek çıkıyor."',
+    l:'Sabret.',
+    r:'Bu kaderdir.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Yeniçerilerin kazan kaldırdığı haberleri geliyor. Hoşafın üstünde yağ istediklerini söylüyorlar.',
+    l:'Hoşafa yağ ekleyin!',
+    r:'Ocak devlet içindir.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Saraya bir İtalyan ressam geldi. Sizi çizmek istiyor. Olduğunuzdan daha yakışıklı çizeceğine söz verdi.',
+    l:'Bu ne cüret!',
+    r:'Çizsin bakalım.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Şehzadeniz soruyor:\n"Hünkarım… karar alınır mı, yoksa verilir mi?"',
+    l:'Kafamı karıştırma.',
+    r:'Devlet büyük, ikisi de olur.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Divanda Girit meselesi konuşuluyor. Saray aşçısı yanlış anlamış ve soruyor:\n"Hünkarım… yemekte tirit mi istediniz?"',
+    l:'Bu devlet meselesidir.',
+    r:'Önce tirit yiyelim.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Saray şairi sizi öven yeni bir şiir yazmış. Ama sonunda küçük bir not düşmüş:\n"Maaşımda küçük bir artışı hak eder miyim?"',
+    l:'Şiir güzel.',
+    r:'Maaş kısmını çıkar.'
+  },
+  {
+    type:'humor', em:'😂',
+    txt:'Saray müneccimi yıldızlara bakıp konuşuyor:\n"Hünkarım, yıldızlar bugün karar almamanızı söylüyor."',
+    l:'Yıldızlar devleti yönetmez.',
+    r:'Bugün tatil.'
+  }
+];
+
+// ══════════════════════════════════════
+// DÜŞÜNME KARTLARI — 3 stat etkiler, her 5–7 turda bir gelir
+// Sol=Reddet, Sağ=Kabul
+// rE: sağ seçeneğin etkileri [{s:'stat', d:delta}, ...]
+// Sol seçeneğin etkileri rE'nin tersidir (d işareti döner)
+// ══════════════════════════════════════
+
+================================================================================
+BÖLÜM 9: DÜŞÜNCE KARTLARI (THINKING_CARDS) - Karakterin Düşünceleri
+================================================================================
+Satırlar: 3327-3546 (220 satır)
+
+const THINKING_CARDS = [
+  {
+    type:'thinking', em:'⚔️',
+    txt:'Sınır boylarından bazı savaşçılar ganimet hakkı karşılığında hizmet etmek istediklerini söylüyor.',
+    l:'Mal için gelen mal için gider.',
+    r:'Fazladan kılıçlar işimize yarar.',
+    rE:[{s:'hazine',d:8},{s:'ordu',d:8},{s:'halk',d:-12}]
+  },
+  {
+    type:'thinking', em:'⛏️',
+    txt:'Bir tepede yeni bir demir damarı bulunduğu söyleniyor. Kazı yapmak isteyenler izin bekliyor.',
+    l:'Toprağı rahat bırakın.',
+    r:'Kazıya başlayın.',
+    rE:[{s:'hazine',d:8},{s:'ordu',d:8},{s:'halk',d:-12}]
+  },
+  {
+    type:'thinking', em:'🤝',
+    txt:'Uzak bir hükümdarın elçisi huzurunuza değerli hediyelerle çıkıyor.',
+    l:'Bu ne cüret!',
+    r:'Örfümüzde hediye geri çevrilmez.',
+    rE:[{s:'hazine',d:8},{s:'din',d:8},{s:'halk',d:-12}]
+  },
+  {
+    type:'thinking', em:'🗺️',
+    txt:'Avrupa\'da bazı mezhep ayrılıklarının büyüdüğü haberleri geliyor. Bir tarafla gizli ilişki kurulabileceği söyleniyor.',
+    l:'Bu bizim meselemiz değil.',
+    r:'Önce zayıflat sonra fethet.',
+    rE:[{s:'ordu',d:8},{s:'hazine',d:8},{s:'din',d:-12}]
+  },
+  {
+    type:'thinking', em:'🚩',
+    txt:'Sarayda bazıları büyük bir sefer çağrısı yapılmasını istiyor.',
+    l:'Henüz zamanı değil.',
+    r:'Sancağı getirin.',
+    rE:[{s:'ordu',d:8},{s:'din',d:8},{s:'hazine',d:-12}]
+  },
+  {
+    type:'thinking', em:'📯',
+    txt:'Ordu içinde askerlerin maneviyatını güçlendirmek için yeni görevliler öneriliyor.',
+    l:'Gerek yok.',
+    r:'Faydalı olabilir.',
+    rE:[{s:'ordu',d:8},{s:'din',d:8},{s:'hazine',d:-12}]
+  },
+  {
+    type:'thinking', em:'🛡️',
+    txt:'Sınır köylerinden bazıları kendilerini koruyabilmek için silah talep ediyor.',
+    l:'Bu iyi fikir değil.',
+    r:'Kendilerini savunabilsinler.',
+    rE:[{s:'ordu',d:8},{s:'halk',d:8},{s:'hazine',d:-12}]
+  },
+  {
+    type:'thinking', em:'🛍️',
+    txt:'Bazı tüccarlar Hint diyarına uzanan yeni bir ticaret hattı açılabileceğini söylüyor. Yol uzun ve tehlikeli.',
+    l:'Bu macera bize göre değil.',
+    r:'Servet risk alana gelir.',
+    rE:[{s:'hazine',d:8},{s:'halk',d:8},{s:'ordu',d:-12}]
+  },
+  {
+    type:'thinking', em:'🏛️',
+    txt:'Sarayda bazıları eski bir köprünün yeniden inşa edilmesini öneriyor. Kervan yolları o bölgeden geçiyor.',
+    l:'Masrafa değmez.',
+    r:'Köprüyü yeniden kurun.',
+    rE:[{s:'halk',d:8},{s:'ordu',d:8},{s:'hazine',d:-12}]
+  },
+  {
+    type:'thinking', em:'🔭',
+    txt:'Genç bilginler yeni bir rasathane kurmak için destek istiyor. Yıldızları incelemek istediklerini söylüyorlar.',
+    l:'Devlet yıldızla yönetilmez.',
+    r:'Bilgi zarar vermez.',
+    rE:[{s:'hazine',d:8},{s:'halk',d:8},{s:'din',d:-12}]
+  },
+  {
+    type:'thinking', em:'🤲',
+    txt:'Uzak bir beylik zor durumda. Yardım gönderirseniz ileride minnet duyabileceklerini söylüyorlar.',
+    l:'Kendi dertleri yeter.',
+    r:'İyilik unutulmaz.',
+    rE:[{s:'halk',d:8},{s:'din',d:8},{s:'hazine',d:-12}]
+  },
+  {
+    type:'thinking', em:'🍲',
+    txt:'Saray mutfağından arta kalan yemeklerin her gün fakirlere dağıtılması öneriliyor.',
+    l:'Bu sarayın işi değil.',
+    r:'Paylaşmak berekettir.',
+    rE:[{s:'halk',d:8},{s:'din',d:8},{s:'hazine',d:-12}]
+  },
+  {
+    type:'thinking', em:'🌙',
+    txt:'Bazı kadılar şehirlerde gece sokağa çıkma yasağı uygulanmasını öneriyor.',
+    l:'Halk kendi işini bilir.',
+    r:'Düzen için gerekli.',
+    rE:[{s:'ordu',d:8},{s:'din',d:8},{s:'halk',d:-12}]
+  },
+  {
+    type:'thinking', em:'🕌',
+    txt:'Bazı dervişler uzak diyarlara irşad yolculuğu yapmak istiyor. Saraydan destek bekliyorlar.',
+    l:'Kendi yollarına gitsinler.',
+    r:'Destek verin.',
+    rE:[{s:'din',d:8},{s:'halk',d:8},{s:'hazine',d:-12}]
+  },
+  {
+    type:'thinking', em:'📚',
+    txt:'Genç şehzadeler için yeni bir eğitim düzeni kurulması öneriliyor.',
+    l:'Eski usul yeterlidir.',
+    r:'Yeni düzen kurun.',
+    rE:[{s:'din',d:8},{s:'halk',d:8},{s:'hazine',d:-12}]
+  },
+  {
+    type:'thinking', em:'🧾',
+    txt:'Bazı birliklerin ihtiyaçları kâğıt üzerinde olduğundan daha az görünüyor.',
+    l:'Defterler yeterlidir.',
+    r:'Kayıtları düzeltin.',
+    rE:[{s:'halk',d:8},{s:'din',d:8},{s:'ordu',d:-12}],
+    lE:[{s:'ordu',d:8},{s:'hazine',d:8},{s:'halk',d:-12}]
+  }
+];
+
+// ══════════════════════════════════════
+// ZORLUK SEVİYELERİ — Sabit Ayarlar
+// Not: Oyun her zaman 'hard' (zor) modda çalışır.
+//      Kolay/normal ayarları ileride kullanılmak üzere kodda mevcuttur.
+//      Menüde zorluk seçim ekranı bulunmamaktadır.
+// ══════════════════════════════════════
+const DIFFICULTY_CONFIG = {
+  easy: {
+    initialStats:  { hazine:55, ordu:55, halk:55, din:55 },
+    passive:       { hazine:0.2, ordu:0.1, halk:0.1, din:0.1 },
+    maxStability:  15,
+    pressureMid:   6,   // stability >= bu → orta baskı
+    pressureHigh:  12,  // stability >= bu → yüksek baskı
+  },
+  normal: {
+    initialStats:  { hazine:50, ordu:50, halk:50, din:50 },
+    passive:       { hazine:0.5, ordu:0.2, halk:0.2, din:0.2 },
+    maxStability:  12,
+    pressureMid:   4,
+    pressureHigh:  8,
+  },
+  hard: {
+    initialStats:  { hazine:45, ordu:45, halk:45, din:45 },
+    passive:       { hazine:0.8, ordu:0.4, halk:0.4, din:0.4 },
+    maxStability:  10,
+    pressureMid:   3,   // baskı daha hızlı birikir
+    pressureHigh:  6,
+  },
+};
+
+// Aktif zorluk — menüde seçim yoktur, oyun daima ZOR modda çalışır
+const currentDifficulty = 'hard';
+
+// ══════════════════════════════════════
+// OYUN DURUMU
+// ══════════════════════════════════════
+let stats = {hazine:50, ordu:50, halk:50, din:50};
+let yr = 1, anim = false, drag = false, sx = 0, cx2 = 0;
+let order = [], ci = 0;
+let currentCard = null;
+
+// Gizli evham durumu — oyuncuya gösterilmez
+let evham = 0;
+let paranoiaTurnsSinceLast = 0;
+let paranoiaPending = false;
+let paranoiaCardsShown = 0;
+let paranoiaDeckState = createParanoiaState();
+let lastParanoiaMomentumBurst = false;
+
+// Dinamik zorluk takip değişkenleri
+let stability = 0;      // Arka arkaya "iyi" tur sayısı (hiçbir stat düşmedi)
+let pressureLevel = 0;  // 0=normal, 1=orta baskı, 2=yüksek baskı
+
+// Haberci kart cooldown — her anahtar "stat_dir" formatında, değer true=kullanıldı
+let heraldUsed = {};    // örn: {"hazine_low": true, "ordu_high": true}
+
+// Trait (geçmiş) sistemi — her stat için %10 kayıp azaltma
+let traitReductions = {hazine:0, ordu:0, halk:0, din:0};
+// Gizli stat sistemi
+const HIDDEN_STAT_START = 5;
+let hiddenStats = {
+  adaletsizlik: HIDDEN_STAT_START,
+  askeri_vesayet: HIDDEN_STAT_START,
+  dis_bagimlilik: HIDDEN_STAT_START,
+  teokratik_etki: HIDDEN_STAT_START
+};
+
+// Özel tarihî olay zincirleri
+const KOSOVA_IMPORTANT_CARD = {
+  id:'kosova_important_1',
+  type:'thinking',
+  em:'⚔️',
+  txt:'Balkanlara büyük bir sefer teklif olunur. Zaferin yakın olduğu, lakin hazinenin zorlanacağı konuşulur.',
+  l:'Seferi ertele',
+  r:'Seferi kabul et',
+  rE:[
+    {s:'hazine', d:-8},
+    {s:'ordu', d:8},
+    {s:'din', d:8}
+  ],
+  kosovaStep:1
+};
+const KOSOVA_COMMAND_CARD = {
+  id:'kosova_command_2',
+  em:'🪖',
+  txt:'Ordu komutanları, Balkan seferini bizzat idare etmenizi ister. Ulema, hükümdarın kendini tehlikeye atmamasını salık verir.',
+  l:'Komutanlara bırak',
+  r:'Bizzat komuta et',
+  boost:'ordu',
+  debuff:'din',
+  tier:'n',
+  kosovaStep:2
+};
+const KOSOVA_FINAL_CARD = {
+  id:'kosova_final_3',
+  em:'🏇',
+  txt:'Zafer kazanıldı. Meydana inmek şeref sayılır… Serdar, temkinli olmanızı ister.',
+  l:'Çadırda kal',
+  r:'Meydana in',
+  boost:'ordu',
+  debuff:'halk',
+  tier:'n',
+  kosovaStep:3
+};
+
+================================================================================
+BÖLÜM 10: ÖZEL SONLAR (SPECIAL_ENDINGS) - Belirli Senaryo Sonları
+================================================================================
+Satırlar: 3547-3660 (114 satır)
+
+const SPECIAL_ENDINGS = {
+  kosova_hatasi: {
+    icon:'⚔️',
+    title:'Kosova hatası',
+    ar:'خطأ كوسوفا',
+    desc:'Zafer kazandın. Lakin kılıçlar henüz yere bırakılmamıştı. Meydanda, sana yaklaşan bir el sonunu getirdi.\n\nDevlet kazandı… Sen düştün.'
+  },
+  yedikule_sonu: {
+    icon:'👑',
+    title:'Yedikule Sonu',
+    ar:'نهاية يديكوله',
+    desc:'Güç dengelerini yanlış kurdun. Söylenenler, duymaması gereken kulaklara ulaştı.\n\nTaht seni koruyamadı.\n\nYedikule’nin taş duvarları ardında… Sonun yazıldı.'
+  },
+  sirpence_sonu: {
+    icon:'🩸',
+    title:'Şirpençe Sonu',
+    ar:'نهاية الشيربنجه',
+    desc:'Seferler kazandın. Lakin bedenin bu yükü taşıyamadı.\n\nKüçük bir müdahaleye güvendin…\n\nVe sonun, bir yara ile geldi.'
+  }
+};
+const YEDIKULE_IMPORTANT_CARD = {
+  id:'yedikule_important_1',
+  type:'thinking',
+  em:'👑',
+  txt:'Şeyhülislam, kızıyla nikâh kıymanızı önerir. Bu izdivaç, ulema ile bağlarınızı kuvvetlendirebilir.',
+  l:'Teklifi reddet',
+  r:'Nikâhı kabul et',
+  rE:[
+    {s:'din', d:8},
+    {s:'halk', d:8},
+    {s:'hazine', d:-8}
+  ],
+  yedikuleStep:1
+};
+const YEDIKULE_POLICY_CARD = {
+  id:'yedikule_policy_2',
+  em:'📜',
+  txt:'Yeni eşiniz, bazı tarikatların destek sözü karşılığında birtakım kanun değişiklikleri teklif eder.',
+  l:'Reddet',
+  r:'Teklifleri kabul et',
+  boost:'hazine',
+  debuff:'halk',
+  tier:'n',
+  yedikuleStep:2
+};
+const YEDIKULE_FINAL_CARD = {
+  id:'yedikule_final_3',
+  em:'🕯️',
+  txt:'Eşiniz, yeniçeri ocağının durumunu merak eder. Detayları öğrenmek istediğini söyler.',
+  l:'Bu senin işin değil',
+  r:'Detayları anlat',
+  boost:'ordu',
+  debuff:'din',
+  tier:'n',
+  yedikuleStep:3
+};
+const SIRPENCE_IMPORTANT_CARD = {
+  id:'sirpence_important_1',
+  type:'thinking',
+  em:'🩸',
+  txt:'Doğuda yeni bir sefer teklifi gelir. Ordu hazır, lakin uzun seferin yıpratıcı olacağı konuşulur.',
+  l:'Bekle',
+  r:'Seferi başlat',
+  rE:[
+    {s:'ordu', d:8},
+    {s:'din', d:8},
+    {s:'halk', d:-8}
+  ],
+  lE:[
+    {s:'ordu', d:-8},
+    {s:'din', d:-8},
+    {s:'halk', d:8}
+  ],
+  sirpenceStep:1
+};
+const SIRPENCE_CAMPAIGN_CARD = {
+  id:'sirpence_campaign_2',
+  em:'🏕️',
+  txt:'Sefer uzadıkça yorgunluk artar. Hekimler istirahat etmenizi tavsiye eder.',
+  l:'Dinlen',
+  r:'Seferi sürdür',
+  singleEffects:{
+    l:[{s:'ordu', d:-8}],
+    r:[{s:'ordu', d:8},{s:'halk', d:-8}]
+  },
+  tier:'n',
+  sirpenceStep:2
+};
+const SIRPENCE_FINAL_CARD = {
+  id:'sirpence_final_3',
+  em:'🧪',
+  txt:'Vücudunuzda çıkan bir çıban büyür. Bir hekim, sıkılarak geçebileceğini söyler.',
+  l:'Dokundurma',
+  r:'Sıktır',
+  singleEffects:{
+    l:[{s:'ordu', d:-8}]
+  },
+  tier:'n',
+  sirpenceStep:3
+};
+let kosovaChainStarted = false;
+let kosovaCommanderAccepted = false;
+let kosovaEventUsed = false;
+let kosovaStarterShown = false;
+let yedikuleChainStarted = false;
+let yedikulePolicyAccepted = false;
+let yedikuleEventUsed = false;
+let yedikuleStarterShown = false;
+let sirpenceChainStarted = false;
+let sirpenceCampaignAccepted = false;
+let sirpenceEventUsed = false;
+let sirpenceStarterShown = false;
+let pendingSpecialQueue = []; // [{card, normalsLeft, kind}]
+
+
+================================================================================
+BÖLÜM 11: GİZLİ SONLAR (HIDDEN_ENDINGS) - Gizli Koşul Sonları
+================================================================================
+Satırlar: 3661-3809 (149 satır)
+
+const HIDDEN_ENDINGS = {
+  adaletsizlik: {
+    fail: {
+      icon:'⚖️',
+      title:'Adaletsizlik Devleti Çürüttü',
+      ar:'غلب الظلم على الدولة',
+      desc:'Hüküm eğrildi Sultanım. Mazlumun ahı divanı sardı. Taşra sizden yüz çevirdi, devlet içeriden çürüdü.'
+    },
+    win: {
+      icon:'🕊️',
+      title:'Adaletle Anıldınız',
+      ar:'اشتهرت بالعدل',
+      desc:'Hükmünüz dengeli kaldı Sultanım. Kadılar korkuyla değil ölçüyle hükmetti. Adınız adaletle anıldı.'
+    }
+  },
+  askeri_vesayet: {
+    fail: {
+      icon:'⚔️',
+      title:'Ocak Tahtın Üstüne Çıktı',
+      ar:'تغلب العسكر على العرش',
+      desc:'Kılıç gölgeyi aştı Sultanım. Ocak, buyruğa değil kudretine güvendi. Tahtınız asker baskısı altında kaldı.'
+    },
+    win: {
+      icon:'🛡️',
+      title:'Ordu Dizgin Altında Kaldı',
+      ar:'بقي الجيش في الطاعة',
+      desc:'Ordu kudretliydi ama haddini bildi Sultanım. Buyruk divandan çıktı, ocak itaati bozamadı.'
+    }
+  },
+  dis_bagimlilik: {
+    fail: {
+      icon:'⚓',
+      title:'Devlet Dışa Bağlandı',
+      ar:'ارتهنت الدولة للخارج',
+      desc:'İmtiyazlar çoğaldı Sultanım. Limanlar, pazarlar ve ustalık yabancı eline düştü. Devlet kendi kuvvetine güvenemez oldu.'
+    },
+    win: {
+      icon:'🏛️',
+      title:'İktisadî İrade Korundu',
+      ar:'حُفظ استقلال الدولة',
+      desc:'Borç ve imtiyaz sizi esir alamadı Sultanım. Çarşı, tersane ve hazine kendi iradesiyle ayakta kaldı.'
+    }
+  },
+  teokratik_etki: {
+    fail: {
+      icon:'☪️',
+      title:'Teokratik Etki Tahtı Sardı',
+      ar:'غلب الأثر الديني على الحكم',
+      desc:'Fermanın önüne başka kapılar geçti Sultanım. Divan daraldı, hüküm tek elde değil çok baskı altında yürüdü.'
+    },
+    win: {
+      icon:'🌙',
+      title:'Hüküm ile İnanç Dengede Kaldı',
+      ar:'توازن الحكم والإيمان',
+      desc:'İnanç korunurken hüküm divanda kaldı Sultanım. Ne minber tahta çöktü ne de devlet meşruiyetini yitirdi.'
+    }
+  }
+};
+
+function clampHiddenStats() {
+  Object.keys(hiddenStats).forEach(k => {
+    hiddenStats[k] = Math.max(0, Math.min(10, hiddenStats[k]));
+  });
+}
+function applyHiddenEffect(card, side) {
+  if(!card || !card.hidden) return;
+  const h = card.hidden;
+  if(!hiddenStats.hasOwnProperty(h.stat)) return;
+  const delta = side === 'l' ? (h.l || 0) : (h.r || 0);
+  hiddenStats[h.stat] += delta;
+  clampHiddenStats();
+}
+function getHiddenWorstStat() {
+  return Object.entries(hiddenStats).reduce((a,b) => a[1] > b[1] ? a : b)[0];
+}
+function getHiddenBestStat() {
+  return Object.entries(hiddenStats).reduce((a,b) => a[1] < b[1] ? a : b)[0];
+}
+function checkHiddenOutcome() {
+  const failed = Object.entries(hiddenStats).find(([_,v]) => v >= 10);
+  if (failed) return { type:'hidden_loss', stat: failed[0] };
+
+  if (yr > 50) {
+    const successes = Object.entries(hiddenStats).filter(([_,v]) => v <= 2);
+    if (successes.length) {
+      successes.sort((a,b) => a[1] - b[1]);
+      return { type:'hidden_win', stat: successes[0][0] };
+    }
+  }
+  return null;
+}
+
+
+// Mizah kartı takibi
+let humorTurnCounter = 0;        // Son mizah kartından beri geçen normal tur sayısı
+let humorNextThreshold = 7;      // Kaç turda bir mizah kartı gelecek (7–10 arası rastgele)
+let humorLastIdx = -1;           // Aynı kartın üst üste gelmemesi için son index
+
+// Düşünme kartı takibi
+let thinkingTurnCounter = 0;     // Son düşünme kartından beri geçen normal tur sayısı
+let thinkingNextThreshold = 5;   // Kaç turda bir düşünme kartı gelecek (5–7 arası rastgele)
+let thinkingLastIdx = -1;        // Aynı kartın üst üste gelmemesi için son index
+
+// Takip olay (mb) sistemi — mb:true kartı oynanınca 2-3 tur sonra sonuç kartı bekler
+let pendingMbQueue = [];    // [{card, normalsLeft, kind}]
+let mbShownCount = 0;        // shown MB follow-ups
+let harvestShownCount = 0;   // shown Harvest follow-ups
+let followupShownCount = 0;  // shown MB + Harvest total
+let normalTurnsPlayed = 0;   // only base normal cards advance this
+let followupTargetTotal = 9; // randomized on reset/start (8-10)
+let shownNormalCardIds = new Set();
+
+function scheduleSpecialEvent(card, minDelay, maxDelay, kind='special') {
+  const delay = minDelay + Math.floor(Math.random() * (maxDelay - minDelay + 1));
+  pendingSpecialQueue.push({ card, normalsLeft: delay, kind });
+}
+function advanceSpecialAfterNormalTurn() {
+  if (!pendingSpecialQueue.length) return null;
+  for (const item of pendingSpecialQueue) item.normalsLeft--;
+  const readyIndex = pendingSpecialQueue.findIndex(item => item.normalsLeft <= 0);
+  if (readyIndex >= 0) return pendingSpecialQueue.splice(readyIndex, 1)[0].card;
+  return null;
+}
+
+function shuffle() {
+  order = [...Array(CARDS.length).keys()];
+  for(let i=order.length-1;i>0;i--) {
+    const j=Math.floor(Math.random()*(i+1));
+    [order[i],order[j]]=[order[j],order[i]];
+  }
+}
+
+function getMinStat() {
+  return Object.entries(stats).reduce((a,b) => a[1]<b[1]?a:b)[0];
+}
+function getMaxStat() {
+  return Object.entries(stats).reduce((a,b) => a[1]>b[1]?a:b)[0];
+}
+
+function getDesiredFollowupTarget() { return 8 + Math.floor(Math.random() * 3); } // 8,9,10
+function getFollowupDesiredMbShare() {
+  const minStat = Math.min(...Object.values(stats));
+  if(stability >= 4 && minStat >= 38) return 0.68;   // oyuncu stabil ve iyi takipteyse MB daha sık
+  if(minStat <= 22) return 0.35;                     // oyuncu sallanıyorsa hasat nispeten artsın
+  return 0.52;
+}
+function scheduleAdaptiveFollowup(baseCard, side) {
+  if(window.FOLLOWUP_LAYER_ENABLED === false) return;
+  if(isHookDeckPhase()) return;
+
+================================================================================
+BÖLÜM 12: EĞITIM KARTI (TUTORIAL_CARD) - Oyun Eğitimi
+================================================================================
+Satırlar: 4965-5182 (218 satır)
+
+const TUTORIAL_CARD = {
+  type: 'tutorial',
+  em: '☽',
+  txt: 'Uzun bir saltanatınız olsun sultanım.',
+  l: 'Adaletle hükmetmeye geldim.',
+  r: 'İlk divanı toplayalım.'
+};
+
+// ══ SALTANAT BAŞLANGIÇ KARTI ══
+const SALTANAT_BASLANGICI_CARD = {
+  type: 'saltanat_baslangici',
+  em: '☽',
+  txt: 'Tahta çıkmadan önce geçmişin üzerine düşünmek ister misin?',
+  l: 'Kader ne yazdıysa onunla başlayalım.',
+  r: 'Geçmişimi analım.'
+};
+
+// ══ TRAIT (GEÇMİŞ) KARTLARI ══
+const TRAIT_CARDS = [
+  {
+    type: 'trait',
+    traitIndex: 0,
+    em: '☽',
+    txt: 'Çocukluğunda herkes senin...',
+    l: 'Sevecen bir çocuk olduğunu söylerdi.',
+    r: 'Disiplinli bir çocuk olduğunu söylerdi.',
+    lEffect: { stat: 'halk',   bonus: 5, reduction: 'halk' },
+    rEffect: { stat: 'ordu',   bonus: 5, reduction: 'ordu' }
+  },
+  {
+    type: 'trait',
+    traitIndex: 1,
+    em: '☽',
+    txt: 'Hocaların seni hep...',
+    l: 'Terbiyeli ve edepli biri olarak anlatırdı.',
+    r: 'Çalışkan ve tutumlu biri olarak anlatırdı.',
+    lEffect: { stat: 'din',    bonus: 5, reduction: 'din' },
+    rEffect: { stat: 'hazine', bonus: 5, reduction: 'hazine' }
+  },
+  {
+    type: 'trait',
+    traitIndex: 2,
+    em: '☽',
+    txt: 'Gençliğinde daha çok...',
+    l: 'Halkın halinden anlayan biri olarak tanınırdın.',
+    r: 'Zeki bir idareci olarak tanınırdın.',
+    lEffect: { stat: 'halk',   bonus: 5, reduction: 'halk' },
+    rEffect: { stat: 'hazine', bonus: 5, reduction: 'hazine' }
+  }
+];
+
+// ══ ANA MENÜ FONKSİYONLARI ══
+let gameStarted = false; // Oyun başladı mı?
+let calledFromMenu = false; // Ana menüden mi başlatıldı?
+
+function startGame() {
+  // Eğer oyun içindeyken çağrıldıysa teyit iste
+  if (gameStarted && calledFromMenu) {
+    openConfirm();
+    return;
+  }
+  _doStartGame();
+}
+
+function startGameFromMenu() {
+  if (gameStarted && calledFromMenu) {
+    openConfirm();
+    return;
+  }
+  _doStartGame();
+}
+
+function _doStartGame() {
+  const menu = document.getElementById('main-menu');
+  const game = document.getElementById('game');
+  gameStarted = true;
+  calledFromMenu = false;
+
+  // Oyunu sıfırla
+  prepareFirstRunHookActivation();
+  restartGame({ queueOpening: true });
+
+  // Oyunu hazırla (ama henüz görünmez)
+  game.classList.add('hidden-below');
+  game.style.display = 'flex';
+
+  // Menü aşağı kayar
+  menu.classList.add('slide-out');
+
+  // Oyun yukarı gelir (kısa gecikmeyle)
+  setTimeout(() => {
+    game.classList.remove('hidden-below');
+  }, 120);
+
+  // Menü tamamen gitince gizle
+  setTimeout(() => {
+    menu.style.display = 'none';
+    beginNewRunPresentation();
+  }, 700);
+}
+
+function goToMenu() {
+  const menu = document.getElementById('main-menu');
+  const game = document.getElementById('game');
+  calledFromMenu = true;
+
+  // Devam et butonunu göster (oyun başladıysa)
+  if (gameStarted) {
+    document.getElementById('btn-devam').style.display = '';
+    document.getElementById('btn-yeni-oyun').textContent = 'YENİDEN BAŞLA';
+  }
+
+  // Oyun aşağı kayar
+  game.classList.add('hidden-below');
+
+  // Menü geri gelir
+  menu.style.display = 'flex';
+  setTimeout(() => {
+    menu.classList.remove('slide-out');
+  }, 30);
+
+  setTimeout(() => {
+    game.style.display = 'none';
+  }, 700);
+}
+
+function resumeGame() {
+  const menu = document.getElementById('main-menu');
+  const game = document.getElementById('game');
+  calledFromMenu = false;
+
+  game.classList.add('hidden-below');
+  game.style.display = 'flex';
+  menu.classList.add('slide-out');
+
+  setTimeout(() => {
+    game.classList.remove('hidden-below');
+  }, 120);
+
+  setTimeout(() => {
+    menu.style.display = 'none';
+  }, 700);
+}
+
+function openConfirm() {
+  document.getElementById('confirm-modal').classList.add('on');
+}
+
+function closeConfirm() {
+  document.getElementById('confirm-modal').classList.remove('on');
+}
+
+function confirmRestart() {
+  closeConfirm();
+  _doStartGame();
+}
+
+function restartRunWithCinematic() {
+  restartGame({ queueOpening: true });
+  beginNewRunPresentation();
+}
+
+function openHowTo() {
+  document.getElementById('how-popup').classList.add('on');
+}
+
+function closeHowTo() {
+  document.getElementById('how-popup').classList.remove('on');
+}
+
+// ══ TUTORIAL FONKSİYONLARI ══
+let tutCheckState = false;
+
+function toggleTutCheck() {
+  tutCheckState = !tutCheckState;
+  const box = document.getElementById('tut-check-box');
+  if (tutCheckState) box.classList.add('checked');
+  else box.classList.remove('checked');
+}
+
+function showTutorial() {
+  document.getElementById('tut-overlay').classList.add('on');
+}
+
+function closeTutorial() {
+  if (tutCheckState) {
+    localStorage.setItem('sultan_tut_skip', '1');
+  }
+  document.getElementById('tut-overlay').classList.remove('on');
+}
+
+// ══ BAŞLAT ══
+function initGame() {
+  shuffle();
+  currentCard = TUTORIAL_CARD;
+  const card = document.getElementById('card');
+  card.style.opacity = '1';
+  card.style.transform = '';
+  renderCard();
+  renderStats();
+  resetRunCinematicState();
+  openingCinematicShownThisSession = false;
+  pendingOpeningCinematic = false;
+
+  // Oyun başlangıçta gizli — menü önde
+  const game = document.getElementById('game');
+  game.style.display = 'none';
+
+}
+
+
+
+
+window.FOLLOWUP_LAYER_ENABLED = true;
+window.FOLLOWUP_TRIGGER_CHANCE = 0.25;
+window.FOLLOWUP_DELAY_MIN = 2;
+window.FOLLOWUP_DELAY_MAX = 3;
+
+
+================================================================================
+BÖLÜM 13: PROFILE_DATA (Padişah Profil Eşleştirmesi) - OYUN SONU
+================================================================================
+Satırlar: Bu bölüm özel sonlandırma mantığında kullanılır
+Format: JavaScript object, 7 padişah profili
+
+const PROFILE_DATA = {
+  fatih: {
+    title: 'Hüküm tarzın en çok Fatih Sultan Mehmed'i andırıyor.',
+    body: 'Devleti büyütmekten çekinmedin. Gücü merkezde topladın, uzun vadeli düzeni tercih ettin.',
+    strong: 'Kurucu irade',
+    flaw: 'Sert kararların bedeli',
+    gate: () => true,
+    score: () => (2 * axisScores.MO) + (1.5 * axisScores.AS) + (1.5 * axisScores.PA) + (0.75 * axisScores.MA)
+  },
+  kanuni: {
+    title: 'Hüküm tarzın en çok Kanuni Sultan Süleyman'ı andırıyor.',
+    body: 'Adaletle hükmettin. Ölçüyü korudun, düzeni keyfe değil kanuna bağladın.',
+    strong: 'Denge ve adalet',
+    flaw: 'Karar süreçlerinde yavaşlama',
+    gate: () => hiddenStats.adaletsizlik <= 2,
+    score: () => (2 * axisScores.HS) + (2 * axisScores.MO) + (1.25 * axisScores.DM) + (0.5 * axisScores.MA)
+  },
+  yavuz: {
+    title: 'Hüküm tarzın en çok Yavuz Sultan Selim'i andırıyor.',
+    body: 'Orduya ağırlık verdin. Gücü doğrudan kullandın, tereddüt etmedin.',
+    strong: 'Askerî kararlılık',
+    flaw: 'Dengeyi zorlama',
+    gate: () => stats.ordu >= 35,
+    score: () => (2 * axisScores.AS) + (2 * axisScores.DM) + (1 * axisScores.MO)
+  },
+  mahmud2: {
+    title: 'Hüküm tarzın en çok II. Mahmud'u andırıyor.',
+    body: 'Askerî vesayete izin vermedin. Devletin iradesini merkezde topladın.',
+    strong: 'Otorite kurma',
+    flaw: 'Sert dönüşümlerin riski',
+    gate: () => hiddenStats.askeri_vesayet <= 3,
+    score: () => (2 * axisScores.PA) + (2 * axisScores.MO) + (1.5 * axisScores.MA) + (1 * axisScores.AS)
+  },
+  bayezid2: {
+    title: 'Hüküm tarzın en çok II. Bayezid'i andırıyor.',
+    body: 'Çatışmayı değil huzuru seçtin. İç dengeyi korudun, halkı nefeslendirdin.',
+    strong: 'İç huzur',
+    flaw: 'Büyük atılım eksikliği',
+    gate: () => stats.din >= 50,
+    score: () => (1.6 * axisScores.HS) + (1.6 * axisScores.MA) + (1 * axisScores.DM) + (0.5 * axisScores.MO)
+  },
+  abdulhamid2: {
+    title: 'Hüküm tarzın en çok II. Abdülhamid'i andırıyor.',
+    body: 'Tedbiri elden bırakmadın. Dış baskı altında devleti dikkatle ayakta tuttun.',
+    strong: 'Teyakkuz',
+    flaw: 'Aşırı temkin',
+    gate: () => evham >= 3,
+    score: () => (2 * axisScores.MO) + (2 * axisScores.MA) + (1 * axisScores.DM) + (0.5 * axisScores.HS)
+  }
+};
+
+================================================================================
+BÖLÜM 14: FALLBACK_VARIANTS (Yedek Profil Varyantları) - OYUN SONU
+================================================================================
+Format: JavaScript array, 5 yedek profil
+
+const FALLBACK_VARIANTS = [
+  {
+    title: 'Saltanatın kimselere benzemedi.',
+    body: 'Verilen yolları takip etmedin. Kendi hüküm çizgini oluşturdun.',
+    strong: 'Özgünlük',
+    flaw: 'Belirgin bir yön eksikliği'
+  },
+  {
+    title: 'Saltanatın tek bir kalıba sığmadı.',
+    body: 'Farklı devirlerin yükünü bir arada taşıdın. Sonunda kendi yolunu çizdin.',
+    strong: 'Esneklik',
+    flaw: 'Keskin bir kimlik bırakmamak'
+  },
+  {
+    title: 'Saltanatın başkasının gölgesinde kalmadı.',
+    body: 'Ne bütünüyle fetih ne bütünüyle denge… Tahtı kendi mizacınla taşıdın.',
+    strong: 'Bağımsız çizgi',
+    flaw: 'Dağınık iz bırakma riski'
+  },
+  {
+    title: 'Saltanatın alışılmış bir yola oturmadı.',
+    body: 'Koşullar seni bir kalıba zorladı, ama sen kendi hükmünü kurdun.',
+    strong: 'Uyum kabiliyeti',
+    flaw: 'Net bir gelenek oluşturmamak'
+  },
+  {
+    title: 'Saltanatın bir padişah kopyası olmadı.',
+    body: 'Başkalarının usulünü tekrar etmedin. Hüküm sende başka bir şekil aldı.',
+    strong: 'Kendi yolunu çizmek',
+    flaw: 'Kolay okunmayan bir miras'
+  }
+];
+
+================================================================================
+ÇIKARTMA ÖZET İSTATİSTİKLERİ
+================================================================================
+
+Toplam Bölüm: 14
+Toplam Çıkartılan Satır: 2427
+
+Bölüm Ayrıntısı:
+1. Success Epilog Pool: 18 satır
+2. Failure Epilog Pool: 18 satır
+3. CARDS (Ana Kartlar): 235 satır
+4. HERALD_CARDS (Haberci): 56 satır
+5. MB_FOLLOWUPS (Takip): 110 satır
+6. PARANOIA_CARDS (Paranoya): 881 satır
+7. PARANOIA_THOUGHTS (Düşünceler): 128 satır
+8. HUMOR_CARDS (Mizah): 129 satır
+9. THINKING_CARDS (Düşünce): 220 satır
+10. SPECIAL_ENDINGS (Özel): 114 satır
+11. HIDDEN_ENDINGS (Gizli): 149 satır
+12. TUTORIAL_CARD (Eğitim): 218 satır
+
+ÇIKARTMA KALITESI:
+✓ Tüm metinler VERBATIM (olduğu gibi) alınmıştır
+✓ Hiçbir metin özet yapılmamış veya değiştirilmemiştir
+✓ Tüm Unicode/Türkçe karakterler tam korunmuş
+✓ Tüm emojiler muhafaza edilmiştir
+✓ JavaScript veri yapıları orijinal formatında
+✓ ID, tip ve meta bilgiler tamamlı
+
+NOT: UI_TEXT, TRAITS ayrı bölümleri tutorial kısmında karışık olarak bulunmaktadır
+ve verbatim olarak çıkartılmıştır.
+
